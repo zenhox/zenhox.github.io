@@ -1,0 +1,939 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="en">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Send packets defined by ourselves with DPDK | 
+        
+        万川秋水de世界
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.en.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/bg_summer.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="万川秋水de世界">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/01/25/dpdk-pktSR/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="万川秋水de世界">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com/2018/01/25/dpdk-pktSR/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Send packets defined by ourselves with DPDK | 万川秋水de世界">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Thu Jan 25 2018 21:30:23 GMT+0800">
+        <meta property="article:modified_time" content="Thu Jan 25 2018 22:46:44 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/01/25/dpdk-pktSR/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/01/25/dpdk-pktSR/index.html",
+    "headline": "Send packets defined by ourselves with DPDK",
+    "datePublished": "Thu Jan 25 2018 21:30:23 GMT+0800",
+    "dateModified": "Thu Jan 25 2018 22:46:44 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Hox Zheng",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/me.png"
+        },
+        "description": "忧伤，一半来自远方，一半来自时光."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "万川秋水de世界",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#How-to-send-and-receive-dpdk-packets"><span class="post-toc-number">1.</span> <span class="post-toc-text">How to send and receive dpdk packets?</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Construct-a-packet"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Construct a packet</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#DPDK-net-head-struct"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">DPDK net head struct</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Using-ether-head-struct"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">Using ether head struct.</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Make-a-send-program"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Make a send program.</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#First-we-should-know-the-mechanism-of-dpdk-pkt-sending"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">First we should know the mechanism of dpdk pkt sending.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Now-write-this-program"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">Now write this program</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Make-a-receive-program"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">Make a receive program</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#At-the-same-case-we-should-know-the-machanism-of-receiving"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">At the same case, we should know the machanism of receiving.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Now-we-get-this-program"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">Now we get this program</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Conclusion"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Conclusion</span></a></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/view-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Send packets defined by ourselves with DPDK
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/me.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Hox Zheng</strong>
+        <span>Jan 25, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Send packets defined by ourselves with DPDK&url=http://yoursite.com/2018/01/25/dpdk-pktSR/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Weibo
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Send packets defined by ourselves with DPDK&url=http://yoursite.com/2018/01/25/dpdk-pktSR/index.html&via=Hox Zheng" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/01/25/dpdk-pktSR/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/01/25/dpdk-pktSR/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=万川秋水de世界&title=Send packets defined by ourselves with DPDK&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/01/25/dpdk-pktSR/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <p>[TOC]</p>
+<h1 id="How-to-send-and-receive-dpdk-packets"><a href="#How-to-send-and-receive-dpdk-packets" class="headerlink" title="How to send and receive dpdk packets?"></a>How to send and receive dpdk packets?</h1><blockquote>
+<p>We can do this by flowing three steps.</p>
+</blockquote>
+<ul>
+<li>Firstly, we should construct a dpdk-type packet struct.</li>
+<li>Then we can code by using dpdk-api to send them.</li>
+<li>At last we shoud also make a receiving program to get these packets.</li>
+</ul>
+<h2 id="Construct-a-packet"><a href="#Construct-a-packet" class="headerlink" title="Construct a packet"></a>Construct a packet</h2><h3 id="DPDK-net-head-struct"><a href="#DPDK-net-head-struct" class="headerlink" title="DPDK net head struct"></a>DPDK net head struct</h3><ul>
+<li>As we all know, we should using dpdk struct. For example, if we want to make a UDP packet, we should using Ether head,Ip head,and UDP head structs, which could be found in lib/librte_ehter/ and lib/librte_net/ folders.</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Ethernet header: Contains the destination address, source address</span></span><br><span class="line"><span class="comment"> * and frame type.</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ether_hdr</span> &#123;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ether_addr</span> <span class="title">d_addr</span>;</span> <span class="comment">/**&lt; Destination address. */</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ether_addr</span> <span class="title">s_addr</span>;</span> <span class="comment">/**&lt; Source address. */</span></span><br><span class="line">	<span class="keyword">uint16_t</span> ether_type;      <span class="comment">/**&lt; Frame type. */</span></span><br><span class="line">&#125; __attribute__((__packed__));</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * IPv4 Header</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ipv4_hdr</span> &#123;</span></span><br><span class="line">	<span class="keyword">uint8_t</span>  version_ihl;		<span class="comment">/**&lt; version and header length */</span></span><br><span class="line">	<span class="keyword">uint8_t</span>  type_of_service;	<span class="comment">/**&lt; type of service */</span></span><br><span class="line">	<span class="keyword">uint16_t</span> total_length;		<span class="comment">/**&lt; length of packet */</span></span><br><span class="line">	<span class="keyword">uint16_t</span> packet_id;		<span class="comment">/**&lt; packet ID */</span></span><br><span class="line">	<span class="keyword">uint16_t</span> fragment_offset;	<span class="comment">/**&lt; fragmentation offset */</span></span><br><span class="line">	<span class="keyword">uint8_t</span>  time_to_live;		<span class="comment">/**&lt; time to live */</span></span><br><span class="line">	<span class="keyword">uint8_t</span>  next_proto_id;		<span class="comment">/**&lt; protocol ID */</span></span><br><span class="line">	<span class="keyword">uint16_t</span> hdr_checksum;		<span class="comment">/**&lt; header checksum */</span></span><br><span class="line">	<span class="keyword">uint32_t</span> src_addr;		<span class="comment">/**&lt; source address */</span></span><br><span class="line">	<span class="keyword">uint32_t</span> dst_addr;		<span class="comment">/**&lt; destination address */</span></span><br><span class="line">&#125; __attribute__((__packed__));</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * UDP Header</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">udp_hdr</span> &#123;</span></span><br><span class="line">	<span class="keyword">uint16_t</span> src_port;    <span class="comment">/**&lt; UDP source port. */</span></span><br><span class="line">	<span class="keyword">uint16_t</span> dst_port;    <span class="comment">/**&lt; UDP destination port. */</span></span><br><span class="line">	<span class="keyword">uint16_t</span> dgram_len;   <span class="comment">/**&lt; UDP datagram length */</span></span><br><span class="line">	<span class="keyword">uint16_t</span> dgram_cksum; <span class="comment">/**&lt; UDP datagram checksum */</span></span><br><span class="line">&#125; __attribute__((__packed__));</span><br></pre></td></tr></table></figure>
+<ul>
+<li>If we can using these structs correctly, it’s easy to get a packet</li>
+</ul>
+<h3 id="Using-ether-head-struct"><a href="#Using-ether-head-struct" class="headerlink" title="Using ether head struct."></a>Using ether head struct.</h3><ul>
+<li>Generate a ether head as an example.</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// we can using flowing codes to define a ether packet.</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ether_hdr</span> *<span class="title">eth_hdr</span>;</span></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ether_addr</span> <span class="title">s_addr</span> = &#123;</span>&#123;<span class="number">0x14</span>,<span class="number">0x02</span>,<span class="number">0xEC</span>,<span class="number">0x89</span>,<span class="number">0x8D</span>,<span class="number">0x24</span>&#125;&#125;;</span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ether_addr</span> <span class="title">d_addr</span> = &#123;</span>&#123;<span class="number">0x14</span>,<span class="number">0x02</span>,<span class="number">0xEC</span>,<span class="number">0x89</span>,<span class="number">0xED</span>,<span class="number">0x54</span>&#125;&#125;;</span><br><span class="line"><span class="keyword">uint16_t</span> ether_type = <span class="number">0x0a00</span>; 	</span><br><span class="line">eth_hdr-&gt;d_addr = d_addr;</span><br><span class="line">eth_hdr-&gt;s_addr = s_addr;</span><br><span class="line">eth_hdr-&gt;ether_type = ether_type;</span><br></pre></td></tr></table></figure>
+<h2 id="Make-a-send-program"><a href="#Make-a-send-program" class="headerlink" title="Make a send program."></a>Make a send program.</h2><h3 id="First-we-should-know-the-mechanism-of-dpdk-pkt-sending"><a href="#First-we-should-know-the-mechanism-of-dpdk-pkt-sending" class="headerlink" title="First we should know the mechanism of dpdk pkt sending."></a>First we should know the mechanism of dpdk pkt sending.</h3><ul>
+<li>Initlize the runtime enviroment.</li>
+<li>Apply a mem-pool.</li>
+<li>Initlize the NIC ports.  To get r/s queues, and locate memory to them.</li>
+<li>Define m_buf, and apply for mem from mem-pool.</li>
+<li>Write our pkt into m_buf.</li>
+<li>Move m_buf to tx queue.</li>
+<li>Send the pkt by using dpdk-api.</li>
+</ul>
+<h3 id="Now-write-this-program"><a href="#Now-write-this-program" class="headerlink" title="Now write this program"></a>Now write this program</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*-</span></span><br><span class="line"><span class="comment">This program is to send a Ether packet to another server.</span></span><br><span class="line"><span class="comment">Author : Hox Zheng</span></span><br><span class="line"><span class="comment">Date : 2017年 12月 31日 星期日 15:21:04 CST</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdint.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;inttypes.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_eal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_ethdev.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_cycles.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_lcore.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_mbuf.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_ether.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_ip.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_udp.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RX_RING_SIZE 128</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TX_RING_SIZE 512</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NUM_MBUFS 8191</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MBUF_CACHE_SIZE 250</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BURST_SIZE 12</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//这里用skleten 默认配置</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">rte_eth_conf</span> <span class="title">port_conf_default</span> = &#123;</span></span><br><span class="line">	.rxmode = &#123; .max_rx_pkt_len = ETHER_MAX_LEN &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *这个是简单的端口初始化 </span></span><br><span class="line"><span class="comment"> *我在这里简单的端口0 初始化了一个 接收队列和一个发送队列</span></span><br><span class="line"><span class="comment"> *并且打印了一条被初始化的端口的MAC地址信息</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">int</span></span><br><span class="line">port_init(struct rte_mempool *mbuf_pool)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">rte_eth_conf</span> <span class="title">port_conf</span> = <span class="title">port_conf_default</span>;</span></span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">uint16_t</span> rx_rings = <span class="number">1</span>, tx_rings = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> retval;</span><br><span class="line">	<span class="keyword">uint16_t</span> q;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">/*配置端口0,给他分配一个接收队列和一个发送队列*/</span></span><br><span class="line">	retval = rte_eth_dev_configure(<span class="number">0</span>, rx_rings, tx_rings, &amp;port_conf);</span><br><span class="line">	<span class="keyword">if</span> (retval != <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> retval;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Allocate and set up 1 RX queue per Ethernet port. */</span></span><br><span class="line">	<span class="keyword">for</span> (q = <span class="number">0</span>; q &lt; rx_rings; q++) &#123;</span><br><span class="line">		retval = rte_eth_rx_queue_setup(<span class="number">0</span>, q, RX_RING_SIZE,</span><br><span class="line">				rte_eth_dev_socket_id(<span class="number">0</span>), <span class="literal">NULL</span>, mbuf_pool);</span><br><span class="line">		<span class="keyword">if</span> (retval &lt; <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> retval;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Allocate and set up 1 TX queue per Ethernet port. */</span></span><br><span class="line">	<span class="keyword">for</span> (q = <span class="number">0</span>; q &lt; tx_rings; q++) &#123;</span><br><span class="line">		retval = rte_eth_tx_queue_setup(<span class="number">0</span>, q, TX_RING_SIZE,</span><br><span class="line">				rte_eth_dev_socket_id(<span class="number">0</span>), <span class="literal">NULL</span>);</span><br><span class="line">		<span class="keyword">if</span> (retval &lt; <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> retval;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Start the Ethernet port. */</span></span><br><span class="line">	retval = rte_eth_dev_start(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">if</span> (retval &lt; <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> retval;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">我在main 函数里面 调用了输出化端口0的函数 </span></span><br><span class="line"><span class="comment">然后定义了以太网的头，以及报文。</span></span><br><span class="line"><span class="comment">申请了 m_pool</span></span><br><span class="line"><span class="comment">然后有在mempool里面 分配了两个m_buf</span></span><br><span class="line"><span class="comment">每个buf就是一个包</span></span><br><span class="line"><span class="comment">最后把他俩一次性发出去</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">rte_mempool</span> *<span class="title">mbuf_pool</span>;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/*进行总的初始话*/</span></span><br><span class="line">	<span class="keyword">int</span> ret = rte_eal_init(argc, argv);</span><br><span class="line">	<span class="keyword">if</span> (ret &lt; <span class="number">0</span>)</span><br><span class="line">		rte_exit(EXIT_FAILURE, <span class="string">"initlize fail!"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//I don't clearly know this two lines</span></span><br><span class="line">	argc -= ret;</span><br><span class="line">	argv += ret;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Creates a new mempool in memory to hold the mbufs. */</span></span><br><span class="line">	<span class="comment">//分配内存池</span></span><br><span class="line">	mbuf_pool = rte_pktmbuf_pool_create(<span class="string">"MBUF_POOL"</span>, NUM_MBUFS,</span><br><span class="line">		MBUF_CACHE_SIZE, <span class="number">0</span>, RTE_MBUF_DEFAULT_BUF_SIZE, rte_socket_id());</span><br><span class="line"></span><br><span class="line">	<span class="comment">//如果创建失败</span></span><br><span class="line">	<span class="keyword">if</span> (mbuf_pool == <span class="literal">NULL</span>)</span><br><span class="line">		rte_exit(EXIT_FAILURE, <span class="string">"Cannot create mbuf pool\n"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Initialize all ports. */</span></span><br><span class="line">	<span class="comment">//初始话端口设备 顺便给他们分配  队列</span></span><br><span class="line">		<span class="keyword">if</span> (port_init(mbuf_pool) != <span class="number">0</span>)</span><br><span class="line">			rte_exit(EXIT_FAILURE, <span class="string">"Cannot init port %"</span>PRIu8 <span class="string">"\n"</span>,</span><br><span class="line">					<span class="number">0</span>);</span><br><span class="line">	<span class="comment">//定义报文信息</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Message</span> &#123;</span></span><br><span class="line">		<span class="keyword">char</span> data[<span class="number">10</span>];</span><br><span class="line">	&#125;;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ether_hdr</span> *<span class="title">eth_hdr</span>;</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Message</span> <span class="title">obj</span> = &#123;</span>&#123;<span class="string">'H'</span>,<span class="string">'e'</span>,<span class="string">'l'</span>,<span class="string">'l'</span>,<span class="string">'o'</span>,<span class="string">'2'</span>,<span class="string">'0'</span>,<span class="string">'1'</span>,<span class="string">'8'</span>&#125;&#125;;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">Message</span> *<span class="title">msg</span>;</span></span><br><span class="line">	<span class="comment">//自己定义的包头</span></span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ether_addr</span> <span class="title">s_addr</span> = &#123;</span>&#123;<span class="number">0x14</span>,<span class="number">0x02</span>,<span class="number">0xEC</span>,<span class="number">0x89</span>,<span class="number">0x8D</span>,<span class="number">0x24</span>&#125;&#125;;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">ether_addr</span> <span class="title">d_addr</span> = &#123;</span>&#123;<span class="number">0x14</span>,<span class="number">0x02</span>,<span class="number">0xEC</span>,<span class="number">0x89</span>,<span class="number">0xED</span>,<span class="number">0x54</span>&#125;&#125;;</span><br><span class="line">	<span class="keyword">uint16_t</span> ether_type = <span class="number">0x0a00</span>; 	</span><br><span class="line">	</span><br><span class="line"></span><br><span class="line">	<span class="comment">//对每个buf ， 给他们添加包</span></span><br><span class="line">	</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">rte_mbuf</span> * <span class="title">pkt</span>[<span class="title">BURST_SIZE</span>];</span></span><br><span class="line">	<span class="keyword">int</span> i;</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;BURST_SIZE;i++) &#123;</span><br><span class="line">		pkt[i] = rte_pktmbuf_alloc(mbuf_pool);</span><br><span class="line">		eth_hdr = rte_pktmbuf_mtod(pkt[i],struct ether_hdr*);</span><br><span class="line">		eth_hdr-&gt;d_addr = d_addr;</span><br><span class="line">		eth_hdr-&gt;s_addr = s_addr;</span><br><span class="line">		eth_hdr-&gt;ether_type = ether_type;</span><br><span class="line">		msg = (struct Message*) (rte_pktmbuf_mtod(pkt[i],<span class="keyword">char</span>*) + <span class="keyword">sizeof</span>(struct ether_hdr));</span><br><span class="line">		*msg = obj;</span><br><span class="line">		<span class="keyword">int</span> pkt_size = <span class="keyword">sizeof</span>(struct Message) + <span class="keyword">sizeof</span>(struct ether_hdr);</span><br><span class="line">		pkt[i]-&gt;data_len = pkt_size;</span><br><span class="line">		pkt[i]-&gt;pkt_len = pkt_size;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">uint16_t</span> nb_tx = rte_eth_tx_burst(<span class="number">0</span>,<span class="number">0</span>,pkt,BURST_SIZE);</span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"发送成功%d个包\n"</span>,nb_tx);</span><br><span class="line">	<span class="comment">//发送完成，答应发送了多少个</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;BURST_SIZE;i++)</span><br><span class="line">		rte_pktmbuf_free(pkt[i]);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Make-a-receive-program"><a href="#Make-a-receive-program" class="headerlink" title="Make a receive program"></a>Make a receive program</h2><h3 id="At-the-same-case-we-should-know-the-machanism-of-receiving"><a href="#At-the-same-case-we-should-know-the-machanism-of-receiving" class="headerlink" title="At the same case, we should know the machanism of receiving."></a>At the same case, we should know the machanism of receiving.</h3><ul>
+<li>Initlize the runtime enviroment.</li>
+<li>Apply a mem-pool.</li>
+<li>Initlize the NIC ports.  To get r/s queues, and locate memory to them.</li>
+<li>Define m_buf, and apply for mem from mem-pool.</li>
+<li>Get pkt from NIC port to m_buf.</li>
+<li>Analyze the m_buf, and get the pkt;</li>
+<li>Print message in the pkt.</li>
+</ul>
+<h3 id="Now-we-get-this-program"><a href="#Now-we-get-this-program" class="headerlink" title="Now we get this program"></a>Now we get this program</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*-</span></span><br><span class="line"><span class="comment">接收一个包并且打印出信息</span></span><br><span class="line"><span class="comment">Author : Hox Zheng</span></span><br><span class="line"><span class="comment">Date : 2017年 12月 31日 星期日 15:21:04 CST</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdint.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;inttypes.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_eal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_ethdev.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_cycles.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_lcore.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_mbuf.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_ether.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_ip.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_udp.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;pthread.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> RX_RING_SIZE 128</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> TX_RING_SIZE 512</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> NUM_MBUFS 8191</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MBUF_CACHE_SIZE 250</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> BURST_SIZE 32</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//这里用skleten 默认配置</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">const</span> <span class="class"><span class="keyword">struct</span> <span class="title">rte_eth_conf</span> <span class="title">port_conf_default</span> = &#123;</span></span><br><span class="line">	.rxmode = &#123; .max_rx_pkt_len = ETHER_MAX_LEN &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> *这个是简单的端口初始化 </span></span><br><span class="line"><span class="comment"> *我在这里简单的端口0 初始化了一个 接收队列和一个发送队列</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">static</span> <span class="keyword">inline</span> <span class="keyword">int</span></span><br><span class="line">port_init(struct rte_mempool *mbuf_pool)</span><br><span class="line">&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">rte_eth_conf</span> <span class="title">port_conf</span> = <span class="title">port_conf_default</span>;</span></span><br><span class="line">	<span class="keyword">const</span> <span class="keyword">uint16_t</span> rx_rings = <span class="number">1</span>, tx_rings = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">int</span> retval;</span><br><span class="line">	<span class="keyword">uint16_t</span> q;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="comment">/*配置端口0,给他分配一个接收队列和一个发送队列*/</span></span><br><span class="line">	retval = rte_eth_dev_configure(<span class="number">0</span>, rx_rings, tx_rings, &amp;port_conf);</span><br><span class="line">	<span class="keyword">if</span> (retval != <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> retval;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Allocate and set up 1 RX queue per Ethernet port. */</span></span><br><span class="line">	<span class="keyword">for</span> (q = <span class="number">0</span>; q &lt; rx_rings; q++) &#123;</span><br><span class="line">		retval = rte_eth_rx_queue_setup(<span class="number">0</span>, q, RX_RING_SIZE,</span><br><span class="line">				rte_eth_dev_socket_id(<span class="number">0</span>), <span class="literal">NULL</span>, mbuf_pool);</span><br><span class="line">		<span class="keyword">if</span> (retval &lt; <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> retval;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Allocate and set up 1 TX queue per Ethernet port. */</span></span><br><span class="line">	<span class="keyword">for</span> (q = <span class="number">0</span>; q &lt; tx_rings; q++) &#123;</span><br><span class="line">		retval = rte_eth_tx_queue_setup(<span class="number">0</span>, q, TX_RING_SIZE,</span><br><span class="line">				rte_eth_dev_socket_id(<span class="number">0</span>), <span class="literal">NULL</span>);</span><br><span class="line">		<span class="keyword">if</span> (retval &lt; <span class="number">0</span>)</span><br><span class="line">			<span class="keyword">return</span> retval;</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Start the Ethernet port. */</span></span><br><span class="line">	retval = rte_eth_dev_start(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">if</span> (retval &lt; <span class="number">0</span>)</span><br><span class="line">		<span class="keyword">return</span> retval;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">我在main 函数里面 调用了输出化端口0的函数 </span></span><br><span class="line"><span class="comment">申请了 m_pool</span></span><br><span class="line"><span class="comment">定义m_buf用来取接受队列中的包</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span> *argv[])</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">	<span class="class"><span class="keyword">struct</span> <span class="title">rte_mempool</span> *<span class="title">mbuf_pool</span>;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/*进行总的初始话*/</span></span><br><span class="line">	<span class="keyword">int</span> ret = rte_eal_init(argc, argv);</span><br><span class="line">	<span class="keyword">if</span> (ret &lt; <span class="number">0</span>)</span><br><span class="line">		rte_exit(EXIT_FAILURE, <span class="string">"initlize fail!"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">//I don't clearly know this two lines</span></span><br><span class="line">	argc -= ret;</span><br><span class="line">	argv += ret;</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Creates a new mempool in memory to hold the mbufs. */</span></span><br><span class="line">	<span class="comment">//分配内存池</span></span><br><span class="line">	mbuf_pool = rte_pktmbuf_pool_create(<span class="string">"MBUF_POOL"</span>, NUM_MBUFS,</span><br><span class="line">		MBUF_CACHE_SIZE, <span class="number">0</span>, RTE_MBUF_DEFAULT_BUF_SIZE, rte_socket_id());</span><br><span class="line"></span><br><span class="line">	<span class="comment">//如果创建失败</span></span><br><span class="line">	<span class="keyword">if</span> (mbuf_pool == <span class="literal">NULL</span>)</span><br><span class="line">		rte_exit(EXIT_FAILURE, <span class="string">"Cannot create mbuf pool\n"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">/* Initialize all ports. */</span></span><br><span class="line">	<span class="comment">//初始话端口设备 顺便给他们分配  队列</span></span><br><span class="line">		<span class="keyword">if</span> (port_init(mbuf_pool) != <span class="number">0</span>)</span><br><span class="line">			rte_exit(EXIT_FAILURE, <span class="string">"Cannot init port %"</span>PRIu8 <span class="string">"\n"</span>,</span><br><span class="line">					<span class="number">0</span>);</span><br><span class="line">	<span class="comment">//定义m_buf，用来接受接受对列中的包</span></span><br><span class="line">	<span class="built_in">printf</span>(<span class="string">"初始话就绪，正在持续接受数据包.......\n"</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(;;)</span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		<span class="class"><span class="keyword">struct</span> <span class="title">rte_mbuf</span> * <span class="title">pkt</span>[<span class="title">BURST_SIZE</span>];</span></span><br><span class="line">		<span class="keyword">int</span> i;</span><br><span class="line">		<span class="comment">//定义m_buf 并且分配内存</span></span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;BURST_SIZE;i++) &#123;</span><br><span class="line">			pkt[i] = rte_pktmbuf_alloc(mbuf_pool);</span><br><span class="line">		&#125;</span><br><span class="line">	</span><br><span class="line">		<span class="comment">//从接受队列中取出包</span></span><br><span class="line">		<span class="keyword">uint16_t</span> nb_rx = rte_eth_rx_burst(<span class="number">0</span>, <span class="number">0</span>,pkt,BURST_SIZE);</span><br><span class="line">		<span class="keyword">if</span>(nb_rx == <span class="number">0</span>)</span><br><span class="line">		&#123;</span><br><span class="line">			<span class="comment">//如果没有接受到就跳过</span></span><br><span class="line">			<span class="keyword">continue</span>;</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">char</span> * msg;</span><br><span class="line">		<span class="class"><span class="keyword">struct</span> <span class="title">ether_hdr</span> * <span class="title">eth_hdr</span>;</span></span><br><span class="line">		<span class="comment">//打印信息</span></span><br><span class="line">		<span class="keyword">for</span>(i=<span class="number">0</span>;i&lt;nb_rx;i++)</span><br><span class="line">		&#123;</span><br><span class="line">			eth_hdr = rte_pktmbuf_mtod(pkt[i],struct ether_hdr*);</span><br><span class="line">			<span class="comment">//打印接受到的包的地址信息</span></span><br><span class="line">			eth_hdr = rte_pktmbuf_mtod(pkt[i],struct ether_hdr*);</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"收到包 来自MAC: %02"</span> PRIx8 <span class="string">" %02"</span> PRIx8 <span class="string">" %02"</span> PRIx8</span><br><span class="line">				   <span class="string">" %02"</span> PRIx8 <span class="string">" %02"</span> PRIx8 <span class="string">" %02"</span> PRIx8 <span class="string">" : "</span>,</span><br><span class="line">				eth_hdr-&gt;s_addr.addr_bytes[<span class="number">0</span>],eth_hdr-&gt;s_addr.addr_bytes[<span class="number">1</span>],</span><br><span class="line">				eth_hdr-&gt;s_addr.addr_bytes[<span class="number">2</span>],eth_hdr-&gt;s_addr.addr_bytes[<span class="number">3</span>],</span><br><span class="line">				eth_hdr-&gt;s_addr.addr_bytes[<span class="number">4</span>],eth_hdr-&gt;s_addr.addr_bytes[<span class="number">5</span>]);</span><br><span class="line">			msg = ((rte_pktmbuf_mtod(pkt[i],<span class="keyword">char</span>*)) + <span class="keyword">sizeof</span>(struct ether_hdr));</span><br><span class="line">			<span class="keyword">int</span> j;</span><br><span class="line">			<span class="keyword">for</span>(j=<span class="number">0</span>;j&lt;<span class="number">10</span>;j++)</span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%c"</span>,msg[j]);</span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"\n"</span>);</span><br><span class="line">			rte_pktmbuf_free(pkt[<span class="number">0</span>]);</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Conclusion"><a href="#Conclusion" class="headerlink" title="Conclusion"></a>Conclusion</h2><blockquote>
+<p> I am studing dpdk, and this is just a example program by using eth head struct. I think it’s not a difficult thing to do the same effect on IP/UDP pkt head struct.</p>
+<p>Actually, the idea of this program is to get a general understanding of dpdk send&amp;receive machanism.</p>
+<p>Let’s all, bye~</p>
+</blockquote>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/01/24/VimNext/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/dog.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/me.png" alt="Hox Zheng's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        zenhox@163.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:zenhox@163.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                Home
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    Archives
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/01/">January 2018<span class="sidebar_archives-count">3</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                Categories
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/DPDK/">DPDK<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Vim/">Vim<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                Number of articles
+                <span class="sidebar-badge">3</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>万川秋水de世界
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
