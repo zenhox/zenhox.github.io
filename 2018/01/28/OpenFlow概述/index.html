@@ -43,7 +43,7 @@
     
     <title>
         
-            Categories: Vim | 
+            1-OpenFlow概述 | 
         
         万川秋水de世界
     </title>
@@ -210,7 +210,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="万川秋水de世界">
-    <meta name="msapplication-starturl" content="http://yoursite.com/categories/Vim/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/01/28/OpenFlow概述/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="万川秋水de世界">
@@ -225,13 +225,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/categories/Vim/">
+    <meta property="og:url" content="http://yoursite.com/2018/01/28/OpenFlow概述/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Categories: Vim | 万川秋水de世界">
+    <meta property="og:title" content="1-OpenFlow概述 | 万川秋水de世界">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
     
 
+    
+        <meta property="article:published_time" content="Sun Jan 28 2018 10:42:20 GMT+0800">
+        <meta property="article:modified_time" content="Sun Jan 28 2018 12:58:42 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -239,13 +242,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/categories/Vim/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/01/28/OpenFlow概述/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/01/28/OpenFlow概述/index.html",
+    "headline": "1-OpenFlow概述",
+    "datePublished": "Sun Jan 28 2018 10:42:20 GMT+0800",
+    "dateModified": "Sun Jan 28 2018 12:58:42 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Hox Zheng",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/me.png"
+        },
+        "description": "忧伤，一半来自远方，一半来自时光."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "万川秋水de世界",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
 
 
     
@@ -279,160 +312,363 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#深度解析OpenFlow系列"><span class="post-toc-number">1.</span> <span class="post-toc-text">深度解析OpenFlow系列</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一-OpenFlow-概述"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">(一)OpenFlow 概述</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#为什么要学习OpenFlow"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">为什么要学习OpenFlow</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OpenFlow-的起源"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">OpenFlow 的起源</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OpenFlow-是什么"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">OpenFlow 是什么?</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OpenFlow-是开放的南向接口"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">OpenFlow 是开放的南向接口</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#通用转发抽象模型"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">通用转发抽象模型</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OpenFlow-发展历史"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">OpenFlow 发展历史</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OpenFlow-的历史意义"><span class="post-toc-number">1.1.7.</span> <span class="post-toc-text">OpenFlow 的历史意义</span></a></li></ol></li></ol></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/24/VimNext/">VimNext</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-之前一篇博客为大家介绍的
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/24/VimNext/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/me.png" width="44px" height="44px" alt="Hox Zheng's avatar">
-            </div>
-            <div>
-                <strong>Hox Zheng</strong>
-                <span>Jan 24, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Vim/">Vim</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/24/VimBegin/">VimBegin</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/24/VimBegin/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/me.png" width="44px" height="44px" alt="Hox Zheng's avatar">
-            </div>
-            <div>
-                <strong>Hox Zheng</strong>
-                <span>Jan 24, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Vim/">Vim</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/view-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/view-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                1-OpenFlow概述
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/me.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Hox Zheng</strong>
+        <span>Jan 28, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=1-OpenFlow概述&url=http://yoursite.com/2018/01/28/OpenFlow概述/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Weibo
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=1-OpenFlow概述&url=http://yoursite.com/2018/01/28/OpenFlow概述/index.html&via=Hox Zheng" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/01/28/OpenFlow概述/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/01/28/OpenFlow概述/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=万川秋水de世界&title=1-OpenFlow概述&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/01/28/OpenFlow概述/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="深度解析OpenFlow系列"><a href="#深度解析OpenFlow系列" class="headerlink" title="深度解析OpenFlow系列"></a>深度解析OpenFlow系列</h1><blockquote>
+<p>基于@SDNLab未来网络学院&lt;深度解析OpenFlow系列课程&gt;</p>
+</blockquote>
+<h2 id="一-OpenFlow-概述"><a href="#一-OpenFlow-概述" class="headerlink" title="(一)OpenFlow 概述"></a>(一)OpenFlow 概述</h2><p><img src="/img/logo.png" alt="OpenFlowLogo"></p>
+<blockquote>
+<p>Open : 十分开放的协议,规范. 关键是流的概念:</p>
+<ul>
+<li>Flow : 网络数据实际上是一个流的概念. 用来描述具有相同特征的一组网络数据包的集合. 比如说,来源于同一主机,或者同一个用户.</li>
+</ul>
+</blockquote>
+<h3 id="为什么要学习OpenFlow"><a href="#为什么要学习OpenFlow" class="headerlink" title="为什么要学习OpenFlow"></a>为什么要学习OpenFlow</h3><ul>
+<li><p>OpenFlow是实践SDN首选. 比如我们要分析使用SDN的控制器,或者SDN的交换机(OpenVSwitch..).首先就得对OpenFLow有较好的理解.</p>
+</li>
+<li><p>OpenFlow是主流的南向接口. 主流的SDN控制器都对OpenFlow 有支持. </p>
+</li>
+</ul>
+<blockquote>
+<p>南向接口: 管理其他厂家网关或者设备的接口,即向下提供的接口. SDN控制器对网络的控制主要是通过南向接口协议实现,包括链路发现,拓扑管理,策略制定,表项下发等.</p>
+<p>北向接口: 提供给其他厂家或者运营商进行介入和管理的接口,即向上提供的接口. SDN北向接口是通过控制器向上层业务应用开放的接口,其目标是使得业务应用能够便利的调用底层的网络资源和能力.</p>
+</blockquote>
+<ul>
+<li>P4现在非常热门. 而OPenFlow可以说是P4的起源. 是P4和PISA的前身.</li>
+</ul>
+<blockquote>
+<p>P4: 是一种新的网络编程语言. OpenFlow交换机还不能提供更好的可编程能力,而P4作为新的高级网络编程语言可以很好的弥补这个缺陷.</p>
+<p>PISA: 网络可编程芯片,采用P4编程语言,让企业直接对交换机进行编程.</p>
+</blockquote>
+<h3 id="OpenFlow-的起源"><a href="#OpenFlow-的起源" class="headerlink" title="OpenFlow 的起源"></a>OpenFlow 的起源</h3><ul>
+<li>Ethane项目是OpenFLOW的前身<ul>
+<li>Martin Casado 领导的项目,面向企业网络管理,是SDN的雏形.</li>
+</ul>
+</li>
+<li>2008年的OpenFlow论文的发表,业界关注度达到顶峰.<ul>
+<li>作者是8位著名网络教授,包括SDN创始人Nick McKenwn. 这篇论文被应用了5792次. </li>
+</ul>
+</li>
+<li>OpenFlow 比SDN出现的还要早,最初是用于做网络实验.</li>
+</ul>
+<h3 id="OpenFlow-是什么"><a href="#OpenFlow-是什么" class="headerlink" title="OpenFlow 是什么?"></a>OpenFlow 是什么?</h3><ul>
+<li><p>首先: SDN != OpenFlow. 这个可以自己思考一下.</p>
+</li>
+<li><p>先从官方定义描述来理解:</p>
+</li>
+</ul>
+<p>ONF(开放网络基金会)的描述:</p>
+<blockquote>
+<p> OpenFlow is the first standard communications interface defined between the control and forwarding layers of an SDN architecture. OpenFlow allows direct access to and manipulation of the forwarding plane of network devices.</p>
+</blockquote>
+<p>Wikipedla的描述: </p>
+<blockquote>
+<p>OpenFlow is a communications protocol that gives access to the forwarding plane of a network switch of router over the network. OpenFlow enables network controllers to determine the path of network packets across a network of switches.</p>
+</blockquote>
+<ul>
+<li><p>OpenFlow 不仅是一个开放的南向接口,还是一个通用转发抽象模型. 会在后面详细讨论.</p>
+</li>
+<li><p>OpenFlow 也被称为”网络x86指令集”. OF尝试把原来网络处理不太通用的模型,希望能通过技术的演进,得到一个相对通用,相对稳定的模型. 使整个技术上的演进,包括控制器的演进与处理器的演进互不影响.</p>
+</li>
+</ul>
+<h3 id="OpenFlow-是开放的南向接口"><a href="#OpenFlow-是开放的南向接口" class="headerlink" title="OpenFlow 是开放的南向接口"></a>OpenFlow 是开放的南向接口</h3><blockquote>
+<p>之前写到过控制面与数据面的分离,而控制面和数据面的分离是通过建立一个开放的接口(OPen Interface).来实现的.  这个通用的api, 目前主流的就是OpenFlow.</p>
+</blockquote>
+<ul>
+<li><p>但是这个api 与编程语言的api,与北向的api还不太一样. </p>
+</li>
+<li><p>OpenFlow 中有一个流表的概念. 流表会在后面详细介绍,这里可以单纯的把它想象成一张表. 这个表一般由三个部分组成.</p>
+<ul>
+<li><p>匹配域</p>
+</li>
+<li><p>动作</p>
+</li>
+<li><p>计数器</p>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">MAC SRC</th>
+<th style="text-align:center">MAC DST</th>
+<th style="text-align:center">IP SRC</th>
+<th style="text-align:center">IP DST</th>
+<th style="text-align:center">TCP DPORT</th>
+<th style="text-align:center">Action</th>
+<th style="text-align:center">Counter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">*</td>
+<td style="text-align:center">10:20</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">output</td>
+<td style="text-align:center">250</td>
+</tr>
+<tr>
+<td style="text-align:center">10:20</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">192.128.*</td>
+<td style="text-align:center">*</td>
+<td style="text-align:center">80</td>
+<td style="text-align:center">drop</td>
+<td style="text-align:center">1980</td>
+</tr>
+<tr>
+<td style="text-align:center">….</td>
+<td style="text-align:center">….</td>
+<td style="text-align:center">….</td>
+<td style="text-align:center">….</td>
+<td style="text-align:center">….</td>
+<td style="text-align:center">….</td>
+<td style="text-align:center">….</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>前面5个是Match, 然后紧跟着 Action 和 Counter. 星号代表全部. 可以看出, Match代表一个特征,可以匹配到一系列包,而这一系列包被称为 一个flow. </p>
+</blockquote>
+<ul>
+<li>所以,OpenFlow 的编程是基于flow的编程, 而传统的网络编程时基于地址的. 这是它们的主要区别.</li>
+</ul>
+<h3 id="通用转发抽象模型"><a href="#通用转发抽象模型" class="headerlink" title="通用转发抽象模型"></a>通用转发抽象模型</h3><blockquote>
+<p>OpenFlow 在其发展过程中,做了一个尝试: 希望能定义出适用于所有网络转发处理的通用的抽象模型.  </p>
+</blockquote>
+<ul>
+<li>传统的网络数据处理模型是一个协议相关的模型. 在网络设备中,分为很多个模块, 比如: MAC地址学习, MAC转发, IP查找表, ACL (介入控制访问)表,  和端口分组表 等.  每个模块都与相应的协议邦定. 每个网络芯片完成之后,其相应的功能就固定了, 比如Mac地址学习模块不能做IP相关的事情, 而整个模型就是相关模块的简单堆砌. </li>
+</ul>
+<p><img src="/img/传统的处理模型.png" alt="传统的网络处理"></p>
+<ul>
+<li>OpenFlow 尝试定义一种通用的处理模型,即协议无关的处理模型. 它将传统的各种模块统一用一个FlowTable描述. 网络设备由多个流表组成(称为:多级流表流水线处理:pipe-line).  流表就是支撑这个统一处理的抽象模型.</li>
+</ul>
+<p><img src="/img/OpenFlow模型.png" alt="OpenFlow模型"></p>
+<ul>
+<li>实际上,准确的说是 switch 定义了一种统一的转发处理模型. 这里必须解释,  OpenFlow 只提供了一个通用的转发处理模型, 而网络数据处理模型不仅仅是switch上的包转发, 还有协议处理, Qos等等.   所以, 这也是OpenFlow 的缺陷, 它在协议处理等其他方面并不能 实现可编程. 他只是通向通用处理模型发展过程中的一步, 为更先进的技术 (如P4) 做出了基础.</li>
+</ul>
+<h3 id="OpenFlow-发展历史"><a href="#OpenFlow-发展历史" class="headerlink" title="OpenFlow 发展历史"></a>OpenFlow 发展历史</h3><ul>
+<li>最广泛使用的是 1.3 和 1.5</li>
+</ul>
+<p><img src="/img/OF发展历程.png" alt="OF发展历程"></p>
+<h3 id="OpenFlow-的历史意义"><a href="#OpenFlow-的历史意义" class="headerlink" title="OpenFlow 的历史意义"></a>OpenFlow 的历史意义</h3><ul>
+<li>它是网络设备的API.</li>
+<li>它是网络x86指令集的尝试</li>
+</ul>
+<blockquote>
+<p>Bye~</p>
+</blockquote>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/01/27/HowSDNshapeNetWorking/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
