@@ -234,7 +234,7 @@
 
     
         <meta property="article:published_time" content="Sat Jan 27 2018 09:45:48 GMT+0800">
-        <meta property="article:modified_time" content="Sat Jan 27 2018 13:17:07 GMT+0800">
+        <meta property="article:modified_time" content="Sun Jan 28 2018 09:29:02 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/01/27/HowSDNshapeNetWorking/index.html",
     "headline": "How SDN shape NetWorking?",
     "datePublished": "Sat Jan 27 2018 09:45:48 GMT+0800",
-    "dateModified": "Sat Jan 27 2018 13:17:07 GMT+0800",
+    "dateModified": "Sun Jan 28 2018 09:29:02 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Hox Zheng",
@@ -483,7 +483,7 @@
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
         <h1 id="How-SDN-shape-Network"><a href="#How-SDN-shape-Network" class="headerlink" title="How SDN shape Network"></a>How SDN shape Network</h1><blockquote>
-<p>这篇文章是基于 <a href="https://www.youtube.com/watch?v=c9-K5O_qYgA" target="_blank" rel="noopener">Nick McKeown在2011的演讲</a>. Nick McKeown是斯坦福大学的教授,是SDN创始人之一. 他历年来的演讲,可以说是SDN的起源和演进的关键.</p>
+<p>这篇文章是基于 <a href="https://www.youtube.com/watch?v=c9-K5O_qYgA" target="_blank" rel="noopener">Nick McKeown在2011的演讲</a>. Nick McKeown是斯坦福大学的教授,是SDN创始人之一. 他历年来的演讲,可以说是追溯SDN的起源和演进的关键.</p>
 </blockquote>
 <h2 id="SDN-引起服务器结构的改变"><a href="#SDN-引起服务器结构的改变" class="headerlink" title="SDN 引起服务器结构的改变."></a>SDN 引起服务器结构的改变.</h2><blockquote>
 <p>SDN引起的结构变化,和计算机的演进过程很相似.</p>
@@ -493,25 +493,25 @@
 <ul>
 <li>特定的硬件</li>
 <li>特定的操作系统</li>
-<li>特定的应用<br>构成. 但是这样的就够过于封闭,一旦集成,很难更新, 产业规模很小,发展缓慢.</li>
+<li>特定的应用<br>构成. 但是这样结构够过于封闭,一旦集成,很难更新, 产业规模很小,发展缓慢.</li>
 </ul>
 </li>
 <li><p>后来, 微型通用处理器出现后, 计算机有了通用的处理器,通用的操作系统,以及,高度可定制的软件应用. 演进就非常快.<br><img src="/img/计算机的演进.png" alt="计算机转变"></p>
 </li>
 </ul>
 <h3 id="网络服务器-是否可以像计算机一样演进呢"><a href="#网络服务器-是否可以像计算机一样演进呢" class="headerlink" title="网络服务器,是否可以像计算机一样演进呢?"></a>网络服务器,是否可以像计算机一样演进呢?</h3><ul>
-<li><p>原来的网络服务器架构,也是特殊化的封闭的集成,很难扩展,革新缓慢.如下图所示.</p>
+<li><p>原来的网络服务器架构,也是特殊化,的封闭的集成,很难扩展,革新缓慢.如下图所示.</p>
 </li>
-<li><p>通过SDN,  我们可以通过商业化通用的芯片, 控制面通过开放的接口控制底层的数据面,上层应用通过开放的接口,在控制面编程,实现了控制面和数据面的解耦.<br><img src="/img/服务器的演进.png" alt="服务器的改变"></p>
+<li><p>通过SDN,  我们可以使用商业化通用的芯片, 控制面通过Open Interface控制底层的数据面,上层应用通过Open Interface在控制面编程,实现了控制面和数据面的解耦.<br><img src="/img/服务器的演进.png" alt="服务器的改变"></p>
 </li>
 </ul>
 <h2 id="SDN-下的架构是怎样的"><a href="#SDN-下的架构是怎样的" class="headerlink" title="SDN 下的架构是怎样的?"></a>SDN 下的架构是怎样的?</h2><ul>
-<li>首先我们需要有开放的接口,来处理 包转发.</li>
-<li>其次,我们应该有至少一个 网络操作系统.<br><img src="/img/SDN下架构.png" alt="SDN下架构"></li>
+<li>首先我们需要有Open Interface,来处理包转发.</li>
+<li>其次,我们应该有至少一个Net OS.<br><img src="/img/SDN下架构.png" alt="SDN下架构"></li>
 </ul>
 <h3 id="分布式的操作系统"><a href="#分布式的操作系统" class="headerlink" title="分布式的操作系统"></a>分布式的操作系统</h3><blockquote>
-<p>网络结构一般是分布式的系统,需要一个操作系统来实时展示网络的拓扑结构,来管理整个网络.  一个网络操作系统是很重要的. 举个例子:</p>
-<p> OSPF 开放式最短路径优先, 是描述网络链路的方法, 是对链路状态路由协议的一种实现, 隶属内部网管协议,运作于自治系统内部, 内部采用Dijkstra’s 来计算最短路径树. 数据库LSDB 用来保存当前的网络拓扑结构…..</p>
+<p>网络结构一般是分布式的结构,需要一个操作系统来实时展示网络的拓扑结构,来管理整个网络.  一个网络操作系统是很重要的. 举个例子:</p>
+<p> OSPF: 开放式最短路径优先, 是描述网络链路的方法, 是对链路状态路由协议的一种实现, 隶属内部网管协议,运作于自治系统内部, 内部采用Dijkstra’s 来计算最短路径树. 数据库LSDB 用来保存当前的网络拓扑结构…..</p>
 <p>RFC 是一种IETF 是发布的一系列备忘录. </p>
 </blockquote>
 <ul>
@@ -533,7 +533,7 @@
 </ul>
 <p><img src="/img/Match.png" alt="FlowTable"><br><img src="/img/Action.png" alt="FlowTable"></p>
 <h2 id="How-SDN-shape-networking"><a href="#How-SDN-shape-networking" class="headerlink" title="How SDN shape networking"></a>How SDN shape networking</h2><h3 id="Empower-network-owners-operators"><a href="#Empower-network-owners-operators" class="headerlink" title="Empower network owners/operators"></a>Empower network owners/operators</h3><ul>
-<li>他使网络工作者的能力变强,可以做实现更多的功能. 这个Nick 教授举了个他的学生的例子—-负载均衡.</li>
+<li>他使网络工作者的能力变强,可以实现更多的功能. Nick 教授举了个例子—-负载均衡.</li>
 </ul>
 <blockquote>
 <p>负载均衡是指,当大量的 网络请求发送到服务器集群, 通过一定的策略,将这些请求均匀的分布到每一个服务器, 使每一个服务器的 负载相对较低.</p>
@@ -551,7 +551,7 @@
 </li>
 <li><p>Rapid transfer: 可以更快的转移到 实际运行的网络. (只需要把代码移植过去就可以)</p>
 </li>
-<li><p>Code availiable : 可以更好的分享,现成的代码.</p>
+<li><p>Code availiable : 可以更好的分享和使用现成的代码.</p>
 </li>
 </ul>
 <p><img src="/img/仿真测试.png" alt="仿真测试"></p>
@@ -560,7 +560,7 @@
 </ul>
 <h3 id="Build-a-robust-foundation"><a href="#Build-a-robust-foundation" class="headerlink" title="Build a robust foundation"></a>Build a robust foundation</h3><blockquote>
 <p>由于控制面与数据面的解耦, 只需在控制面做相应的调整,就可以实现相应的复杂的网络功能.</p>
-<p>在传统网络中, 一些简单的问题确实复杂的, 比如:</p>
+<p>在传统网络中, 一些简单的问题却很复杂, 比如:</p>
 </blockquote>
 <ul>
 <li><p>比如Header Space 的分析.</p>
@@ -575,13 +575,13 @@
 <ul>
 <li><p>将一个包映射成一个网络空间的一个点, 而在交换机,路由器上的FlowTable中的每一个Entry, 都由Match,Action组成. 而Match 往往是一个空间.</p>
 </li>
-<li><p>如果一个Flow的header所对应的点, 存在于Match所对应的空间, 则采取,这个空间相应的Action. 这就是他的基本想法.</p>
+<li><p>如果一个Flow的header所对应的点, 存在于Match所对应的空间, 则采取,这个空间相应的Action. 这就是它的基本想法.</p>
 </li>
-<li><p>通过这样的方法,我们可以轻松的定义, 不同的Flow改采取不同的Action<br>在此基础上, 我们可以开发出更加复杂的功能,比如防火墙….</p>
+<li><p>通过这样的方法,我们可以轻松的定义不同的Flow改采取不同的Action, 在此基础上, 我们可以开发出更加复杂的功能,比如防火墙….</p>
 </li>
 </ul>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><blockquote>
-<p>SDN 在数据面上,提供了相对狭窄的接口,这些接口具体的实现是OPenFlow 协议. 这个协议引入了 FlowTable 的概念, 每个Table 有多个Entry组成, 每个Entry 的结构是 <match,action>. 在底层之上, 有至少一个网络操作系统,用来管理整个网络,调用这些底层的接口, 在OS上,我们可以开发相应的App.<br>来实现相应的功能,例如之前提到的 负载均衡.  SDN是我们在控制面进行相应的编程, 而不必考虑底层相应的细节, 就可以开发出复杂的网络功能. 可以快的进行仿真实验, 并只需把相应的代码移植到现有网络,就可以完成显幼网络的功能扩展.</match,action></p>
+<p>SDN 在数据面上,提供了相对狭窄的接口,这些接口具体的实现是OPenFlow 协议. 这个协议引入了 FlowTable 的概念, 每个Table 有多个Entry组成, 每个Entry 的结构是 <match,action>. 在底层之上, 有至少一个网络操作系统,用来管理整个网络,调用这些底层的接口, 在OS上,我们可以开发相应的App.<br>来实现相应的功能,例如之前提到的 负载均衡.  SDN是我们在控制面进行相应的编程, 而不必考虑底层相应的细节, 就可以开发出复杂的网络功能. 可以快的进行仿真实验, 并只需把相应的代码移植到现有网络,就可以完成现有网络的功能扩展.</match,action></p>
 </blockquote>
 
         
