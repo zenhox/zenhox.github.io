@@ -234,7 +234,7 @@
 
     
         <meta property="article:published_time" content="Tue Jan 30 2018 16:50:10 GMT+0800">
-        <meta property="article:modified_time" content="Tue Jan 30 2018 19:14:51 GMT+0800">
+        <meta property="article:modified_time" content="Tue Jan 30 2018 19:27:26 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/01/30/Snort-Daq安装与配置/index.html",
     "headline": "Snort/Daq安装与配置",
     "datePublished": "Tue Jan 30 2018 16:50:10 GMT+0800",
-    "dateModified": "Tue Jan 30 2018 19:14:51 GMT+0800",
+    "dateModified": "Tue Jan 30 2018 19:27:26 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Hox Zheng",
@@ -580,7 +580,6 @@
 <ul>
 <li>现在, 我们需要配置Snort的主配置文件, /etc/snort/snort.conf.  当Snort 运行的时候以它为参数, Snort就会以NIDS的模式运行.</li>
 </ul>
-<p>&gt;</p>
 <blockquote>
 <p>我们需要注释掉在Snort配置文件中引用的所有单独的规则文件，因为我们不是单独下载每个文件，而是使用PulledPork来管理我们的规则集，这些规则集将所有规则组合成一个文件。下面这一行将注释掉我们的snort.conf文件中的所有规则集（从540行开始有大约100行注释掉）：</p>
 </blockquote>
@@ -596,7 +595,7 @@
 <blockquote>
 <p>在第104行开始，在snort.conf中设置以下文件路径：</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var RULE_PATH /etc/snort/rules </span><br><span class="line">var SO_RULE_PATH /etc/snort/so_rules</span><br><span class="line">var PREPROC_RULE_PATH /etc/snort/preproc_rules</span><br><span class="line">var WHITE_LIST_PATH /etc/snort/rules/iplists </span><br><span class="line">var BLACK_LIST_PATH /etc/snort/rules/iplist</span><br><span class="line"><span class="comment">## 配置中本身有这些路径变量.  你只需要修改它们的路径值就好~</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var RULE_PATH /etc/snort/rules </span><br><span class="line">var SO_RULE_PATH /etc/snort/so_rules</span><br><span class="line">var PREPROC_RULE_PATH /etc/snort/preproc_rules</span><br><span class="line">var WHITE_LIST_PATH /etc/snort/rules/iplists </span><br><span class="line">var BLACK_LIST_PATH /etc/snort/rules/iplists</span><br><span class="line"><span class="comment">## 配置中本身有这些路径变量.  你只需要修改它们的路径值就好~</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>为了使测试Snort变得简单，我们要启用local.rules文件，在那里我们可以添加Snort可以提醒的规则。从546行取消注释（去掉散列符号），看起来像这样:</p>
 </blockquote>
