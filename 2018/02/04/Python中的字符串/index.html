@@ -43,7 +43,7 @@
     
     <title>
         
-            Categories: Vim | 
+            Python中的字符串 | 
         
         万川秋水de世界
     </title>
@@ -210,7 +210,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="万川秋水de世界">
-    <meta name="msapplication-starturl" content="http://yoursite.com/categories/Vim/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/02/04/Python中的字符串/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="万川秋水de世界">
@@ -225,13 +225,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/categories/Vim/">
+    <meta property="og:url" content="http://yoursite.com/2018/02/04/Python中的字符串/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Categories: Vim | 万川秋水de世界">
+    <meta property="og:title" content="Python中的字符串 | 万川秋水de世界">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
     
 
+    
+        <meta property="article:published_time" content="Sun Feb 04 2018 09:51:19 GMT+0800">
+        <meta property="article:modified_time" content="Sun Feb 04 2018 10:35:23 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -239,13 +242,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/categories/Vim/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/02/04/Python中的字符串/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/02/04/Python中的字符串/index.html",
+    "headline": "Python中的字符串",
+    "datePublished": "Sun Feb 04 2018 09:51:19 GMT+0800",
+    "dateModified": "Sun Feb 04 2018 10:35:23 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Hox Zheng",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/me.png"
+        },
+        "description": "忧伤，一半来自远方，一半来自时光."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "万川秋水de世界",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
 
 
     
@@ -279,160 +312,447 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Python中的字符串"><span class="post-toc-number">1.</span> <span class="post-toc-text">Python中的字符串</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#格式化"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">格式化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#format的使用"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">format的使用</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#格式化操作符"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">格式化操作符%</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#格式化操作符得辅助指令"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">格式化操作符得辅助指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Python中得转义字符及含义"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">Python中得转义字符及含义</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一些常用得内置方法"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">一些常用得内置方法</span></a></li></ol></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/24/VimNext/">VimNext</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-之前一篇博客为大家介绍的
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/24/VimNext/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/me.png" width="44px" height="44px" alt="Hox Zheng's avatar">
-            </div>
-            <div>
-                <strong>Hox Zheng</strong>
-                <span>Jan 24, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Vim/">Vim</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/24/VimBegin/">VimBegin</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/24/VimBegin/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/me.png" width="44px" height="44px" alt="Hox Zheng's avatar">
-            </div>
-            <div>
-                <strong>Hox Zheng</strong>
-                <span>Jan 24, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Vim/">Vim</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/view-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/view-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                Python中的字符串
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/me.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Hox Zheng</strong>
+        <span>Feb 04, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Python中的字符串&url=http://yoursite.com/2018/02/04/Python中的字符串/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Weibo
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Python中的字符串&url=http://yoursite.com/2018/02/04/Python中的字符串/index.html&via=Hox Zheng" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/04/Python中的字符串/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/04/Python中的字符串/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=万川秋水de世界&title=Python中的字符串&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/02/04/Python中的字符串/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="Python中的字符串"><a href="#Python中的字符串" class="headerlink" title="Python中的字符串"></a>Python中的字符串</h1><blockquote>
+<p>对Python中的字符串常用函数的笔记, 方便查用.</p>
+</blockquote>
+<h2 id="格式化"><a href="#格式化" class="headerlink" title="格式化"></a>格式化</h2><blockquote>
+<p>字符串经常需要格式化输出. Python字符串的格式化用format函数和格式化操作符%实现</p>
+</blockquote>
+<h3 id="format的使用"><a href="#format的使用" class="headerlink" title="format的使用"></a>format的使用</h3><ul>
+<li>位置参数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;0&#125; love &#123;1&#125;"</span>.format(<span class="string">'I'</span>,<span class="string">'U'</span>)</span><br><span class="line"><span class="string">'I love U'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>关键字参数</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;name1&#125; love &#123;name2&#125;"</span>.format(name1=<span class="string">'I'</span>,name2=<span class="string">'U'</span>)</span><br><span class="line"><span class="string">'I love U'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>位置参数和关键字参数混用</li>
+</ul>
+<blockquote>
+<p>位置参数和关键字参数是可以混用的, 但是要注意的是位置参数必须在关键字参数的前面.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;0&#125; love &#123;name2&#125;"</span>.format(<span class="string">'I'</span>,name2=<span class="string">'U'</span>)</span><br><span class="line"><span class="string">'I love U'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>外层大括号的吞噬效应</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'&#123;&#123;0&#125;&#125;'</span>.format(<span class="string">'不打印'</span>)</span><br><span class="line"><span class="string">'&#123;0&#125;'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>浮点数规格化</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;0&#125;:&#123;1:.2f&#125;"</span>.format(<span class="string">'pi'</span>,<span class="number">3.1415926</span>)   <span class="comment">##这里是四舍五入</span></span><br><span class="line"><span class="string">'pi:3.14'</span></span><br></pre></td></tr></table></figure>
+<h3 id="格式化操作符"><a href="#格式化操作符" class="headerlink" title="格式化操作符%"></a>格式化操作符%</h3><blockquote>
+<p>%通过匹配不同的字符表示一定的格式</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">%c</td>
+<td style="text-align:center">格式化字符及其ASCII码</td>
+</tr>
+<tr>
+<td style="text-align:center">%s</td>
+<td style="text-align:center">格式化字符串</td>
+</tr>
+<tr>
+<td style="text-align:center">%d</td>
+<td style="text-align:center">格式化整数</td>
+</tr>
+<tr>
+<td style="text-align:center">%o</td>
+<td style="text-align:center">格式化8进制数</td>
+</tr>
+<tr>
+<td style="text-align:center">%x</td>
+<td style="text-align:center">格式化16进制数(小写)</td>
+</tr>
+<tr>
+<td style="text-align:center">%X</td>
+<td style="text-align:center">格式化16进制数(大写)</td>
+</tr>
+<tr>
+<td style="text-align:center">%f</td>
+<td style="text-align:center">格式化浮点数,可以指定小数点后的精度</td>
+</tr>
+<tr>
+<td style="text-align:center">%e</td>
+<td style="text-align:center">用科学记数法格式化浮点数</td>
+</tr>
+<tr>
+<td style="text-align:center">%E</td>
+<td style="text-align:center">和%e的作用一样</td>
+</tr>
+<tr>
+<td style="text-align:center">%g</td>
+<td style="text-align:center">根据值得大小确定用%f或%e</td>
+</tr>
+<tr>
+<td style="text-align:center">%G</td>
+<td style="text-align:center">作用和%g相同</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>用法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'%d转换为八进制数是:%o'</span> % (<span class="number">123</span>,<span class="number">123</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="格式化操作符得辅助指令"><a href="#格式化操作符得辅助指令" class="headerlink" title="格式化操作符得辅助指令"></a>格式化操作符得辅助指令</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">m.n</td>
+<td style="text-align:center">m表示显示得最小总宽度,n是小数点后的位数</td>
+</tr>
+<tr>
+<td style="text-align:center">-</td>
+<td style="text-align:center">结果左对其</td>
+</tr>
+<tr>
+<td style="text-align:center">+</td>
+<td style="text-align:center">若正数则前面显示’+’号</td>
+</tr>
+<tr>
+<td style="text-align:center">#</td>
+<td style="text-align:center">在8进制前面显示0o,在16进制前面显示0x</td>
+</tr>
+<tr>
+<td style="text-align:center">0</td>
+<td style="text-align:center">显示得数字前面填充’0’代替空格</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>用法</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'%4.1f'</span> % <span class="number">12.131</span></span><br><span class="line"><span class="string">'%.e'</span> % <span class="number">27.658</span></span><br><span class="line"><span class="string">'%10d'</span> % <span class="number">5</span></span><br><span class="line"><span class="string">'%010d'</span>%<span class="number">5</span></span><br><span class="line">	<span class="string">'0000000005'</span></span><br><span class="line"><span class="string">'%#X'</span> % <span class="number">100</span></span><br><span class="line">	<span class="string">'0X64'</span></span><br></pre></td></tr></table></figure>
+<h3 id="Python中得转义字符及含义"><a href="#Python中得转义字符及含义" class="headerlink" title="Python中得转义字符及含义"></a>Python中得转义字符及含义</h3><table>
+<thead>
+<tr>
+<th style="text-align:center">符号</th>
+<th style="text-align:center">含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">\’</td>
+<td style="text-align:center">单引号</td>
+</tr>
+<tr>
+<td style="text-align:center">\”</td>
+<td style="text-align:center">双引号</td>
+</tr>
+<tr>
+<td style="text-align:center">\a</td>
+<td style="text-align:center">发出系统响铃声</td>
+</tr>
+<tr>
+<td style="text-align:center">\b</td>
+<td style="text-align:center">退格符</td>
+</tr>
+<tr>
+<td style="text-align:center">\n</td>
+<td style="text-align:center">换行符</td>
+</tr>
+<tr>
+<td style="text-align:center">\t</td>
+<td style="text-align:center">制表符</td>
+</tr>
+<tr>
+<td style="text-align:center">\v</td>
+<td style="text-align:center">纵向制表符</td>
+</tr>
+<tr>
+<td style="text-align:center">\r</td>
+<td style="text-align:center">回车符</td>
+</tr>
+<tr>
+<td style="text-align:center">\f</td>
+<td style="text-align:center">换页符</td>
+</tr>
+<tr>
+<td style="text-align:center">\o</td>
+<td style="text-align:center">八进制代表得字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\x</td>
+<td style="text-align:center">十六进制数代表的字符</td>
+</tr>
+<tr>
+<td style="text-align:center">\0</td>
+<td style="text-align:center">表示一个空字符</td>
+</tr>
+<tr>
+<td style="text-align:center"></td>
+<td style="text-align:center">反斜杠</td>
+</tr>
+</tbody>
+</table>
+<h2 id="一些常用得内置方法"><a href="#一些常用得内置方法" class="headerlink" title="一些常用得内置方法"></a>一些常用得内置方法</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">方法</th>
+<th style="text-align:center">作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">casefold()</td>
+<td style="text-align:center">全部变成小写</td>
+</tr>
+<tr>
+<td style="text-align:center">count(sub[.start[,end])</td>
+<td style="text-align:center">数数字串得个数</td>
+</tr>
+<tr>
+<td style="text-align:center">find(sub[,start[,end])</td>
+<td style="text-align:center">找到字串的开始下标,如果没有返回-1</td>
+</tr>
+<tr>
+<td style="text-align:center">index(sub[])</td>
+<td style="text-align:center">返回字串开始下标,如果没有抛出异常</td>
+</tr>
+<tr>
+<td style="text-align:center">join()</td>
+<td style="text-align:center">用于字符串连接</td>
+</tr>
+<tr>
+<td style="text-align:center">replace(old,new[,count])</td>
+<td style="text-align:center">r替换指定字符</td>
+</tr>
+<tr>
+<td style="text-align:center">split(sep,maxsplit)</td>
+<td style="text-align:center">分割,和Join作用相反</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>join 用法举例</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">' '</span>.join(<span class="string">"Text"</span>)</span><br><span class="line">	T e x t</span><br><span class="line"><span class="string">'x'</span>.join([<span class="string">'I'</span>,<span class="string">'Love'</span>,<span class="string">'U'</span>])</span><br><span class="line">	IxLovecU</span><br></pre></td></tr></table></figure>
+<ul>
+<li>split用法举例</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str1 = f_i_n_i_s_h</span><br><span class="line">str1.split(sep=<span class="string">'_'</span>)</span><br><span class="line">	[<span class="string">'f'</span>,<span class="string">'i'</span>,<span class="string">'n'</span>,<span class="string">'i'</span>,<span class="string">'s'</span>,<span class="string">'h'</span>]</span><br></pre></td></tr></table></figure>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/02/03/Python中的列表/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
