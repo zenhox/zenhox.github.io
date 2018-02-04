@@ -234,7 +234,7 @@
 
     
         <meta property="article:published_time" content="Sun Feb 04 2018 09:51:19 GMT+0800">
-        <meta property="article:modified_time" content="Sun Feb 04 2018 10:35:23 GMT+0800">
+        <meta property="article:modified_time" content="Sun Feb 04 2018 10:40:04 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -257,7 +257,7 @@
     "mainEntityOfPage": "http://yoursite.com/2018/02/04/Python中的字符串/index.html",
     "headline": "Python中的字符串",
     "datePublished": "Sun Feb 04 2018 09:51:19 GMT+0800",
-    "dateModified": "Sun Feb 04 2018 10:35:23 GMT+0800",
+    "dateModified": "Sun Feb 04 2018 10:40:04 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Hox Zheng",
@@ -491,26 +491,26 @@
 <h3 id="format的使用"><a href="#format的使用" class="headerlink" title="format的使用"></a>format的使用</h3><ul>
 <li>位置参数</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;0&#125; love &#123;1&#125;"</span>.format(<span class="string">'I'</span>,<span class="string">'U'</span>)</span><br><span class="line"><span class="string">'I love U'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&#123;0&#125; love &#123;1&#125;"</span>.format(<span class="string">'I'</span>,<span class="string">'U'</span>)</span><br><span class="line">	<span class="string">'I love U'</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>关键字参数</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;name1&#125; love &#123;name2&#125;"</span>.format(name1=<span class="string">'I'</span>,name2=<span class="string">'U'</span>)</span><br><span class="line"><span class="string">'I love U'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&#123;name1&#125; love &#123;name2&#125;"</span>.format(name1=<span class="string">'I'</span>,name2=<span class="string">'U'</span>)</span><br><span class="line">	<span class="string">'I love U'</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>位置参数和关键字参数混用</li>
 </ul>
 <blockquote>
 <p>位置参数和关键字参数是可以混用的, 但是要注意的是位置参数必须在关键字参数的前面.</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;0&#125; love &#123;name2&#125;"</span>.format(<span class="string">'I'</span>,name2=<span class="string">'U'</span>)</span><br><span class="line"><span class="string">'I love U'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&#123;0&#125; love &#123;name2&#125;"</span>.format(<span class="string">'I'</span>,name2=<span class="string">'U'</span>)</span><br><span class="line">	<span class="string">'I love U'</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>外层大括号的吞噬效应</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">'&#123;&#123;0&#125;&#125;'</span>.format(<span class="string">'不打印'</span>)</span><br><span class="line"><span class="string">'&#123;0&#125;'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'&#123;&#123;0&#125;&#125;'</span>.format(<span class="string">'不打印'</span>)</span><br><span class="line">	<span class="string">'&#123;0&#125;'</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>浮点数规格化</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">"&#123;0&#125;:&#123;1:.2f&#125;"</span>.format(<span class="string">'pi'</span>,<span class="number">3.1415926</span>)   <span class="comment">##这里是四舍五入</span></span><br><span class="line"><span class="string">'pi:3.14'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&#123;0&#125;:&#123;1:.2f&#125;"</span>.format(<span class="string">'pi'</span>,<span class="number">3.1415926</span>)   <span class="comment">##这里是四舍五入</span></span><br><span class="line">	<span class="string">'pi:3.14'</span></span><br></pre></td></tr></table></figure>
 <h3 id="格式化操作符"><a href="#格式化操作符" class="headerlink" title="格式化操作符%"></a>格式化操作符%</h3><blockquote>
 <p>%通过匹配不同的字符表示一定的格式</p>
 </blockquote>
