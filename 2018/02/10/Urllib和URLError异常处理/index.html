@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="en">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Urllib和URLError异常处理 | 
+        
+        万川秋水de世界
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.en.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/bg.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="万川秋水de世界">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/02/10/Urllib和URLError异常处理/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="万川秋水de世界">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com/2018/02/10/Urllib和URLError异常处理/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Urllib和URLError异常处理 | 万川秋水de世界">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Sat Feb 10 2018 11:32:41 GMT+0800">
+        <meta property="article:modified_time" content="Sun Feb 11 2018 11:43:05 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/02/10/Urllib和URLError异常处理/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/02/10/Urllib和URLError异常处理/index.html",
+    "headline": "Urllib和URLError异常处理",
+    "datePublished": "Sat Feb 10 2018 11:32:41 GMT+0800",
+    "dateModified": "Sun Feb 11 2018 11:43:05 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Hox Zheng",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/me.png"
+        },
+        "description": "忧伤，一半来自远方，一半来自时光."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "万川秋水de世界",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Python中的Urllib库"><span class="post-toc-number">1.</span> <span class="post-toc-text">Python中的Urllib库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#快速使用Urllib爬取网页"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">快速使用Urllib爬取网页</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#导入模块-Python3"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">导入模块(Python3)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#打开并且爬取一个网页"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">打开并且爬取一个网页</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#读取内容的常见方法"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">读取内容的常见方法</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#直接存储"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">直接存储</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他api"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">其他api</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#浏览器模拟"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">浏览器模拟</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#超时设置"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">超时设置</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#HTTP-协议请求实战"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">HTTP 协议请求实战</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HTTP-请求类型"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">HTTP 请求类型:</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#GET请求实例分析"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">GET请求实例分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#百度搜索GET请求"><span class="post-toc-number">1.4.2.1.</span> <span class="post-toc-text">百度搜索GET请求</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#POST请求实例分析"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">POST请求实例分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#实现思路如下"><span class="post-toc-number">1.4.3.1.</span> <span class="post-toc-text">实现思路如下</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#具体步骤"><span class="post-toc-number">1.4.3.2.</span> <span class="post-toc-text">具体步骤</span></a></li></ol></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#总结"><span class="post-toc-number">2.</span> <span class="post-toc-text">总结</span></a></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/view-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Urllib和URLError异常处理
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/me.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Hox Zheng</strong>
+        <span>Feb 10, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Urllib和URLError异常处理&url=http://yoursite.com/2018/02/10/Urllib和URLError异常处理/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Weibo
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Urllib和URLError异常处理&url=http://yoursite.com/2018/02/10/Urllib和URLError异常处理/index.html&via=Hox Zheng" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/10/Urllib和URLError异常处理/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/10/Urllib和URLError异常处理/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=万川秋水de世界&title=Urllib和URLError异常处理&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/02/10/Urllib和URLError异常处理/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="Python中的Urllib库"><a href="#Python中的Urllib库" class="headerlink" title="Python中的Urllib库"></a>Python中的Urllib库</h1><blockquote>
+<p>Urllib是Python提供的一个用于操作URL的模块.  </p>
+</blockquote>
+<h2 id="快速使用Urllib爬取网页"><a href="#快速使用Urllib爬取网页" class="headerlink" title="快速使用Urllib爬取网页"></a>快速使用Urllib爬取网页</h2><h3 id="导入模块-Python3"><a href="#导入模块-Python3" class="headerlink" title="导入模块(Python3)"></a>导入模块(Python3)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br></pre></td></tr></table></figure>
+<h3 id="打开并且爬取一个网页"><a href="#打开并且爬取一个网页" class="headerlink" title="打开并且爬取一个网页"></a>打开并且爬取一个网页</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">file = urllib.request.urlopen(<span class="string">'http://www.baidu.com'</span>)</span><br></pre></td></tr></table></figure>
+<h3 id="读取内容的常见方法"><a href="#读取内容的常见方法" class="headerlink" title="读取内容的常见方法"></a>读取内容的常见方法</h3><ul>
+<li>file.read() 读取文件的全部内容. 把读取到的内容赋值给一个bytes变量.</li>
+<li>file.readlines() 读取文件的全部内容, 与read不同的是, readlines会把读取到的内容赋值给一个列表变量. 若要读取全部内容, 推荐这种方式.</li>
+<li>file.readline() 读取文件的一行内容.</li>
+</ul>
+<p>所以读取的代码可以是:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">web = urllib.request.urlopen(<span class="string">'http://www.baidu.com'</span>)</span><br><span class="line">data = web.read()</span><br><span class="line">fhandle = open(<span class="string">'/mnt/c/Users/Hox/Desktop/baidu.html'</span>,<span class="string">'wb'</span>) </span><br><span class="line">fhandle.write(data)</span><br><span class="line">fhandle.close()</span><br></pre></td></tr></table></figure>
+<ul>
+<li>把爬取到的内容存储到了baidu.html 文件中.</li>
+</ul>
+<h3 id="直接存储"><a href="#直接存储" class="headerlink" title="直接存储"></a>直接存储</h3><ul>
+<li>有一个直接的API可以将html存储到文件</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">filename = urllib.request.urlretrieve(<span class="string">"http://www.baidu.com"</span>,filename=<span class="string">'/mnt/c/Users/Hox/Desktop/baidu.html'</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>urlretrieve执行的过程中, 会缠身一些缓存, 如果我们想清楚这些缓存信息. 可以使用urlcleanup()</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">urllib.request.urlcleanup()  <span class="comment">## 清除产生的缓存</span></span><br></pre></td></tr></table></figure>
+<h3 id="其他api"><a href="#其他api" class="headerlink" title="其他api"></a>其他api</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">file.info()  <span class="comment">## 返回当前环境的有关信息</span></span><br><span class="line"></span><br><span class="line">file.getcode() <span class="comment">## 返回网页的状态码 200是正常</span></span><br><span class="line"></span><br><span class="line">file.geturl() <span class="comment">##当前爬取的URL地址</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>有些时候, 一些URL字符不符合标准. 比如中文,和其他一些字符.  需要编码:</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">urllib.request.quote(<span class="string">'http://www.sina.com.cn'</span>)</span><br><span class="line">	<span class="string">'http%3A//www.sina.com.cn'</span></span><br><span class="line"><span class="comment">##相应的解码</span></span><br><span class="line">urllib.request.unquote(<span class="string">'http%3A//www.sina.com.cn'</span>)</span><br><span class="line">	<span class="string">'http://www.sina.com.cn'</span></span><br></pre></td></tr></table></figure>
+<h2 id="浏览器模拟"><a href="#浏览器模拟" class="headerlink" title="浏览器模拟"></a>浏览器模拟</h2><blockquote>
+<p>有些网站为了防止别人恶意采集其信息. 所以进行了一些反爬虫设置. 比如CSDN. 这个时候, 我们可以设置一些Headers信息, 模拟成浏览器访问它们, 就不会出现 403错误!!!!</p>
+</blockquote>
+<ul>
+<li><p>方法就是<strong>设置User-Agent</strong>, 获得UserAgent的方法</p>
+<ul>
+<li>打开浏览去,进入百度.</li>
+<li>按F12, 打开network表项.</li>
+<li>点击百度一下, 产生一个动作.   然后单机 “www.baidu.com”</li>
+<li>将右方的标签切换到Headers, 下拉,可以找到User-Agent.</li>
+<li>把内容拷贝出来.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Mozilla/<span class="number">5.0</span> (Windows NT <span class="number">10.0</span>; WOW64) AppleWebKit/<span class="number">537.36</span> (KHTML, like Gecko) Chrome/<span class="number">64.0</span><span class="number">.3282</span><span class="number">.119</span> Safari/<span class="number">537.36</span></span><br></pre></td></tr></table></figure>
+<p>​</p>
+</li>
+<li><p>使用add_header() 添加报头:</p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">url = <span class="string">"http://blog.csdn.net/weiwei_pig/article/details/51178226"</span></span><br><span class="line">req = urllib.request.Request(url)</span><br><span class="line">req.add_header(<span class="string">'User-Agent'</span>, <span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.119 Safari/537.36'</span>)</span><br><span class="line">data = urllib.request.urlopen(req).read()</span><br><span class="line">save_file = open(<span class="string">'/mnt/c/Users/Hox/Desktop/save.html'</span>,<span class="string">'wb'</span>)</span><br><span class="line">save_file.write(data)</span><br><span class="line">save_file.close()</span><br></pre></td></tr></table></figure>
+<h2 id="超时设置"><a href="#超时设置" class="headerlink" title="超时设置"></a>超时设置</h2><blockquote>
+<p>urlopen可以设置超时参数,timeout. 如果超出预定的时间, 会抛出异常.</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    url = <span class="string">"http://zenhox.github.io"</span></span><br><span class="line">    req = urllib.request.Request(url)</span><br><span class="line">    req.add_header(<span class="string">'User-Agent'</span>, <span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.119 Safari/537.36'</span>)</span><br><span class="line">    data = urllib.request.urlopen(req,timeout=<span class="number">0.5</span>).read() <span class="comment">##单位是秒</span></span><br><span class="line">    save_file = open(<span class="string">'/mnt/c/Users/Hox/Desktop/save.html'</span>,<span class="string">'wb'</span>)</span><br><span class="line">    save_file.write(data)</span><br><span class="line">    save_file.close()</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(str(e))</span><br></pre></td></tr></table></figure>
+<h2 id="HTTP-协议请求实战"><a href="#HTTP-协议请求实战" class="headerlink" title="HTTP 协议请求实战"></a>HTTP 协议请求实战</h2><blockquote>
+<p>如果要进行客户端与服务端之间的消息传递, 我们可以使用HTTP协议请求进行.</p>
+</blockquote>
+<h3 id="HTTP-请求类型"><a href="#HTTP-请求类型" class="headerlink" title="HTTP 请求类型:"></a>HTTP 请求类型:</h3><ul>
+<li>GET请求: GET请求会通过URL网址传递信息, 可以直接在URL中写上要传递的信息, 也可以由表单进行传递. 如果使用表单进行传递, 这表单中的信息会自动转换为URL地址中的数据, 通过URL地址传递.</li>
+<li>POST请求: 可以向服务器提交数据吗是一种比较主流也是比较安全的数据传递方式, 比如在登陆时, 经常使用POST请求发送数据.</li>
+<li>DELETE请求: 请求服务器删除一个资源.</li>
+<li>HEAD请求: 请求获取对应的HTTP报头信息.</li>
+<li>OPTIONS请求: 可以获取当前URL所支持的类型.</li>
+</ul>
+<h3 id="GET请求实例分析"><a href="#GET请求实例分析" class="headerlink" title="GET请求实例分析"></a>GET请求实例分析</h3><blockquote>
+<p>GET请求通过URL传递信息, 所以如果要使用GET请求, 思路如下:</p>
+</blockquote>
+<ul>
+<li>构建对应的URL地址, 该URL地址包含GET请求的字段名和字段内容等信息. 并且URL地址满足GET请求格式, 即”<a href="http://网址?字段名1=字段内容1&amp;字段2=字段内容2&amp;" target="_blank" rel="noopener">http://网址?字段名1=字段内容1&amp;字段2=字段内容2&amp;</a>….”</li>
+<li>以对应URL为参数, 构建Request对象</li>
+<li>通过urlopen()打开构建的Request对象</li>
+<li>按需求进行后续的处理操作, 比如读取网页的内容, 将内容写入文件等.</li>
+</ul>
+<h4 id="百度搜索GET请求"><a href="#百度搜索GET请求" class="headerlink" title="百度搜索GET请求"></a>百度搜索GET请求</h4><blockquote>
+<p>百度搜索关键词的时候, 实际上是提交了一个GET请求. </p>
+</blockquote>
+<ul>
+<li>打开浏览器, 进入百度主页. 输入 hello. 单机百度一下.</li>
+<li>页面跳转, 出现搜索结果.</li>
+<li>观察url内容如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.baidu.com/s?ie=utf-8&amp;f=8&amp;rsv_bp=1&amp;tn=baidu&amp;wd=hello&amp;oq=hello&amp;rsv_pq=c47c6c7600056239&amp;rsv_t=5390XZslzjINYKp%2F8sMmU8HCPgnIeQuz%2BzAn9WhDv6CQwPfjausL0x%2BoShY&amp;rqlang=cn&amp;rsv_enter=0</span><br></pre></td></tr></table></figure>
+<ul>
+<li>可以看到, 关键词出现在 wd = hello 这里, 所以我们简化URL</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">https://www.baidu.com/s?wb=hello</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在地址栏输入后回车, 结果依然是hello的搜索结果, 说明简化结果正确, 我们确定了URL. 所以构建的URL为:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">url = &quot;https://www.baidu.com/s?wb=&quot; + keyword</span><br></pre></td></tr></table></figure>
+<ul>
+<li>剩下的工作: </li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#encoding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    keyword = input(<span class="string">'请输入关键词: '</span>)</span><br><span class="line">    url = <span class="string">"https://www.baidu.com/s?wd="</span>+keyword</span><br><span class="line">    req = urllib.request.Request(url)</span><br><span class="line">    <span class="comment">## 依然模仿浏览器</span></span><br><span class="line">    req.add_header(<span class="string">'User-Agent'</span>, <span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.119 Safari/537.36'</span>)</span><br><span class="line">    data = urllib.request.urlopen(req).read() <span class="comment">##单位是秒</span></span><br><span class="line">    save_file = open(<span class="string">'/mnt/c/Users/Hox/Desktop/save.html'</span>,<span class="string">'wb'</span>)</span><br><span class="line">    save_file.write(data)</span><br><span class="line">    save_file.close()</span><br><span class="line">    print(<span class="string">'文件保存在桌面 save.html'</span>)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(str(e))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>测试:</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">hox@ColdCode:~/work-place/pystudy$ python3 head.py</span><br><span class="line">请输入关键词: hello</span><br><span class="line">文件保存在桌面 save.html</span><br><span class="line">hox@ColdCode:~/work-place/pystudy$ python3 head.py</span><br><span class="line">请输入关键词: 郑浩</span><br><span class="line"><span class="string">'ascii'</span> codec can<span class="string">'t encode characters in position 10-11: ordinal not in range(128)</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>发现, 如果关键词是英文, 正常. 如果出现中文, 会出现编码问题, 这里可以通过之前学习过的方法解决.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#encoding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    keyword = input(<span class="string">'请输入关键词: '</span>)</span><br><span class="line">    quoteWd = urllib.request.quote(keyword)</span><br><span class="line">    url = <span class="string">"https://www.baidu.com/s?wd="</span>+quoteWd</span><br><span class="line">    req = urllib.request.Request(url)</span><br><span class="line">    <span class="comment">## 依然模仿浏览器</span></span><br><span class="line">    req.add_header(<span class="string">'User-Agent'</span>, <span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.119 Safari/537.36'</span>)</span><br><span class="line">    data = urllib.request.urlopen(req).read() <span class="comment">##单位是秒</span></span><br><span class="line">    save_file = open(<span class="string">'/mnt/c/Users/Hox/Desktop/save.html'</span>,<span class="string">'wb'</span>)</span><br><span class="line">    save_file.write(data)</span><br><span class="line">    save_file.close()</span><br><span class="line">    print(<span class="string">'文件保存在桌面 save.html'</span>)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(str(e))</span><br></pre></td></tr></table></figure>
+<h3 id="POST请求实例分析"><a href="#POST请求实例分析" class="headerlink" title="POST请求实例分析"></a>POST请求实例分析</h3><blockquote>
+<p>我们在进行注册,登陆等操作的时候, 基本上都会遇到POST请求. 但是, 由于登陆需要用到Cookie的知识, 所以关于如何登陆这一块, 将在后面学习. 现在, 只需要掌握如何使用POST表单传递信息即可.</p>
+</blockquote>
+<ul>
+<li>感谢教材的作者提供了一个<a href="http://www.iqianyue.com/mypost" target="_blank" rel="noopener">POST表单测试的网页</a>.</li>
+</ul>
+<blockquote>
+<p>作者: 韦伟  教材: 精通Python网络爬虫[机械工业出版社]</p>
+</blockquote>
+<h4 id="实现思路如下"><a href="#实现思路如下" class="headerlink" title="实现思路如下"></a>实现思路如下</h4><ul>
+<li>设置好URL网址</li>
+<li>构建表单数据, 并使用urllib.parse.urlencode对数据进行编码处理.</li>
+<li>创建Request对象, 参数包括URL地址和要传递的数据.</li>
+<li>使用add_header()添加头信息, 模拟浏览器进行爬取.</li>
+<li>使用urllib.request.urlopen()打开对应的Request对象, 完成信息的传递.</li>
+<li>后续处理, 比如读取网页的内容, 将内容写入文件.</li>
+</ul>
+<h4 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h4><ul>
+<li>设置好对应的URL地址, 这里处理的页面是 <a href="http://www.iqianyue.com/mypost" target="_blank" rel="noopener">http://www.iqianyue.com/mypost</a></li>
+<li>然后构建我们需要的表单数据, 在该网页上右击”查看页面源代码”, 找到对应的form表单部分,如图:</li>
+</ul>
+<p><img src="/img/表单.png" alt="表单"></p>
+<ul>
+<li>所以,我们要构造的数据可以分为{“name”:”ceo@iqianyue.com”,”pass”:”aA123456”}</li>
+<li>设置好表单, 然后使用 urllib.parse.urlencode对数据进行编码处理.</li>
+<li>创建Request对象, 添加表头. </li>
+<li>整合之后, 完整的爬虫代码如下图所示:</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#encoding=utf-8</span></span><br><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.parse</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    url = <span class="string">"http://www.iqianyue.com/mypost/"</span></span><br><span class="line">    postdata = urllib.parse.urlencode(&#123;<span class="string">"name"</span>:<span class="string">"ceo@iqianyue.com"</span>,<span class="string">"pass"</span>:<span class="string">"aA123456"</span>&#125;).encode(<span class="string">'utf-8'</span>)</span><br><span class="line">    req = urllib.request.Request(url,postdata)</span><br><span class="line">    <span class="comment">## 依然模仿浏览器</span></span><br><span class="line">    req.add_header(<span class="string">'User-Agent'</span>, <span class="string">'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/64.0.3282.119 Safari/537.36'</span>)</span><br><span class="line">    data = urllib.request.urlopen(req).read() <span class="comment">##单位是秒</span></span><br><span class="line">    save_file = open(<span class="string">'/mnt/c/Users/Hox/Desktop/save.html'</span>,<span class="string">'wb'</span>)</span><br><span class="line">    save_file.write(data)</span><br><span class="line">    save_file.close()</span><br><span class="line">    print(<span class="string">'文件保存在桌面 save.html'</span>)</span><br><span class="line"><span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">    print(str(e))</span><br></pre></td></tr></table></figure>
+<ul>
+<li>正确的执行结果应该如下:</li>
+</ul>
+<p><img src="/img/提交结果.png" alt="提交结果"></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
+<p>这家伙很懒, 什么都没有留下.</p>
+</blockquote>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/02/08/Python网络爬虫笔记1/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/dog.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/me.png" alt="Hox Zheng's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        zenhox@163.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:zenhox@163.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                Home
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    Archives
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/02/">February 2018<span class="sidebar_archives-count">10</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">January 2018<span class="sidebar_archives-count">9</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                Categories
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/DPDK/">DPDK<span class="sidebar_archives-count">3</span></a></li><li><a class="sidebar_archives-link" href="/categories/Python/">Python<span class="sidebar_archives-count">8</span></a></li><li><a class="sidebar_archives-link" href="/categories/SDN/">SDN<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/Software-Engineering/">Software Engineering<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Vim/">Vim<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                Number of articles
+                <span class="sidebar-badge">19</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>万川秋水de世界
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
