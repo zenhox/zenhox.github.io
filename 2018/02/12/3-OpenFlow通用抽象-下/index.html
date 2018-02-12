@@ -43,7 +43,7 @@
     
     <title>
         
-            DPDK-PktGen对Snort/Daq压力测试 | 
+            3-OpenFlow通用抽象-下 | 
         
         万川秋水de世界
     </title>
@@ -210,7 +210,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="万川秋水de世界">
-    <meta name="msapplication-starturl" content="http://yoursite.com/2018/01/30/DPDK-PktGen对Snort-Daq压力测试/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="万川秋水de世界">
@@ -225,16 +225,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/2018/01/30/DPDK-PktGen对Snort-Daq压力测试/">
+    <meta property="og:url" content="http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="DPDK-PktGen对Snort/Daq压力测试 | 万川秋水de世界">
+    <meta property="og:title" content="3-OpenFlow通用抽象-下 | 万川秋水de世界">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
     
 
     
-        <meta property="article:published_time" content="Tue Jan 30 2018 21:55:09 GMT+0800">
-        <meta property="article:modified_time" content="Thu Feb 01 2018 21:23:09 GMT+0800">
+        <meta property="article:published_time" content="Mon Feb 12 2018 10:38:18 GMT+0800">
+        <meta property="article:modified_time" content="Mon Feb 12 2018 15:51:04 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -242,7 +242,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2018/01/30/DPDK-PktGen对Snort-Daq压力测试/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -254,10 +254,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2018/01/30/DPDK-PktGen对Snort-Daq压力测试/index.html",
-    "headline": "DPDK-PktGen对Snort/Daq压力测试",
-    "datePublished": "Tue Jan 30 2018 21:55:09 GMT+0800",
-    "dateModified": "Thu Feb 01 2018 21:23:09 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html",
+    "headline": "3-OpenFlow通用抽象-下",
+    "datePublished": "Mon Feb 12 2018 10:38:18 GMT+0800",
+    "dateModified": "Mon Feb 12 2018 15:51:04 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Hox Zheng",
@@ -341,7 +341,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#DPDK-PktGen对Snort-Daq进行压力测试"><span class="post-toc-number">1.</span> <span class="post-toc-text">DPDK-PktGen对Snort/Daq进行压力测试</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#环境的配置"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">环境的配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Snort-DA的安装和配置"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">Snort/DA的安装和配置</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#PktGen的安装和配置"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">PktGen的安装和配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#用PktGen向运行Snort的实验机器线速发包"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">用PktGen向运行Snort的实验机器线速发包</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#启动Snort-并进入inline模式"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">启动Snort,并进入inline模式.</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#用PktGen线速向运行Snort的机器发送数据包"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">用PktGen线速向运行Snort的机器发送数据包</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#双方运行一段时间-停止发包与Snort监听-获得Snort的输出结果"><span class="post-toc-number">1.2.3.</span> <span class="post-toc-text">双方运行一段时间. 停止发包与Snort监听. 获得Snort的输出结果</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#计算转发速率"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">计算转发速率</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结论分析"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">结论分析</span></a></li></ol></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OpenFlow通用抽象-下"><span class="post-toc-number">1.</span> <span class="post-toc-text">OpenFlow通用抽象(下)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Instructions-流表项指令"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Instructions - 流表项指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分为两类"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">分为两类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指令和动作的区别"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">指令和动作的区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#流表项指令"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">流表项指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Aciton-动作"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">Aciton - 动作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Action-Set"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">Action Set</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Table-Miss"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">Table Miss</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#计数器"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">计数器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#失效时间-TimeOut"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">失效时间-TimeOut</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Flow-Table-详细处理流程"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Flow Table 详细处理流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#metadata"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">metadata</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Group-Table-组表"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">Group Table - 组表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#组表项类型"><span class="post-toc-number">1.4.2.1.</span> <span class="post-toc-text">组表项类型</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Meter-Table-计量表"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">Meter Table - 计量表</span></a></li></ol></li></ol></li></ol>
     </ul>
     
 
@@ -373,7 +373,7 @@
         
     
             <p class="article-headline-p">
-                DPDK-PktGen对Snort/Daq压力测试
+                3-OpenFlow通用抽象-下
             </p>
         </div>
 
@@ -392,7 +392,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Hox Zheng</strong>
-        <span>Jan 30, 2018</span>
+        <span>Feb 12, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -424,7 +424,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=DPDK-PktGen对Snort/Daq压力测试&url=http://yoursite.com/2018/01/30/DPDK-PktGen对Snort-Daq压力测试/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=3-OpenFlow通用抽象-下&url=http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 Share to Weibo
             </li>
@@ -433,7 +433,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=DPDK-PktGen对Snort/Daq压力测试&url=http://yoursite.com/2018/01/30/DPDK-PktGen对Snort-Daq压力测试/index.html&via=Hox Zheng" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=3-OpenFlow通用抽象-下&url=http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html&via=Hox Zheng" target="_blank">
             <li class="mdl-menu__item">
                 Share to Twitter
             </li>
@@ -442,7 +442,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/01/30/DPDK-PktGen对Snort-Daq压力测试/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html" target="_blank">
             <li class="mdl-menu__item">
                 Share to Facebook
             </li>
@@ -451,7 +451,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/01/30/DPDK-PktGen对Snort-Daq压力测试/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html" target="_blank">
             <li class="mdl-menu__item">
                 Share to Google+
             </li>
@@ -463,7 +463,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=万川秋水de世界&title=DPDK-PktGen对Snort/Daq压力测试&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/01/30/DPDK-PktGen对Snort-Daq压力测试/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=万川秋水de世界&title=3-OpenFlow通用抽象-下&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html" target="_blank">
             <li class="mdl-menu__item">
                 Share to QQ
             </li>
@@ -482,105 +482,90 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <p>[TOC]</p>
-<h1 id="DPDK-PktGen对Snort-Daq进行压力测试"><a href="#DPDK-PktGen对Snort-Daq进行压力测试" class="headerlink" title="DPDK-PktGen对Snort/Daq进行压力测试"></a>DPDK-PktGen对Snort/Daq进行压力测试</h1><blockquote>
-<p>最近两天用DPDK-PktGen和Snort进行了一次实验.目的是分析daq_afpacket的性能瓶颈.整个实验过程分为以下几个步骤:</p>
-</blockquote>
-<ul>
-<li>环境的配置</li>
-<li>用PktGen向运行Snort的实验机器线速发包</li>
-<li>根据Snort的输出,计算出使用afpacket模块时snort的转发速率,进行瓶颈判断.</li>
+        <h1 id="OpenFlow通用抽象-下"><a href="#OpenFlow通用抽象-下" class="headerlink" title="OpenFlow通用抽象(下)"></a>OpenFlow通用抽象(下)</h1><h2 id="Instructions-流表项指令"><a href="#Instructions-流表项指令" class="headerlink" title="Instructions - 流表项指令"></a>Instructions - 流表项指令</h2><h3 id="分为两类"><a href="#分为两类" class="headerlink" title="分为两类"></a>分为两类</h3><ul>
+<li>修改或操作动作集(Action Set)</li>
+<li>修改多级流表处理. (表之间的跳转)</li>
 </ul>
-<h2 id="环境的配置"><a href="#环境的配置" class="headerlink" title="环境的配置"></a>环境的配置</h2><blockquote>
-<p>环境配置实际上是整个实验中比较麻烦的地方,主要分配两个部分.</p>
-</blockquote>
-<ul>
-<li>被测试的机器安装和配置Snort/DAQ.</li>
-<li>测试的机器安装和配置PktGen(或者其他包生成器如:MoonGen)</li>
+<h3 id="指令和动作的区别"><a href="#指令和动作的区别" class="headerlink" title="指令和动作的区别"></a>指令和动作的区别</h3><ul>
+<li>指令(Instruction): 处理流程控制. 可以操作动作集.</li>
+<li>动作(Action):对数据包的处理.</li>
 </ul>
-<h3 id="Snort-DA的安装和配置"><a href="#Snort-DA的安装和配置" class="headerlink" title="Snort/DA的安装和配置"></a>Snort/DA的安装和配置</h3><blockquote>
-<p>这以块作为独立的一部分,我已经写成一篇博客. 详情可以浏览<a href="https://zenhox.github.io/2018/01/30/Snort-Daq%E5%AE%89%E8%A3%85%E4%B8%8E%E9%85%8D%E7%BD%AE/" target="_blank" rel="noopener">Snort/Daq 安装与配置</a>. </p>
-</blockquote>
-<h3 id="PktGen的安装和配置"><a href="#PktGen的安装和配置" class="headerlink" title="PktGen的安装和配置"></a>PktGen的安装和配置</h3><blockquote>
-<p>由于PktGen也在不断演进. 这里我们只是用它的基本功能就可以了. 这里提供一个比较老的版本, 因为它比较容易配置.点击即可下载.</p>
-</blockquote>
-<ul>
-<li><a href="/file/pktgen.zip">PktGen</a></li>
+<h3 id="流表项指令"><a href="#流表项指令" class="headerlink" title="流表项指令"></a>流表项指令</h3><p><img src="/img/流表项指令.png" alt="流表项指令"></p>
+<h3 id="Aciton-动作"><a href="#Aciton-动作" class="headerlink" title="Aciton - 动作"></a>Aciton - 动作</h3><p><img src="/img/action.png" alt="action"></p>
+<h3 id="Action-Set"><a href="#Action-Set" class="headerlink" title="Action Set"></a>Action Set</h3><ul>
+<li>每个包进入pipeline端口会分配一个Action Set. 初始这个集合为空.</li>
+<li>通过匹配后, 指令会在这个集合中添加一系列动作.</li>
+<li>最后,包离开流水线的时候, 会执行这个动作集合.</li>
+<li>如果不定义Action List, 执行顺序是默认顺序, 即从上往下执行.</li>
+<li>如果定义了, Action List, 执行顺序就是按照Action List来.</li>
 </ul>
-<blockquote>
-<p>下载完毕之后,解压到相应目录.</p>
+<h3 id="Table-Miss"><a href="#Table-Miss" class="headerlink" title="Table Miss"></a>Table Miss</h3><blockquote>
+<p>能匹配任意数据包, 优先级最低.</p>
 </blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unzip pktgen.zip /path/to/<span class="built_in">test</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>解压之后, 需要先编译. 但是编译需要导入 RTE_SDK 环境变量.因为pktGen是基于DPDK.  首先应该确定是否安装好了DPDK.  并确定DPDK的安装目录. 比如我的DPDK安装在</p>
-<p>/root/dpdkovs/dpdk-stable-17.08.1   所以,我在导入环境变量的时候:</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> RTE_SDK=/root/dpdkovs/dpdk-stable-17.08.1/</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>紧接着,可以make编译安装了.</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>可是,我在编译安装的过程中, 说找不到 x86_64-default-linuxapp-gcc. 这是因为,在DPDK目录中的SDK名称是 x86_64-native-linuxapp-gcc. 所以,这个时候,我们可以修改Makefile中的内容</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim Makefile  </span><br><span class="line"><span class="comment">##找到37行,修改</span></span><br><span class="line">RTE_TARGET ?= x86_64-default-linuxapp-gcc  =&gt; RTE_TARGET ?= x86_64-native-linuxapp-gcc</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>然后应该可以顺利编译了. 获得相应的可执行文件.</p>
-<p>这里必须提及, 一切都是假设DPDK安装正确, 并且绑定了至少两个网卡. 分配了hugepages的情况下.  请运行DPDK/usertools目录下的 dpdk-setup.py 脚本. 检查或配置DPDK网卡.</p>
-</blockquote>
-<h2 id="用PktGen向运行Snort的实验机器线速发包"><a href="#用PktGen向运行Snort的实验机器线速发包" class="headerlink" title="用PktGen向运行Snort的实验机器线速发包"></a>用PktGen向运行Snort的实验机器线速发包</h2><h3 id="启动Snort-并进入inline模式"><a href="#启动Snort-并进入inline模式" class="headerlink" title="启动Snort,并进入inline模式."></a>启动Snort,并进入inline模式.</h3><blockquote>
-<p>执行以下命令</p>
-</blockquote>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">snort -i eno49:eno50 --daq afpacket --daq-mode inline -c /etc/snort/snort.conf -Q -f <span class="string">'not ip'</span></span><br><span class="line"><span class="comment">## -i 后面是一组网卡. 因为是inline模式, 所以必须将一组网卡作为参数.</span></span><br><span class="line"><span class="comment">## 得到如下运行结果</span></span><br><span class="line">(...)</span><br><span class="line"></span><br><span class="line">   ,,_     -*&gt; Snort! &lt;*-</span><br><span class="line">  o<span class="string">"  )~   Version 2.9.8.0 GRE (Build 229)</span></span><br><span class="line"><span class="string">   ''''    By Martin Roesch &amp; The Snort Team: http://www.snort.org/contact#team</span></span><br><span class="line"><span class="string">(...)</span></span><br><span class="line"><span class="string">Commencing packet processing (pid=24750)</span></span><br><span class="line"><span class="string">Decoding Ethernet</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>这个时候说明Snort已经正确运行了. Snort持续监听着我们eno49和eno50这两个网卡.</p>
-</blockquote>
-<h3 id="用PktGen线速向运行Snort的机器发送数据包"><a href="#用PktGen线速向运行Snort的机器发送数据包" class="headerlink" title="用PktGen线速向运行Snort的机器发送数据包"></a>用PktGen线速向运行Snort的机器发送数据包</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /path/to/pktgen  <span class="comment">##切换到pktgen的目录</span></span><br><span class="line">./build/pktgen -c 1 -- -c config -f tx -b 6  <span class="comment">## 利用这个目录进行线速发包</span></span><br><span class="line"><span class="comment">##出现如下反应,则正常运行</span></span><br><span class="line">(...)</span><br><span class="line">Checking link status.done</span><br><span class="line">Port 0 Link Up - speed 10000 Mbps - full-duplex</span><br><span class="line">Port 1 Link Up - speed 10000 Mbps - full-duplex</span><br><span class="line">APP: Lcore 0 is writing to port 1, queue 0</span><br><span class="line">Lcore  0: 14.858 Mpps, 9.985 Gbps (6 packets per chunk) <span class="keyword">in</span> 1.2114 sec</span><br><span class="line">Lcore  0: 14.871 Mpps, 9.993 Gbps (6 packets per chunk) <span class="keyword">in</span> 1.2104 sec</span><br><span class="line">Lcore  0: 14.867 Mpps, 9.991 Gbps (6 packets per chunk) <span class="keyword">in</span> 1.2107 sec</span><br><span class="line">Lcore  0: 14.872 Mpps, 9.994 Gbps (6 packets per chunk) <span class="keyword">in</span> 1.2104 sec</span><br><span class="line">(...)</span><br><span class="line"><span class="comment">## 每隔大约一秒, 提示发送包的速率.</span></span><br></pre></td></tr></table></figure>
-<h3 id="双方运行一段时间-停止发包与Snort监听-获得Snort的输出结果"><a href="#双方运行一段时间-停止发包与Snort监听-获得Snort的输出结果" class="headerlink" title="双方运行一段时间. 停止发包与Snort监听. 获得Snort的输出结果"></a>双方运行一段时间. 停止发包与Snort监听. 获得Snort的输出结果</h3><blockquote>
-<p>测试对象:</p>
 <ul>
-<li>0000:04:00.0 ‘82599ES 10-Gigabit SFI/SFP+ Network Connection’ if=eno49 drv=ixgbe unused=vfio-pci</li>
-<li>0000:04:00.1 ‘82599ES 10-Gigabit SFI/SFP+ Network Connection’ if=eno50 drv=ixgbe unused=vfio-pci</li>
+<li>所以, 在包与所有其他流表项都无法匹配时, 才会与Table Miss</li>
+<li>在Table Miss 中的指令集中可以自定义一下操作, 如把数据包交给控制器.</li>
 </ul>
-<p>大约运行3min.  重复三次, 获得实验结果.</p>
-<ul>
-<li>首先是Memory usage summary: (三次是一样的)</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&gt; ===============================================================================</span><br><span class="line">&gt; Memory usage summary:</span><br><span class="line">&gt;   Total non-mmapped bytes (arena):       5427200</span><br><span class="line">&gt;   Bytes in mapped regions (hblkhd):      21590016</span><br><span class="line">&gt;   Total allocated space (uordblks):      3390032</span><br><span class="line">&gt;   Total free space (fordblks):           2037168</span><br><span class="line">&gt;   Topmost releasable block (keepcost):   30480</span><br><span class="line">&gt; ===============================================================================</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h2><blockquote>
+<p>Counter</p>
 </blockquote>
 <ul>
-<li>第一次</li>
+<li>计数的, 比如该流表项匹配了多少数据包, 字节数, 等等.</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">====================================================================</span><br><span class="line">Run time for packet processing was 129.514036 seconds</span><br><span class="line">Snort processed 0 packets.</span><br><span class="line">Snort ran for 0 days 0 hours 2 minutes 9 seconds</span><br><span class="line">   Pkts/min:            0</span><br><span class="line">   Pkts/sec:            0</span><br><span class="line">====================================================================           </span><br><span class="line">   Received:     11904194</span><br><span class="line">   Analyzed:            0 (  0.000%)</span><br><span class="line">    Dropped:    373101332 ( 96.908%)</span><br><span class="line">   Filtered:     12073654 (101.424%)</span><br><span class="line">Outstanding:            0 (  0.000%)</span><br><span class="line">   Injected:            0</span><br><span class="line">====================================================================</span><br></pre></td></tr></table></figure>
-<ul>
-<li>第二次</li>
+<h2 id="失效时间-TimeOut"><a href="#失效时间-TimeOut" class="headerlink" title="失效时间-TimeOut"></a>失效时间-TimeOut</h2><ul>
+<li>在这个timeout 这个时间内没有数据包匹配到这个流表项时. 会采取一定的策略:<ul>
+<li>删除这个流表项</li>
+<li>或者降低这个流表项的优先级</li>
+<li>其他</li>
 </ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">====================================================================</span><br><span class="line">Run time for packet processing was 179.808720 seconds</span><br><span class="line">Snort processed 0 packets.</span><br><span class="line">Snort ran for 0 days 0 hours 2 minutes 59 seconds</span><br><span class="line">   Pkts/min:            0</span><br><span class="line">   Pkts/sec:            0</span><br><span class="line">====================================================================           </span><br><span class="line">Packet I/O Totals:</span><br><span class="line">   Received:     16427510</span><br><span class="line">   Analyzed:            0 (  0.000%)</span><br><span class="line">    Dropped:    770496667 ( 97.912%)</span><br><span class="line">   Filtered:     16448690 (100.129%)</span><br><span class="line">Outstanding:            0 (  0.000%)</span><br><span class="line">   Injected:            0</span><br><span class="line">====================================================================</span><br></pre></td></tr></table></figure>
-<ul>
-<li>第三次</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">====================================================================</span><br><span class="line">Run time for packet processing was 141.825489 seconds</span><br><span class="line">Snort processed 0 packets.</span><br><span class="line">Snort ran for 0 days 0 hours 2 minutes 21 seconds</span><br><span class="line">   Pkts/min:            0</span><br><span class="line">   Pkts/sec:            0</span><br><span class="line">====================================================================           </span><br><span class="line">Packet I/O Totals:</span><br><span class="line">   Received:     13054661</span><br><span class="line">   Analyzed:            0 (  0.000%)</span><br><span class="line">    Dropped:    597670223 ( 97.862%)</span><br><span class="line">   Filtered:     13075841 (100.162%)</span><br><span class="line">Outstanding:            0 (  0.000%)</span><br><span class="line">   Injected:            0</span><br><span class="line">====================================================================</span><br></pre></td></tr></table></figure>
-<h2 id="计算转发速率"><a href="#计算转发速率" class="headerlink" title="计算转发速率"></a>计算转发速率</h2><p><script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script></p>
-<ul>
-<li><p>定义转发速率v<br>$$ 转发速率v = \frac {接收转发的包}{耗费的时间} $$</p>
 </li>
-<li><p>由此求得三次转发速率v1, v2, v3 分别为:</p>
+<li>因为这个流表项很可能已经多余了.</li>
+</ul>
+<h2 id="Flow-Table-详细处理流程"><a href="#Flow-Table-详细处理流程" class="headerlink" title="Flow Table 详细处理流程"></a>Flow Table 详细处理流程</h2><blockquote>
+<p>数据包先进入流表端口0</p>
+</blockquote>
+<ul>
+<li>数据包进入流表端口</li>
+<li>抽取包头域, 匹配查找, 搜索优先级最高的匹配表项</li>
+<li>执行相应的指令, 有很多种:<ul>
+<li>直接对包执行动作</li>
+<li>不直接执行, 而是添加Action Set</li>
+<li>流表间的跳转</li>
+</ul>
 </li>
 </ul>
-<p>$$ v_1 =91.9Kpps $$</p>
-<p>$$ v_2 =91.4Kpps $$</p>
-<p>$$ v_3=92.1Kpps $$</p>
-<ul>
-<li>求得转发速率的平均值:</li>
-</ul>
-<p>$$ \bar v = \frac{v_1 + v_2 + v_3}{3} =91.8Kpps $$</p>
-<ul>
-<li>而理论上, 10Gbps的网卡,转发线速应该是</li>
-</ul>
-<p>$$ v_{max} = 14.88Mpps $$</p>
-<h3 id="结论分析"><a href="#结论分析" class="headerlink" title="结论分析"></a>结论分析</h3><blockquote>
-<p>三次测验都有着恐怖的丢包率(均达到90%以上). 导致最后的包转发率远远没有达到线速. 可知, 内核提供的afpacket模块再处理大量小包时,性能非常差, 丢包率太高. 是包转发的性能瓶颈.</p>
+<h3 id="metadata"><a href="#metadata" class="headerlink" title="metadata"></a>metadata</h3><blockquote>
+<p>还有对Metadata的处理</p>
 </blockquote>
+<ul>
+<li>在流表0的Metadata 只包含一个输入端口信息</li>
+<li>metadata也可以和包头组成一个匹配域与白头进行匹配查找</li>
+<li>如果有goto table 指令, 会将对应的metadata传递给相应的表</li>
+</ul>
+<h3 id="Group-Table-组表"><a href="#Group-Table-组表" class="headerlink" title="Group Table - 组表"></a>Group Table - 组表</h3><ul>
+<li>定义一组端口去做特定操作. 比如组播,  负载均衡等等.</li>
+<li>组表项:</li>
+</ul>
+<p><img src="/img/组表项.png" alt="组表项"></p>
+<ul>
+<li>组表项ID. 32位无符号整数</li>
+<li>组表项类型: 定义了一组对端口的操作.</li>
+<li>计数器: 记录组表项处理的报文数目</li>
+<li>指令: 动作桶</li>
+</ul>
+<h4 id="组表项类型"><a href="#组表项类型" class="headerlink" title="组表项类型"></a>组表项类型</h4><p><img src="/img/组表项类型.png" alt="组表项类型"></p>
+<h3 id="Meter-Table-计量表"><a href="#Meter-Table-计量表" class="headerlink" title="Meter Table - 计量表"></a>Meter Table - 计量表</h3><ul>
+<li>计量表项:</li>
+</ul>
+<p><img src="/img/计量表项.png" alt="计量表项"></p>
+<ul>
+<li>计量带:</li>
+</ul>
+<p><img src="/img/计量带.png" alt="计量带"></p>
+<ul>
+<li>可选类型:</li>
+</ul>
+<p><img src="/img/band类型" alt="band类型"></p>
 
         
     
@@ -601,21 +586,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2018/02/02/2-OpenFlow通用抽象-上/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Newer
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2018/01/30/Snort-Daq安装与配置/" id="post_nav-older" class="next-content">
+        <a href="/2018/02/10/Urllib和URLError异常处理/" id="post_nav-older" class="next-content">
             Older
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
