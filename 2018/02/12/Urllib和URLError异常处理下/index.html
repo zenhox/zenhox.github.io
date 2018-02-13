@@ -43,7 +43,7 @@
     
     <title>
         
-            Categories: DPDK | 
+            Urllib和URLError异常处理(2) | 
         
         万川秋水de世界
     </title>
@@ -210,7 +210,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="万川秋水de世界">
-    <meta name="msapplication-starturl" content="http://yoursite.com/categories/DPDK/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/02/12/Urllib和URLError异常处理下/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="万川秋水de世界">
@@ -225,13 +225,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/categories/DPDK/">
+    <meta property="og:url" content="http://yoursite.com/2018/02/12/Urllib和URLError异常处理下/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Categories: DPDK | 万川秋水de世界">
+    <meta property="og:title" content="Urllib和URLError异常处理(2) | 万川秋水de世界">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
     
 
+    
+        <meta property="article:published_time" content="Mon Feb 12 2018 16:54:50 GMT+0800">
+        <meta property="article:modified_time" content="Tue Feb 13 2018 14:16:59 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -239,13 +242,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/categories/DPDK/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/02/12/Urllib和URLError异常处理下/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/02/12/Urllib和URLError异常处理下/index.html",
+    "headline": "Urllib和URLError异常处理(2)",
+    "datePublished": "Mon Feb 12 2018 16:54:50 GMT+0800",
+    "dateModified": "Tue Feb 13 2018 14:16:59 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Hox Zheng",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/me.png"
+        },
+        "description": "忧伤，一半来自远方，一半来自时光."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "万川秋水de世界",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
 
 
     
@@ -279,222 +312,267 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Urllib和URLError异常处理-2"><span class="post-toc-number">1.</span> <span class="post-toc-text">Urllib和URLError异常处理(2)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代理服务器设置"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">代理服务器设置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代理服务器寻找"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">代理服务器寻找</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#程序编写"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">程序编写</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#DebugLog"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">DebugLog</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#URLError-异常处理"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">URLError 异常处理</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#一个实例"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">一个实例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#URLError的原因"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">URLError的原因</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#HTTPError的状态的码的含义"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">HTTPError的状态的码的含义</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#对两者的整合"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">对两者的整合</span></a></li></ol></li></ol></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/30/DPDK-PktGen对Snort-Daq压力测试/">DPDK-PktGen对Snort/Daq压力测试</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            [TOC]
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/30/DPDK-PktGen对Snort-Daq压力测试/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/me.png" width="44px" height="44px" alt="Hox Zheng's avatar">
-            </div>
-            <div>
-                <strong>Hox Zheng</strong>
-                <span>Jan 30, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/DPDK/">DPDK</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/30/Snort-Daq安装与配置/">Snort/Daq安装与配置</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/30/Snort-Daq安装与配置/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/me.png" width="44px" height="44px" alt="Hox Zheng's avatar">
-            </div>
-            <div>
-                <strong>Hox Zheng</strong>
-                <span>Jan 30, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/DPDK/">DPDK</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/25/dpdk-pktSR/">Send packets defined by ourselves with DPDK</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            [TOC]
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/25/dpdk-pktSR/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/me.png" width="44px" height="44px" alt="Hox Zheng's avatar">
-            </div>
-            <div>
-                <strong>Hox Zheng</strong>
-                <span>Jan 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/DPDK/">DPDK</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/view-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/view-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                Urllib和URLError异常处理(2)
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/me.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Hox Zheng</strong>
+        <span>Feb 12, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Urllib和URLError异常处理(2)&url=http://yoursite.com/2018/02/12/Urllib和URLError异常处理下/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Weibo
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Urllib和URLError异常处理(2)&url=http://yoursite.com/2018/02/12/Urllib和URLError异常处理下/index.html&via=Hox Zheng" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/12/Urllib和URLError异常处理下/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/12/Urllib和URLError异常处理下/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=万川秋水de世界&title=Urllib和URLError异常处理(2)&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/02/12/Urllib和URLError异常处理下/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="Urllib和URLError异常处理-2"><a href="#Urllib和URLError异常处理-2" class="headerlink" title="Urllib和URLError异常处理(2)"></a>Urllib和URLError异常处理(2)</h1><h2 id="代理服务器设置"><a href="#代理服务器设置" class="headerlink" title="代理服务器设置"></a>代理服务器设置</h2><blockquote>
+<p>有时候使用同一个IP去爬同一个网站上的网页, 久了之后会被该网站屏蔽. 使用代理会解决这个问题.</p>
+</blockquote>
+<h3 id="代理服务器寻找"><a href="#代理服务器寻找" class="headerlink" title="代理服务器寻找"></a>代理服务器寻找</h3><ul>
+<li><a href="http://yum.iqianyue.com/proxy" target="_blank" rel="noopener">代理服务器网站</a></li>
+<li>在网站中, 尽量学着验证时间比较短的, 新的代理IP地址.</li>
+</ul>
+<h3 id="程序编写"><a href="#程序编写" class="headerlink" title="程序编写"></a>程序编写</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#encoding:utf-8</span></span><br><span class="line"><span class="keyword">import</span> urllib.request  <span class="comment">## 导入模块</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">use_proxy</span><span class="params">(proxy_addr,url)</span>:</span></span><br><span class="line">    <span class="string">"""use proxy</span></span><br><span class="line"><span class="string">    :returns: data</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        proxy = urllib.request.ProxyHandler(&#123;<span class="string">'http'</span>:proxy_addr&#125;) <span class="comment">## 设置对应的代理服务器的信息</span></span><br><span class="line">        opener = urllib.request.build_opener(proxy,urllib.request.HTTPHandler) <span class="comment">## 创建一个自定义opener对象, 第一个参数是代理信息, 第二个</span></span><br><span class="line">参数是类</span><br><span class="line">        urllib.request.install_opener(opener)  <span class="comment">## 创建全局默认的opener对象</span></span><br><span class="line">        data = urllib.request.urlopen(url).read()</span><br><span class="line">    <span class="keyword">except</span> Exception <span class="keyword">as</span> reason:</span><br><span class="line">        print(reason)</span><br><span class="line">    <span class="keyword">finally</span>:</span><br><span class="line">        <span class="keyword">if</span> <span class="string">'data'</span> <span class="keyword">in</span> locals():</span><br><span class="line">            <span class="keyword">return</span> data</span><br><span class="line"></span><br><span class="line">proxy_addr = input(<span class="string">'输入代理IP:端口 : '</span>)</span><br><span class="line">url = input(<span class="string">'输入要代理的网址 : '</span>)</span><br><span class="line">data = use_proxy(proxy_addr,url)</span><br><span class="line">save_file = open(<span class="string">'/mnt/c/Users/Hox/Desktop/save.html'</span>,<span class="string">'wb'</span>)</span><br><span class="line">save_file.write(data)</span><br><span class="line">save_file.close()</span><br></pre></td></tr></table></figure>
+<h2 id="DebugLog"><a href="#DebugLog" class="headerlink" title="DebugLog"></a>DebugLog</h2><blockquote>
+<p>有时候, 我们希望在程序运行的过程中, 边运行边打印调试日志.</p>
+</blockquote>
+<ul>
+<li>分别使用urllib.request.HTTPHandler()和urllib.request.HTTPSHandler() 将debuglevel设置为1.</li>
+<li>使用urllib.request.build_opener()创建自定义的opener对象, 并使用1)中设置的值作为参数</li>
+<li>用urllib.request.build_opener()创建全局默认的opener对象</li>
+<li>进行后续操作.</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"></span><br><span class="line">httphd = urllib.request.HTTPHandler(debuglevel=<span class="number">1</span>)</span><br><span class="line">httpshd = urllib.request.HTTPSHandler(debuglevel=<span class="number">1</span>)</span><br><span class="line">opener = urllib.request.build_opener(httphd,httpshd)</span><br><span class="line">urllib.request.install_opener(opener)</span><br><span class="line">data=urllib.request.urlopen(<span class="string">"http://edu.51cto.com"</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="URLError-异常处理"><a href="#URLError-异常处理" class="headerlink" title="URLError 异常处理"></a>URLError 异常处理</h2><blockquote>
+<p>主要介绍两个类, 一个是URLError类, 一个是URLError类的子类, HTTPError类.</p>
+</blockquote>
+<h3 id="一个实例"><a href="#一个实例" class="headerlink" title="一个实例"></a>一个实例</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.error</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    urllib.request.urlopen(<span class="string">"http://blog.csdn.net"</span>)</span><br><span class="line"><span class="keyword">except</span> urllib.request.URLError <span class="keyword">as</span> e:</span><br><span class="line">    print(e.reason)</span><br></pre></td></tr></table></figure>
+<h3 id="URLError的原因"><a href="#URLError的原因" class="headerlink" title="URLError的原因"></a>URLError的原因</h3><ul>
+<li>链接不上服务器</li>
+<li>远程URL不存在</li>
+<li>无网络</li>
+<li>触发了HTTPError</li>
+</ul>
+<h3 id="HTTPError的状态的码的含义"><a href="#HTTPError的状态的码的含义" class="headerlink" title="HTTPError的状态的码的含义"></a>HTTPError的状态的码的含义</h3><ul>
+<li>200 一切正常</li>
+<li>301 重定向到新的URL 永久的</li>
+<li>302 重定向到新的URL,  暂时的</li>
+<li>304 请求的资源未更行</li>
+<li>400 非法请求</li>
+<li>401 请求未经授权</li>
+<li>403 禁止访问</li>
+<li>404 没有找到对应的页面’</li>
+<li>500 服务器内部出现错误</li>
+<li>501 服务器不支持实现请求所需要的功能</li>
+</ul>
+<h3 id="对两者的整合"><a href="#对两者的整合" class="headerlink" title="对两者的整合"></a>对两者的整合</h3><blockquote>
+<p>因为URLError是HTTPError的父类, 所以理论上URLError可以处理HTTP类型的异常. 但是, 如果出发的不是HTTPError, 则e的属性中没有code, 所以需要经过以下处理, 即可合并!</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib.request</span><br><span class="line"><span class="keyword">import</span> urllib.error</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    data = urllib.request.urlopen(<span class="string">"http://blog.csdn.net"</span>).read()</span><br><span class="line">    print(data)</span><br><span class="line"><span class="keyword">except</span> urllib.request.URLError <span class="keyword">as</span> e:</span><br><span class="line">    <span class="keyword">if</span> hasattr(e,<span class="string">"code"</span>):</span><br><span class="line">        print(e.code)</span><br><span class="line">    <span class="keyword">if</span> hasattr(e,<span class="string">'reason'</span>):</span><br><span class="line">        print(e.reason)</span><br></pre></td></tr></table></figure>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+        <a href="/2018/02/13/Python爬虫中正则表达式的使用/" id="post_nav-newer" class="prev-content">
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_back</i>
+            </button>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Newer
+        </a>
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/02/12/3-OpenFlow通用抽象-下/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
