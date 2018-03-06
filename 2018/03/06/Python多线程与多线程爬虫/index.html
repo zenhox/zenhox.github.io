@@ -43,7 +43,7 @@
     
     <title>
         
-            Archives: 2018 | 
+            Python多线程与多线程爬虫 | 
         
         万川秋水de世界
     </title>
@@ -210,7 +210,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="万川秋水de世界">
-    <meta name="msapplication-starturl" content="http://yoursite.com/archives/2018/page/3/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/03/06/Python多线程与多线程爬虫/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="万川秋水de世界">
@@ -225,13 +225,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/archives/2018/page/3/">
+    <meta property="og:url" content="http://yoursite.com/2018/03/06/Python多线程与多线程爬虫/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="Archives: 2018 | 万川秋水de世界">
+    <meta property="og:title" content="Python多线程与多线程爬虫 | 万川秋水de世界">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
     
 
+    
+        <meta property="article:published_time" content="Tue Mar 06 2018 19:34:33 GMT+0800">
+        <meta property="article:modified_time" content="Tue Mar 06 2018 21:34:31 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -239,13 +242,43 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/archives/2018/page/3/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/03/06/Python多线程与多线程爬虫/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/03/06/Python多线程与多线程爬虫/index.html",
+    "headline": "Python多线程与多线程爬虫",
+    "datePublished": "Tue Mar 06 2018 19:34:33 GMT+0800",
+    "dateModified": "Tue Mar 06 2018 21:34:31 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Hox Zheng",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/me.png"
+        },
+        "description": "忧伤，一半来自远方，一半来自时光."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "万川秋水de世界",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
 
 
     
@@ -279,349 +312,229 @@
                         </button>
                     
 
-                    <!-- Index Module -->
-<div class="material-index mdl-grid">
-    
-    <div class="locate-thumbnail-symbol"></div>
+                    <!-- Post TOC -->
 
-    <!-- Pin on top -->
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Python-多线程爬虫基础"><span class="post-toc-number">1.</span> <span class="post-toc-text">Python 多线程爬虫基础</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Python-多线程的简单例子"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Python 多线程的简单例子</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Python-队列使用的简单实例"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">Python 队列使用的简单实例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#多线程爬虫思路"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">多线程爬虫思路</span></a></li></ol></li></ol>
+    </ul>
     
 
-    <!-- Normal Post -->
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
 
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/26/SDN是什么/">SDN是什么</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            SD...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/26/SDN是什么/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/me.png" width="44px" height="44px" alt="Hox Zheng's avatar">
-            </div>
-            <div>
-                <strong>Hox Zheng</strong>
-                <span>Jan 26, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/SDN/">SDN</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/26/软件工程导论/">软件工程导论</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            软件...
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/26/软件工程导论/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/me.png" width="44px" height="44px" alt="Hox Zheng's avatar">
-            </div>
-            <div>
-                <strong>Hox Zheng</strong>
-                <span>Jan 26, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Software-Engineering/">Software Engineering</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/25/dpdk-pktSR/">Send packets defined by ourselves with DPDK</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            [TOC]
-
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/25/dpdk-pktSR/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/me.png" width="44px" height="44px" alt="Hox Zheng's avatar">
-            </div>
-            <div>
-                <strong>Hox Zheng</strong>
-                <span>Jan 25, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/DPDK/">DPDK</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/24/VimNext/">VimNext</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-之前一篇博客为大家介绍的
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/24/VimNext/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/me.png" width="44px" height="44px" alt="Hox Zheng's avatar">
-            </div>
-            <div>
-                <strong>Hox Zheng</strong>
-                <span>Jan 24, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Vim/">Vim</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-        
-            
-                <!-- Paradox Thumbnail -->
-                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
-    <!-- Post Thumbnail -->
-    
-        
-            <!-- Random Thumbnail -->
-            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-        
-    
-
-        <!-- Post Title -->
-        <p class="article-headline-p"><a href="/2018/01/24/VimBegin/">VimBegin</a></p>
-    </div>
-
-    <!-- Post Excerpt -->
-    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
-        
-            
-        
-        &nbsp;&nbsp;&nbsp;
-        <span>
-            <a href="/2018/01/24/VimBegin/" target="_self">Read more</a>
-        </span>
-    </div>
-    <!-- Post_entry Info-->
-    <div id="post_entry-info">
-        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
-            <!-- Author Avatar -->
-            <div id="author-avatar">
-                <img src="/img/me.png" width="44px" height="44px" alt="Hox Zheng's avatar">
-            </div>
-            <div>
-                <strong>Hox Zheng</strong>
-                <span>Jan 24, 2018</span>
-            </div>
-        </div>
-        <div id="post_entry-right-info">
-          
-              <!-- Category -->
-              <span class="post_entry-category">
-                  <a class="post_category-link" href="/categories/Vim/">Vim</a>
-              </span>
-            
-
-            
-
-            
-
-            <!-- Post Views -->
-            <span class="post_entry-views">
-            </span>
-        </div>
-    </div>
-</div>
-
-            
-            
-        
-    
-
-    
-    <!-- Index nav -->
-        <nav class="material-nav mdl-cell mdl-cell--12-col">
-            <a class="extend prev" rel="prev" href="/archives/2018/page/2/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/archives/2018/">1</a><a class="page-number" href="/archives/2018/page/2/">2</a><span class="page-number current">3</span>
-        </nav>
-    
-
-    
-        <script type="text/ls-javascript" id="thumbnail-script">
-    var randomNum;
-
-    var locatePost = $('.locate-thumbnail-symbol').next();
-    for(var i = 0; i < 10; i++) {
-        randomNum = Math.floor(Math.random() * 19 + 1);
-
-        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
-        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/view-' + randomNum + '.png');
+    $('.post_thumbnail-random').attr('data-original', '/img/random/view-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
-
-        locatePost = locatePost.next();
-    }
 </script>
 
+        
+    
+            <p class="article-headline-p">
+                Python多线程与多线程爬虫
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/me.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Hox Zheng</strong>
+        <span>Mar 06, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Python多线程与多线程爬虫&url=http://yoursite.com/2018/03/06/Python多线程与多线程爬虫/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Weibo
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Python多线程与多线程爬虫&url=http://yoursite.com/2018/03/06/Python多线程与多线程爬虫/index.html&via=Hox Zheng" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/06/Python多线程与多线程爬虫/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/06/Python多线程与多线程爬虫/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=万川秋水de世界&title=Python多线程与多线程爬虫&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/03/06/Python多线程与多线程爬虫/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
     
 </div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="Python-多线程爬虫基础"><a href="#Python-多线程爬虫基础" class="headerlink" title="Python 多线程爬虫基础"></a>Python 多线程爬虫基础</h1><blockquote>
+<p>Python多线程和java多线程的运用很相似. 都可以通过继承 线程类, 然后再类里面重写run 方法来实现自己想要完成的任务.</p>
+</blockquote>
+<h2 id="Python-多线程的简单例子"><a href="#Python-多线程的简单例子" class="headerlink" title="Python 多线程的简单例子"></a>Python 多线程的简单例子</h2><ul>
+<li>让两个线程同时运行, 输出我是线程a/b</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/python3</span></span><br><span class="line"><span class="keyword">import</span> threading</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span><span class="params">(threading.Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">    ┆   threading.Thread.__init__(self)</span><br><span class="line">    ┆   <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">    ┆   <span class="comment">##while(1):</span></span><br><span class="line">    ┆   <span class="comment">##    print("我是线程" + threading.Thread.getName())</span></span><br><span class="line">    ┆   <span class="comment">##    threading.Thread</span></span><br><span class="line">    ┆   <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    ┆   ┆   print(<span class="string">"I'm thread A"</span>)</span><br><span class="line">    ┆   ┆   <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span><span class="params">(threading.Thread)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self)</span>:</span></span><br><span class="line">    ┆   threading.Thread.__init__(self)</span><br><span class="line">    ┆   <span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">(self)</span>:</span></span><br><span class="line">    ┆   <span class="comment">##while(1):</span></span><br><span class="line">    ┆   <span class="comment">##    print("我是线程" + threading.Thread.getName())</span></span><br><span class="line">    ┆   <span class="comment">##    threading.Thread</span></span><br><span class="line">    ┆   <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">1</span>,<span class="number">10</span>):</span><br><span class="line">    ┆   ┆   print(<span class="string">"I'm thread B"</span>)</span><br><span class="line"></span><br><span class="line">thread1 = A()</span><br><span class="line">thread1.start()</span><br><span class="line">thread2 = B()</span><br><span class="line">thread2.start()</span><br></pre></td></tr></table></figure>
+<h2 id="Python-队列使用的简单实例"><a href="#Python-队列使用的简单实例" class="headerlink" title="Python 队列使用的简单实例"></a>Python 队列使用的简单实例</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#! /usr/bin/python3</span></span><br><span class="line"><span class="keyword">import</span> queue</span><br><span class="line"></span><br><span class="line">a = queue.Queue()</span><br><span class="line"></span><br><span class="line">a.put(<span class="string">"小张"</span>)</span><br><span class="line">a.put(<span class="string">"小郑"</span>)</span><br><span class="line">a.put(<span class="string">"小李"</span>)</span><br><span class="line">a.task_done</span><br><span class="line"></span><br><span class="line">print(a.get())</span><br><span class="line">a.task_done()  <span class="comment">## 每次GET之后,处理完要加taskdown</span></span><br><span class="line">print(a.get())</span><br><span class="line">a.task_done()  <span class="comment">## 每次GET之后,处理完要加taskdown</span></span><br><span class="line">print(a.get())</span><br><span class="line">a.task_done()  <span class="comment">## 每次GET之后,处理完要加taskdown</span></span><br></pre></td></tr></table></figure>
+<h2 id="多线程爬虫思路"><a href="#多线程爬虫思路" class="headerlink" title="多线程爬虫思路"></a>多线程爬虫思路</h2><ul>
+<li>总体规划号程序执行的流程, 并规划好各线程的关系与作用. 总共需要三个线程!</li>
+<li>线程1 专门获取对应的网址并处理为真实网址, 然后将网址写入队列urlqueue中, 该队列专门用来存放具体文章的网址.</li>
+<li>线程2与线程1并行, 从线程1提供的文章网址中依次爬取对应文章信息,并处理. 处理后保存到本地.</li>
+<li>线程3是控制线程, 用于检查程序是否完成, 否则即使线程1和线程2都干完活了, 程序也不会自动结束. 所以我们可以建立一个新的线程, 专门实现总体控制, 每次延时60秒, 延时后发现队列中没有了任务, 那么就终止程序.</li>
+</ul>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/02/27/图片爬虫实战/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
 
 
                     
