@@ -491,26 +491,26 @@
 <h3 id="format的使用"><a href="#format的使用" class="headerlink" title="format的使用"></a>format的使用</h3><ul>
 <li>位置参数</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&#123;0&#125; love &#123;1&#125;"</span>.format(<span class="string">'I'</span>,<span class="string">'U'</span>)</span><br><span class="line">	<span class="string">'I love U'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">"&#123;0&#125; love &#123;1&#125;"</span>.format(<span class="string">'I'</span>,<span class="string">'U'</span>)</span><br><span class="line">	<span class="string">'I love U'</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>关键字参数</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&#123;name1&#125; love &#123;name2&#125;"</span>.format(name1=<span class="string">'I'</span>,name2=<span class="string">'U'</span>)</span><br><span class="line">	<span class="string">'I love U'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">"&#123;name1&#125; love &#123;name2&#125;"</span>.format(name1=<span class="string">'I'</span>,name2=<span class="string">'U'</span>)</span><br><span class="line">	<span class="string">'I love U'</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>位置参数和关键字参数混用</li>
 </ul>
 <blockquote>
 <p>位置参数和关键字参数是可以混用的, 但是要注意的是位置参数必须在关键字参数的前面.</p>
 </blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&#123;0&#125; love &#123;name2&#125;"</span>.format(<span class="string">'I'</span>,name2=<span class="string">'U'</span>)</span><br><span class="line">	<span class="string">'I love U'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">"&#123;0&#125; love &#123;name2&#125;"</span>.format(<span class="string">'I'</span>,name2=<span class="string">'U'</span>)</span><br><span class="line">	<span class="string">'I love U'</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>外层大括号的吞噬效应</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'&#123;&#123;0&#125;&#125;'</span>.format(<span class="string">'不打印'</span>)</span><br><span class="line">	<span class="string">'&#123;0&#125;'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">'&#123;&#123;0&#125;&#125;'</span>.format(<span class="string">'不打印'</span>)</span><br><span class="line">	<span class="string">'&#123;0&#125;'</span></span><br></pre></td></tr></table></figure>
 <ul>
 <li>浮点数规格化</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">"&#123;0&#125;:&#123;1:.2f&#125;"</span>.format(<span class="string">'pi'</span>,<span class="number">3.1415926</span>)   <span class="comment">##这里是四舍五入</span></span><br><span class="line">	<span class="string">'pi:3.14'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">"&#123;0&#125;:&#123;1:.2f&#125;"</span>.format(<span class="string">'pi'</span>,<span class="number">3.1415926</span>)   <span class="comment">##这里是四舍五入</span></span><br><span class="line">	<span class="string">'pi:3.14'</span></span><br></pre></td></tr></table></figure>
 <h3 id="格式化操作符"><a href="#格式化操作符" class="headerlink" title="格式化操作符%"></a>格式化操作符%</h3><blockquote>
 <p>%通过匹配不同的字符表示一定的格式</p>
 </blockquote>
@@ -571,7 +571,7 @@
 <ul>
 <li>用法</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'%d转换为八进制数是:%o'</span> % (<span class="number">123</span>,<span class="number">123</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">'%d转换为八进制数是:%o'</span> % (<span class="number">123</span>,<span class="number">123</span>)</span><br></pre></td></tr></table></figure>
 <h3 id="格式化操作符得辅助指令"><a href="#格式化操作符得辅助指令" class="headerlink" title="格式化操作符得辅助指令"></a>格式化操作符得辅助指令</h3><table>
 <thead>
 <tr>
@@ -605,7 +605,7 @@
 <ul>
 <li>用法</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'%4.1f'</span> % <span class="number">12.131</span></span><br><span class="line"><span class="string">'%.e'</span> % <span class="number">27.658</span></span><br><span class="line"><span class="string">'%10d'</span> % <span class="number">5</span></span><br><span class="line"><span class="string">'%010d'</span>%<span class="number">5</span></span><br><span class="line">	<span class="string">'0000000005'</span></span><br><span class="line"><span class="string">'%#X'</span> % <span class="number">100</span></span><br><span class="line">	<span class="string">'0X64'</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">'%4.1f'</span> % <span class="number">12.131</span></span><br><span class="line"><span class="string">'%.e'</span> % <span class="number">27.658</span></span><br><span class="line"><span class="string">'%10d'</span> % <span class="number">5</span></span><br><span class="line"><span class="string">'%010d'</span>%<span class="number">5</span></span><br><span class="line">	<span class="string">'0000000005'</span></span><br><span class="line"><span class="string">'%#X'</span> % <span class="number">100</span></span><br><span class="line">	<span class="string">'0X64'</span></span><br></pre></td></tr></table></figure>
 <h3 id="Python中得转义字符及含义"><a href="#Python中得转义字符及含义" class="headerlink" title="Python中得转义字符及含义"></a>Python中得转义字符及含义</h3><table>
 <thead>
 <tr>
@@ -709,11 +709,11 @@
 <ul>
 <li>join 用法举例</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">' '</span>.join(<span class="string">"Text"</span>)</span><br><span class="line">	T e x t</span><br><span class="line"><span class="string">'x'</span>.join([<span class="string">'I'</span>,<span class="string">'Love'</span>,<span class="string">'U'</span>])</span><br><span class="line">	IxLovecU</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="string">' '</span>.join(<span class="string">"Text"</span>)</span><br><span class="line">	T e x t</span><br><span class="line"><span class="string">'x'</span>.join([<span class="string">'I'</span>,<span class="string">'Love'</span>,<span class="string">'U'</span>])</span><br><span class="line">	IxLovecU</span><br></pre></td></tr></table></figure>
 <ul>
 <li>split用法举例</li>
 </ul>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">str1 = f_i_n_i_s_h</span><br><span class="line">str1.split(sep=<span class="string">'_'</span>)</span><br><span class="line">	[<span class="string">'f'</span>,<span class="string">'i'</span>,<span class="string">'n'</span>,<span class="string">'i'</span>,<span class="string">'s'</span>,<span class="string">'h'</span>]</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line">str1 = f_i_n_i_s_h</span><br><span class="line">str1.split(sep=<span class="string">'_'</span>)</span><br><span class="line">	[<span class="string">'f'</span>,<span class="string">'i'</span>,<span class="string">'n'</span>,<span class="string">'i'</span>,<span class="string">'s'</span>,<span class="string">'h'</span>]</span><br></pre></td></tr></table></figure>
 
         
     
