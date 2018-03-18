@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="en">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            DPDK运行环境初始化函数 | 
+        
+        万川秋水de世界
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.en.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/bg.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="万川秋水de世界">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/03/15/DPDK-API学习-逻辑核结构体与初始化函数/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="万川秋水de世界">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com/2018/03/15/DPDK-API学习-逻辑核结构体与初始化函数/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="DPDK运行环境初始化函数 | 万川秋水de世界">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Thu Mar 15 2018 21:50:40 GMT+0800">
+        <meta property="article:modified_time" content="Sun Mar 18 2018 17:42:56 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/03/15/DPDK-API学习-逻辑核结构体与初始化函数/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/03/15/DPDK-API学习-逻辑核结构体与初始化函数/index.html",
+    "headline": "DPDK运行环境初始化函数",
+    "datePublished": "Thu Mar 15 2018 21:50:40 GMT+0800",
+    "dateModified": "Sun Mar 18 2018 17:42:56 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Hox Zheng",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/me.png"
+        },
+        "description": "忧伤，一半来自远方，一半来自时光."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "万川秋水de世界",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#DPDK逻辑核与多线程"><span class="post-toc-number">1.</span> <span class="post-toc-text">DPDK逻辑核与多线程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#逻辑核结构体分析"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">逻辑核结构体分析</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#环境抽象层初始化"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">环境抽象层初始化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#环境抽象层-environment-abstract-layer-eal"><span class="post-toc-number">1.2.1.</span> <span class="post-toc-text">环境抽象层 environment abstract layer[eal]</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#eal-初始化函数"><span class="post-toc-number">1.2.2.</span> <span class="post-toc-text">eal 初始化函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#逻辑核与线程相关API"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">逻辑核与线程相关API</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#线程启动任务"><span class="post-toc-number">1.3.1.</span> <span class="post-toc-text">线程启动任务</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#全部调用的一个直接api"><span class="post-toc-number">1.3.1.1.</span> <span class="post-toc-text">全部调用的一个直接api</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#主线程等待"><span class="post-toc-number">1.3.2.</span> <span class="post-toc-text">主线程等待</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#线程状态"><span class="post-toc-number">1.3.3.</span> <span class="post-toc-text">线程状态</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#线程中得到自己的信息"><span class="post-toc-number">1.3.4.</span> <span class="post-toc-text">线程中得到自己的信息</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#实战技能"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">实战技能</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#程序代码"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">程序代码</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#效果截图"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">效果截图</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/view-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                DPDK运行环境初始化函数
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/me.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Hox Zheng</strong>
+        <span>Mar 15, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=DPDK运行环境初始化函数&url=http://yoursite.com/2018/03/15/DPDK-API学习-逻辑核结构体与初始化函数/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Weibo
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=DPDK运行环境初始化函数&url=http://yoursite.com/2018/03/15/DPDK-API学习-逻辑核结构体与初始化函数/index.html&via=Hox Zheng" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/03/15/DPDK-API学习-逻辑核结构体与初始化函数/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/03/15/DPDK-API学习-逻辑核结构体与初始化函数/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=万川秋水de世界&title=DPDK运行环境初始化函数&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/03/15/DPDK-API学习-逻辑核结构体与初始化函数/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="DPDK逻辑核与多线程"><a href="#DPDK逻辑核与多线程" class="headerlink" title="DPDK逻辑核与多线程"></a>DPDK逻辑核与多线程</h1><blockquote>
+<p>开始了漫长的看代码的道路. 从这篇文章开始, 少则一个函数, 多则一个example. 逐渐学习DPDK自带的一些例子程序.  希望通过这部分的学习, 能够很快实现数据包分析的线程绑定.</p>
+</blockquote>
+<p>[TOC]</p>
+<h2 id="逻辑核结构体分析"><a href="#逻辑核结构体分析" class="headerlink" title="逻辑核结构体分析"></a>逻辑核结构体分析</h2><p>这个是每个逻辑核的配置文件, 可以通过 core_id 来区分. 里面包含的是否可见, 状态, 以及运行的线程函数.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">lcore_config</span> &#123;</span></span><br><span class="line">          <span class="keyword">unsigned</span> detected;         <span class="comment">/**&lt; true if lcore was detected */</span></span><br><span class="line">          <span class="keyword">pthread_t</span> thread_id;       <span class="comment">/**&lt; pthread identifier */</span></span><br><span class="line">          <span class="keyword">int</span> pipe_master2slave[<span class="number">2</span>];  <span class="comment">/**&lt; communication pipe with master */</span></span><br><span class="line">          <span class="keyword">int</span> pipe_slave2master[<span class="number">2</span>];  <span class="comment">/**&lt; communication pipe with master */</span></span><br><span class="line">          <span class="keyword">lcore_function_t</span> * <span class="keyword">volatile</span> f;         <span class="comment">/**&lt; function to call */</span></span><br><span class="line">          <span class="keyword">void</span> * <span class="keyword">volatile</span> arg;       <span class="comment">/**&lt; argument of function */</span></span><br><span class="line">          <span class="keyword">volatile</span> <span class="keyword">int</span> ret;          <span class="comment">/**&lt; return value of function */</span></span><br><span class="line">          <span class="keyword">volatile</span> <span class="keyword">enum</span> <span class="keyword">rte_lcore_state_t</span> state; <span class="comment">/**&lt; lcore state */</span></span><br><span class="line">          <span class="keyword">unsigned</span> socket_id;        <span class="comment">/**&lt; physical socket id for this lcore */</span></span><br><span class="line">          <span class="keyword">unsigned</span> core_id;          <span class="comment">/**&lt; core number on socket for this lcore */</span></span><br><span class="line">          <span class="keyword">int</span> core_index;            <span class="comment">/**&lt; relative index, starting from 0 */</span></span><br><span class="line">          <span class="keyword">rte_cpuset_t</span> cpuset;       <span class="comment">/**&lt; cpu set which the lcore affinity to */</span></span><br><span class="line">          <span class="keyword">uint8_t</span> core_role;         <span class="comment">/**&lt; role of core eg: OFF, RTE, SERVICE */</span></span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<p>这个是整个运行环境的配置文件, 包含主线程核id, 逻辑核数量以及每个逻辑核的role, 进程优先级状态.                                                    </p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">rte_config</span> &#123;</span></span><br><span class="line">          <span class="keyword">uint32_t</span> master_lcore;       <span class="comment">/**&lt; Id of the master lcore */</span></span><br><span class="line">          <span class="keyword">uint32_t</span> lcore_count;        <span class="comment">/**&lt; Number of available logical cores. */</span></span><br><span class="line">          <span class="keyword">uint32_t</span> service_lcore_count;<span class="comment">/**&lt; Number of available service cores. */</span></span><br><span class="line">	      <span class="keyword">enum</span> <span class="keyword">rte_lcore_role_t</span> lcore_role[RTE_MAX_LCORE]; <span class="comment">/**&lt; State of cores. */</span></span><br><span class="line"></span><br><span class="line">          <span class="comment">/** Primary or secondary configuration */</span></span><br><span class="line">          <span class="keyword">enum</span> <span class="keyword">rte_proc_type_t</span> process_type;</span><br><span class="line"></span><br><span class="line">          <span class="comment">/**</span></span><br><span class="line"><span class="comment">           * Pointer to memory configuration, which may be shared across multiple</span></span><br><span class="line"><span class="comment">           * DPDK instances</span></span><br><span class="line"><span class="comment">           */</span></span><br><span class="line">          <span class="class"><span class="keyword">struct</span> <span class="title">rte_mem_config</span> *<span class="title">mem_config</span>;</span></span><br><span class="line">  &#125; __attribute__((__packed__));</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * The type of process in a linuxapp, multi-process setup</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line">  <span class="keyword">enum</span> <span class="keyword">rte_proc_type_t</span> &#123;</span><br><span class="line">        RTE_PROC_AUTO = <span class="number">-1</span>,   <span class="comment">/* allow auto-detection of primary/secondary */</span></span><br><span class="line">        RTE_PROC_PRIMARY = <span class="number">0</span>, <span class="comment">/* set to zero, so primary is the default */</span></span><br><span class="line">        RTE_PROC_SECONDARY,</span><br><span class="line"></span><br><span class="line">        RTE_PROC_INVALID</span><br><span class="line">  &#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="环境抽象层初始化"><a href="#环境抽象层初始化" class="headerlink" title="环境抽象层初始化"></a>环境抽象层初始化</h2><h3 id="环境抽象层-environment-abstract-layer-eal"><a href="#环境抽象层-environment-abstract-layer-eal" class="headerlink" title="环境抽象层 environment abstract layer[eal]"></a>环境抽象层 environment abstract layer[eal]</h3><p>是对硬件资源的抽象,  即将硬件资源的细节内容隐藏起来, 只提供一些简单的接口来实现对资源的分配和利用.</p>
+<h3 id="eal-初始化函数"><a href="#eal-初始化函数" class="headerlink" title="eal 初始化函数"></a>eal 初始化函数</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rte_eal_init</span><span class="params">(argc, argv)</span></span>;   <span class="comment">// 实现代码 并未提供</span></span><br></pre></td></tr></table></figure>
+<p>是对环境抽象层的初始化, 只能在 Master_core 上运行, 并且越早执行它越好. 它使所有的逻辑核置于等待状态. 它在main 执行前结束初始化进程. 下面一句话来自代码注释, 并未懂, 等待以后考究:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">* When the multi-partition feature is supported, depending on the</span><br><span class="line">* configuration (if CONFIG_RTE_EAL_MAIN_PARTITION is disabled), this</span><br><span class="line">* function waits to ensure that the magic number is set before</span><br><span class="line">* returning. See also the rte_eal_get_configuration() function. Note:</span><br><span class="line">* This behavior may change in the future.</span><br></pre></td></tr></table></figure>
+<p>这个初始化函数的返回值是 传递参数的个数 . 如果返回值ret大于等于0, 则初始化成功.  并且, 所有 argv[x], x&lt; ret 的值都会被这个函数改变, 这些值不应该再被应用解释.</p>
+<p>如果初始化失败, 会返回-1, 或者报错. 有以下几种错误:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">*   Error codes returned via rte_errno:</span><br><span class="line">*     EACCES indicates a permissions issue.</span><br><span class="line">*</span><br><span class="line">*     EAGAIN indicates either a bus or system resource was not available,</span><br><span class="line">*            setup may be attempted again.</span><br><span class="line">*</span><br><span class="line">*     EALREADY indicates that the rte_eal_init function has already been</span><br><span class="line">*              called, and cannot be called again.</span><br><span class="line">*</span><br><span class="line">*     EFAULT indicates the tailq configuration name was not found in</span><br><span class="line">*            memory configuration.</span><br><span class="line">*</span><br><span class="line">*     EINVAL indicates invalid parameters were passed as argv/argc.</span><br><span class="line">*</span><br><span class="line">*     ENOMEM indicates failure likely caused by an out-of-memory condition.</span><br><span class="line">*</span><br><span class="line">*     ENODEV indicates memory setup issues.</span><br><span class="line">*</span><br><span class="line">*     ENOTSUP indicates that the EAL cannot initialize on this system.</span><br><span class="line">*</span><br><span class="line">*     EPROTO indicates that the PCI bus is either not present, or is not</span><br><span class="line">*            readable by the eal.</span><br><span class="line">*</span><br><span class="line">*     ENOEXEC indicates that a service core failed to launch successfully.</span><br></pre></td></tr></table></figure>
+<h2 id="逻辑核与线程相关API"><a href="#逻辑核与线程相关API" class="headerlink" title="逻辑核与线程相关API"></a>逻辑核与线程相关API</h2><h3 id="线程启动任务"><a href="#线程启动任务" class="headerlink" title="线程启动任务"></a>线程启动任务</h3><p>​<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RTE_LCORE_FOREACH_SLAVE(lcore_id) &#123;</span><br><span class="line">                 rte_eal_remote_launch(lcore_hello, <span class="literal">NULL</span>, lcore_id);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其中RTE_LCORE_FOREACH_SLAVE(lcore_id) {}  是遍历所有逻辑核, 以lcore_id 为迭代器.</p>
+<p>而最重要的一个api是:</p>
+<p>​<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rte_eal_remote_launch</span>	<span class="params">(	<span class="keyword">lcore_function_t</span> * 	f,</span></span></span><br><span class="line"><span class="function"><span class="params"><span class="keyword">void</span> * 	arg,</span></span></span><br><span class="line"><span class="function"><span class="params"><span class="keyword">unsigned</span> 	slave_id </span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span></span><br></pre></td></tr></table></figure></p>
+<p>函数参数:</p>
+<ul>
+<li><code>lcore_function_t *     f</code>   是要调用的线程函数.<br>   <code>void *     arg</code> 是传递给这个线程函数的参数.<br>   <code>unsigned     slave_id</code>  是执行这个线程函数的逻辑核的id.  同时也是这个线程的唯一标识~</li>
+</ul>
+<p>返回值:</p>
+<ul>
+<li>0:  如果成功的话.</li>
+<li>(-EBUSY): 如果目标核不是wait状态.</li>
+</ul>
+<p>由此我们可以获得以下信息:</p>
+<ul>
+<li>遍历所有逻辑核用 RTE_LCORE_FOREACH_SLAVE(lcore_id) { }</li>
+</ul>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">RTE_LCORE_FOREACH_SLAVE(lcore_id) &#123; </span><br><span class="line"><span class="comment">// something</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>线程函数的指针类型是  lcore_function_t *</li>
+<li>逻辑核id的类型是 unsigned. 他的大小是 4 Bytes</li>
+</ul>
+<h4 id="全部调用的一个直接api"><a href="#全部调用的一个直接api" class="headerlink" title="全部调用的一个直接api"></a>全部调用的一个直接api</h4><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rte_eal_mp_remote_launch</span>	<span class="params">(	<span class="keyword">lcore_function_t</span> * 	f,</span></span></span><br><span class="line"><span class="function"><span class="params"><span class="keyword">void</span> * 	arg,</span></span></span><br><span class="line"><span class="function"><span class="params"><span class="keyword">enum</span> <span class="keyword">rte_rmt_call_master_t</span> 	call_master </span></span></span><br><span class="line"><span class="function"><span class="params">)</span></span></span><br></pre></td></tr></table></figure>
+<p>前面两个参数已经了解了, 第三个参数需要先了解一下 这个这个结构体:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="keyword">rte_rmt_call_master_t</span></span><br><span class="line">&#123;	</span><br><span class="line">	SKIP_MASTER 	<span class="comment">//lcore handler not executed by master core.</span></span><br><span class="line">	CALL_MASTER 	<span class="comment">//lcore handler executed by master core.</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>意思就是,   看看主线程是否也需要这个任务!  跳过,  或者执行!</p>
+<h3 id="主线程等待"><a href="#主线程等待" class="headerlink" title="主线程等待"></a>主线程等待</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rte_eal_mp_wait_lcore</span><span class="params">(<span class="keyword">void</span>)</span></span></span><br></pre></td></tr></table></figure>
+<p>他的作用是:  等待所有从线程执行完毕, 自己才结束, 相当于java中的 join 方法!!!  只能再主线程中使用!</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rte_eal_wait_lcore</span><span class="params">(<span class="keyword">unsigned</span> slave_id)</span></span></span><br></pre></td></tr></table></figure>
+<p>等待 slave_id 这个线程执行完毕,  如果该线程是running 状态, 则等待它执行到 finished状态.  如果这个线程已经是finished状态, 则将他置wait状态.</p>
+<p>返回值:  如果是0, 那么这个线程已经是WAIT状态, </p>
+<h3 id="线程状态"><a href="#线程状态" class="headerlink" title="线程状态"></a>线程状态</h3><p>下面是逻辑核的几种状态:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">enum</span> <span class="keyword">rte_lcore_state_t</span> &#123;</span><br><span class="line">        WAIT,       <span class="comment">/**&lt; waiting a new command */</span></span><br><span class="line">        RUNNING,    <span class="comment">/**&lt; executing command */</span></span><br><span class="line">        FINISHED,   <span class="comment">/**&lt; command executed */</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">enum</span> rte_lcore_state_t <span class="title">rte_eal_get_lcore_state</span>	<span class="params">(	<span class="keyword">unsigned</span> 	slave_id	)</span></span></span><br></pre></td></tr></table></figure>
+<p>根据 slave_id 得到线程的状态.</p>
+<h3 id="线程中得到自己的信息"><a href="#线程中得到自己的信息" class="headerlink" title="线程中得到自己的信息"></a>线程中得到自己的信息</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">unsigned</span> <span class="title">rte_lcore_id</span>	<span class="params">(<span class="keyword">void</span> )</span>  <span class="comment">//得到自己执行的应用线程的id</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">unsigned</span> <span class="title">rte_get_master_lcore</span>	<span class="params">(	<span class="keyword">void</span> )</span>	 <span class="comment">//得到master core的id</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">unsigned</span> <span class="title">rte_lcore_count</span>	<span class="params">(	<span class="keyword">void</span> 		)</span>  <span class="comment">//得到系统上有多少个 逻辑核(执行单元)</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">rte_lcore_index</span>	<span class="params">(	<span class="keyword">int</span> 	lcore_id	)</span>	<span class="comment">//得到核的index, 是从0 开始记数的</span></span></span><br></pre></td></tr></table></figure>
+<p>翻译出来可能不准确:</p>
+<p>Return the index of the lcore starting from zero. When option -c or -l is given, the index corresponds to the order in the list. For example: -c 0x30, lcore 4 has index 0, and 5 has index 1. -l 22,18 lcore 22 has index 0, and 18 has index 1.</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="title">rte_socket_id</span>	<span class="params">(	<span class="keyword">void</span> 		)</span>	 <span class="comment">//得到这个核的 物理socket 的id</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">unsigned</span> <span class="title">rte_lcore_to_socket_id</span>	<span class="params">(	<span class="keyword">unsigned</span> 	lcore_id	)</span>	<span class="comment">//根据 lcore_id 得到</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">int</span> <span class="title">rte_lcore_is_enabled</span>	<span class="params">(	<span class="keyword">unsigned</span> 	lcore_id	)</span>  <span class="comment">//返回的起始时 true 和 false</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">unsigned</span> <span class="title">rte_get_next_lcore</span>	<span class="params">(	<span class="keyword">unsigned</span> 	i,   <span class="comment">//当前的核id</span></span></span></span><br><span class="line"><span class="function"><span class="params"><span class="keyword">int</span> 	skip_master,     <span class="comment">//是否跳过master</span></span></span></span><br><span class="line"><span class="function"><span class="params"><span class="keyword">int</span> 	wrap  			<span class="comment">// 如果到了 max_locre, 是否退回0继续检索</span></span></span></span><br><span class="line"><span class="function"><span class="params">)</span>	 <span class="comment">//得到下一个可用的 lcore</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rte_thread_set_affinity</span>	<span class="params">(	<span class="keyword">rte_cpuset_t</span> * 	cpusetp	)</span>	 <span class="comment">//成功返回0 /否则 -1</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">rte_thread_get_affinity</span>	<span class="params">(	<span class="keyword">rte_cpuset_t</span> * 	cpusetp	)</span>	 <span class="comment">// 得到亲和度</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rte_thread_setname</span>	<span class="params">(	<span class="keyword">pthread_t</span> 	id,</span></span></span><br><span class="line"><span class="function"><span class="params"><span class="keyword">const</span> <span class="keyword">char</span> * 	name </span></span></span><br><span class="line"><span class="function"><span class="params">)</span>	   <span class="comment">//设置名字的</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">rte_lcore_has_role</span><span class="params">(<span class="keyword">unsigned</span> <span class="keyword">int</span> lcore_id,<span class="keyword">enum</span> <span class="keyword">rte_lcore_role_t</span> role )</span></span></span><br></pre></td></tr></table></figure>
+<p>这个需要先了解以下这个结构体:</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * The lcore role (used in RTE or not).</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">enum</span> <span class="keyword">rte_lcore_role_t</span> &#123;</span><br><span class="line">        ROLE_RTE,   <span class="comment">//被 rte 所使用</span></span><br><span class="line">        ROLE_OFF,   	<span class="comment">// 没有被使用</span></span><br><span class="line">        ROLE_SERVICE,		<span class="comment">//暂时不知道什么意思</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>所以这个api 的作用:  判断一个逻辑核 是否有 特定的角色, 是 返回0, 否则 为负数.</p>
+<h2 id="实战技能"><a href="#实战技能" class="headerlink" title="实战技能"></a>实战技能</h2><blockquote>
+<p>看了这么多, 优点手痒想写个小程序.</p>
+</blockquote>
+<p>任务如下:</p>
+<ul>
+<li>每个线程说一句: I love you Hox, I’m core x.</li>
+</ul>
+<h3 id="程序代码"><a href="#程序代码" class="headerlink" title="程序代码"></a>程序代码</h3><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdint.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;errno.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;sys/queue.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_memory.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_memzone.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_launch.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_eal.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_per_lcore.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_lcore.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;rte_debug.h&gt;</span></span></span><br><span class="line"></span><br><span class="line">int lcore_speak(__attribute__((unused)) void * argc)</span><br><span class="line">&#123;</span><br><span class="line">        <span class="keyword">unsigned</span> id = rte_lcore_id();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"I love U Hox, I'm %d\n"</span>,id);</span><br><span class="line">        <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">(<span class="keyword">int</span> argc, <span class="keyword">char</span>** argv)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> ret = rte_eal_init(argc,argv);</span><br><span class="line">        <span class="keyword">if</span>(ret &lt; <span class="number">0</span>)</span><br><span class="line">                <span class="built_in">printf</span>(<span class="string">"Can't not init eal"</span>);</span><br><span class="line"></span><br><span class="line">        rte_eal_mp_remote_launch(lcore_speak,<span class="literal">NULL</span>,CALL_MASTER);</span><br><span class="line"></span><br><span class="line">        rte_eal_mp_wait_lcore();</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> lcore_num = rte_lcore_count();</span><br><span class="line">        <span class="built_in">printf</span>(<span class="string">"%d 个 逻辑核向你表白了~\n"</span>,lcore_num);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="效果截图"><a href="#效果截图" class="headerlink" title="效果截图"></a>效果截图</h3><p><img src="/img/loveTest.png" alt="loveTest"></p>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/03/06/Python多线程与多线程爬虫/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/dog.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/me.png" alt="Hox Zheng's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        zenhox@163.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:zenhox@163.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                Home
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    Archives
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/03/">March 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">February 2018<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">January 2018<span class="sidebar_archives-count">9</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                Categories
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/DPDK/">DPDK<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/Python/">Python<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/SDN/">SDN<span class="sidebar_archives-count">5</span></a></li><li><a class="sidebar_archives-link" href="/categories/Software-Engineering/">Software Engineering<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Vim/">Vim<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                Number of articles
+                <span class="sidebar-badge">26</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>万川秋水de世界
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
