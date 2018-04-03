@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html style="display: none;" lang="en">
+    <head>
+    <meta charset="utf-8">
+    <!--
+        © Material Theme
+        https://github.com/viosey/hexo-theme-material
+        Version: 1.5.2 -->
+    <script>
+        window.materialVersion = "1.5.2"
+        // Delete localstorage with these tags
+        window.oldVersion = [
+            'codestartv1',
+            '1.3.4',
+            '1.4.0',
+            '1.4.0b1',
+            '1.5.0'
+        ]
+    </script>
+
+    <!-- dns prefetch -->
+    <meta http-equiv="x-dns-prefetch-control" content="on">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Meta & Info -->
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+    <meta name="renderer" content="webkit">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Title -->
+    
+    <title>
+        
+            Ryu学习一 | 
+        
+        万川秋水de世界
+    </title>
+
+    <!-- Favicons -->
+    <link rel="icon shortcut" type="image/ico" href="/img/favicon.png">
+    <link rel="icon" href="/img/favicon.png">
+
+    <meta name="format-detection" content="telephone=no"/>
+    <meta name="description" itemprop="description" content="">
+    <meta name="keywords" content="">
+    <meta name="theme-color" content="#0097A7">
+
+    <!-- Disable Fucking Bloody Baidu Tranformation -->
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+
+    <!--[if lte IE 9]>
+        <link rel="stylesheet" href="/css/ie-blocker.css">
+
+        
+            <script src="/js/ie-blocker.en.js"></script>
+        
+    <![endif]-->
+
+    <!-- Import lsloader -->
+    <script>(function(){window.lsloader={jsRunSequence:[],jsnamemap:{},cssnamemap:{}};lsloader.removeLS=function(a){try{localStorage.removeItem(a)}catch(b){}};lsloader.setLS=function(a,c){try{localStorage.setItem(a,c)}catch(b){}};lsloader.getLS=function(a){var c="";try{c=localStorage.getItem(a)}catch(b){c=""}return c};versionString="/*"+(window.materialVersion||"unknownVersion")+"*/";lsloader.clean=function(){try{var b=[];for(var a=0;a<localStorage.length;a++){b.push(localStorage.key(a))}b.forEach(function(e){var f=lsloader.getLS(e);if(window.oldVersion){var d=window.oldVersion.reduce(function(g,h){return g||f.indexOf("/*"+h+"*/")!==-1},false);if(d){lsloader.removeLS(e)}}})}catch(c){}};lsloader.clean();lsloader.load=function(f,a,b,d){if(typeof b==="boolean"){d=b;b=undefined}d=d||false;b=b||function(){};var e;e=this.getLS(f);if(e&&e.indexOf(versionString)===-1){this.removeLS(f);this.requestResource(f,a,b,d);return}if(e){var c=e.split(versionString)[0];if(c!=a){console.log("reload:"+a);this.removeLS(f);this.requestResource(f,a,b,d);return}e=e.split(versionString)[1];if(d){this.jsRunSequence.push({name:f,code:e});this.runjs(a,f,e)}else{document.getElementById(f).appendChild(document.createTextNode(e));b()}}else{this.requestResource(f,a,b,d)}};lsloader.requestResource=function(b,e,a,c){var d=this;if(c){this.iojs(e,b,function(h,f,g){d.setLS(f,h+versionString+g);d.runjs(h,f,g)})}else{this.iocss(e,b,function(f){document.getElementById(b).appendChild(document.createTextNode(f));d.setLS(b,e+versionString+f)},a)}};lsloader.iojs=function(d,b,g){var a=this;a.jsRunSequence.push({name:b,code:""});try{var f=new XMLHttpRequest();f.open("get",d,true);f.onreadystatechange=function(){if(f.readyState==4){if((f.status>=200&&f.status<300)||f.status==304){if(f.response!=""){g(d,b,f.response);return}}a.jsfallback(d,b)}};f.send(null)}catch(c){a.jsfallback(d,b)}};lsloader.iocss=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.iofonts=function(f,c,h,a){var b=this;try{var g=new XMLHttpRequest();g.open("get",f,true);g.onreadystatechange=function(){if(g.readyState==4){if((g.status>=200&&g.status<300)||g.status==304){if(g.response!=""){h(g.response);a();return}}b.cssfallback(f,c,a)}};g.send(null)}catch(d){b.cssfallback(f,c,a)}};lsloader.runjs=function(f,c,e){if(!!c&&!!e){for(var b in this.jsRunSequence){if(this.jsRunSequence[b].name==c){this.jsRunSequence[b].code=e}}}if(!!this.jsRunSequence[0]&&!!this.jsRunSequence[0].code&&this.jsRunSequence[0].status!="failed"){var a=document.createElement("script");a.appendChild(document.createTextNode(this.jsRunSequence[0].code));a.type="text/javascript";document.getElementsByTagName("head")[0].appendChild(a);this.jsRunSequence.shift();if(this.jsRunSequence.length>0){this.runjs()}}else{if(!!this.jsRunSequence[0]&&this.jsRunSequence[0].status=="failed"){var d=this;var a=document.createElement("script");a.src=this.jsRunSequence[0].path;a.type="text/javascript";this.jsRunSequence[0].status="loading";a.onload=function(){d.jsRunSequence.shift();if(d.jsRunSequence.length>0){d.runjs()}};document.body.appendChild(a)}}};lsloader.tagLoad=function(b,a){this.jsRunSequence.push({name:a,code:"",path:b,status:"failed"});this.runjs()};lsloader.jsfallback=function(c,b){if(!!this.jsnamemap[b]){return}else{this.jsnamemap[b]=b}for(var a in this.jsRunSequence){if(this.jsRunSequence[a].name==b){this.jsRunSequence[a].code="";this.jsRunSequence[a].status="failed";this.jsRunSequence[a].path=c}}this.runjs()};lsloader.cssfallback=function(e,c,b){if(!!this.cssnamemap[c]){return}else{this.cssnamemap[c]=1}var d=document.createElement("link");d.type="text/css";d.href=e;d.rel="stylesheet";d.onload=d.onerror=b;var a=document.getElementsByTagName("script")[0];a.parentNode.insertBefore(d,a)};lsloader.runInlineScript=function(c,b){var a=document.getElementById(b).innerText;this.jsRunSequence.push({name:c,code:a});this.runjs()}})();</script>
+
+    <!-- Import queue -->
+    <script>function Queue(){this.dataStore=[];this.offer=b;this.poll=d;this.execNext=a;this.debug=false;this.startDebug=c;function b(e){if(this.debug){console.log("Offered a Queued Function.")}if(typeof e==="function"){this.dataStore.push(e)}else{console.log("You must offer a function.")}}function d(){if(this.debug){console.log("Polled a Queued Function.")}return this.dataStore.shift()}function a(){var e=this.poll();if(e!==undefined){if(this.debug){console.log("Run a Queued Function.")}e()}}function c(){this.debug=true}}var queue=new Queue();</script>
+
+    <!-- Import CSS -->
+    
+        <style id="material_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_css","/css/material.min.css?Z7a72R1E4SxzBKR/WGctOA==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+        <style id="style_css"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("style_css","/css/style.min.css?MKetZV3cUTfDxvMffaOezg==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+        
+
+    
+
+    
+
+    <!-- Config CSS -->
+
+<!-- Other Styles -->
+<style>
+  body, html {
+    font-family: Roboto, "Helvetica Neue", Helvetica, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "微软雅黑", Arial, sans-serif;
+    overflow-x: hidden !important;
+  }
+  
+  code {
+    font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+  }
+
+  a {
+    color: #00838F;
+  }
+
+  .mdl-card__media,
+  #search-label,
+  #search-form-label:after,
+  #scheme-Paradox .hot_tags-count,
+  #scheme-Paradox .sidebar_archives-count,
+  #scheme-Paradox .sidebar-colored .sidebar-header,
+  #scheme-Paradox .sidebar-colored .sidebar-badge{
+    background-color: #0097A7 !important;
+  }
+
+  /* Sidebar User Drop Down Menu Text Color */
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:hover,
+  #scheme-Paradox .sidebar-colored .sidebar-nav>.dropdown>.dropdown-menu>li>a:focus {
+    color: #0097A7 !important;
+  }
+
+  #post_entry-right-info,
+  .sidebar-colored .sidebar-nav li:hover > a,
+  .sidebar-colored .sidebar-nav li:hover > a i,
+  .sidebar-colored .sidebar-nav li > a:hover,
+  .sidebar-colored .sidebar-nav li > a:hover i,
+  .sidebar-colored .sidebar-nav li > a:focus i,
+  .sidebar-colored .sidebar-nav > .open > a,
+  .sidebar-colored .sidebar-nav > .open > a:hover,
+  .sidebar-colored .sidebar-nav > .open > a:focus,
+  #ds-reset #ds-ctx .ds-ctx-entry .ds-ctx-head a {
+    color: #0097A7 !important;
+  }
+
+  .toTop {
+    background: #757575 !important;
+  }
+
+  .material-layout .material-post>.material-nav,
+  .material-layout .material-index>.material-nav,
+  .material-nav a {
+    color: #757575;
+  }
+
+  #scheme-Paradox .MD-burger-layer {
+    background-color: #757575;
+  }
+
+  #scheme-Paradox #post-toc-trigger-btn {
+    color: #757575;
+  }
+
+  .post-toc a:hover {
+    color: #00838F;
+    text-decoration: underline;
+  }
+
+</style>
+
+
+<!-- Theme Background Related-->
+
+    <style>
+      body{
+        background-image: url(/img/bg.png);
+      }
+    </style>
+
+
+
+
+<!-- Fade Effect -->
+
+    <style>
+      .fade {
+        transition: all 800ms linear;
+        -webkit-transform: translate3d(0,0,0);
+        -moz-transform: translate3d(0,0,0);
+        -ms-transform: translate3d(0,0,0);
+        -o-transform: translate3d(0,0,0);
+        transform: translate3d(0,0,0);
+        opacity: 1;
+      }
+
+      .fade.out{
+        opacity: 0;
+      }
+    </style>
+
+
+<!-- Import Font -->
+<!-- Import Roboto -->
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500" rel="stylesheet">
+
+
+<!-- Import Material Icons -->
+
+
+    <style id="material_icons"></style><script>if(typeof window.lsLoadCSSMaxNums === "undefined")window.lsLoadCSSMaxNums = 0;window.lsLoadCSSMaxNums++;lsloader.load("material_icons","/css/material-icons.css?pqhB/Rd/ab0H2+kZp0RDmw==",function(){if(typeof window.lsLoadCSSNums === "undefined")window.lsLoadCSSNums = 0;window.lsLoadCSSNums++;if(window.lsLoadCSSNums == window.lsLoadCSSMaxNums)document.documentElement.style.display="";}, false)</script>
+
+
+
+
+    <!-- Import jQuery -->
+    
+        <script>lsloader.load("jq_js","/js/jquery.min.js?qcusAULNeBksqffqUM2+Ig==", true)</script>
+    
+
+    <!-- WebAPP Icons -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="application-name" content="万川秋水de世界">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/04/02/Ryu学习一/">
+    <meta name="msapplication-navbutton-color" content="#0097A7">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="万川秋水de世界">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <link rel="apple-touch-icon" href="/img/favicon.png">
+
+    <!-- Site Verification -->
+    
+    
+
+    <!-- RSS -->
+    
+
+    <!-- The Open Graph protocol -->
+    <meta property="og:url" content="http://yoursite.com/2018/04/02/Ryu学习一/">
+    <meta property="og:type" content="blog">
+    <meta property="og:title" content="Ryu学习一 | 万川秋水de世界">
+    <meta property="og:image" content="/img/favicon.png">
+    <meta property="og:description" content="">
+    
+
+    
+        <meta property="article:published_time" content="Mon Apr 02 2018 19:20:38 GMT+0800">
+        <meta property="article:modified_time" content="Tue Apr 03 2018 18:45:55 GMT+0800">
+    
+
+    <!-- The Twitter Card protocol -->
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Add canonical link for SEO -->
+    
+        <link rel="canonical" href="http://yoursite.com/2018/04/02/Ryu学习一/index.html" />
+    
+
+    <!-- Structured-data for SEO -->
+    
+        
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BlogPosting",
+    "mainEntityOfPage": "http://yoursite.com/2018/04/02/Ryu学习一/index.html",
+    "headline": "Ryu学习一",
+    "datePublished": "Mon Apr 02 2018 19:20:38 GMT+0800",
+    "dateModified": "Tue Apr 03 2018 18:45:55 GMT+0800",
+    "author": {
+        "@type": "Person",
+        "name": "Hox Zheng",
+        "image": {
+            "@type": "ImageObject",
+            "url": "/img/me.png"
+        },
+        "description": "忧伤，一半来自远方，一半来自时光."
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "万川秋水de世界",
+        "logo": {
+            "@type":"ImageObject",
+            "url": "/img/favicon.png"
+        }
+    },
+    "keywords": "",
+    "description": "",
+}
+</script>
+
+
+    
+
+    <!-- Analytics -->
+    
+    
+    
+
+    <!-- Custom Head -->
+    
+
+</head>
+
+
+    
+        <body id="scheme-Paradox" class="lazy">
+            <div class="material-layout  mdl-js-layout has-drawer is-upgraded">
+                
+
+                <!-- Main Container -->
+                <main class="material-layout__content" id="main">
+
+                    <!-- Top Anchor -->
+                    <div id="top"></div>
+
+                    
+                        <!-- Hamburger Button -->
+                        <button class="MD-burger-icon sidebar-toggle">
+                            <span class="MD-burger-layer"></span>
+                        </button>
+                    
+
+                    <!-- Post TOC -->
+
+    
+    <!-- Back Button -->
+    <!--
+    <div class="material-back" id="backhome-div" tabindex="0">
+        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
+           href="#" onclick="window.history.back();return false;"
+           target="_self"
+           role="button"
+           data-upgraded=",MaterialButton,MaterialRipple">
+            <i class="material-icons" role="presentation">arrow_back</i>
+            <span class="mdl-button__ripple-container">
+                <span class="mdl-ripple"></span>
+            </span>
+        </a>
+    </div>
+    -->
+
+
+    <!-- Left aligned menu below button -->
+    
+    
+    <button id="post-toc-trigger-btn"
+        class="mdl-button mdl-js-button mdl-button--icon">
+        <i class="material-icons">format_list_numbered</i>
+    </button>
+
+    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#什么是Ryu"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是Ryu</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#开始写-Ryu应用"><span class="post-toc-number">2.</span> <span class="post-toc-text">开始写 Ryu应用</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Ryu-的组件"><span class="post-toc-number">3.</span> <span class="post-toc-text">Ryu 的组件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#OpenFlow-有线的-协议-编码器和解码器"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">OpenFlow 有线的 协议 编码器和解码器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Ryu-应用"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">Ryu 应用</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#库"><span class="post-toc-number">3.3.</span> <span class="post-toc-text">库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#第三方库"><span class="post-toc-number">3.3.1.</span> <span class="post-toc-text">第三方库</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Ryu-应用API，Ryu应用程序模型"><span class="post-toc-number">4.</span> <span class="post-toc-text">Ryu 应用API，Ryu应用程序模型</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Contexts"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">Contexts</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建一个Ryu应用"><span class="post-toc-number">4.2.</span> <span class="post-toc-text">创建一个Ryu应用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#观察事件"><span class="post-toc-number">4.2.1.</span> <span class="post-toc-text">观察事件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#生成事件"><span class="post-toc-number">4.2.2.</span> <span class="post-toc-text">生成事件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Event-classes"><span class="post-toc-number">4.2.3.</span> <span class="post-toc-text">Event classes</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#OpenFlow-事件类"><span class="post-toc-number">4.2.4.</span> <span class="post-toc-text">OpenFlow 事件类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ryu-controller-handler-set-ev-cls-ev-cls-dispatchers-None"><span class="post-toc-number">4.2.5.</span> <span class="post-toc-text">ryu.controller.handler.set_ev_cls(ev_cls,dispatchers=None)</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ryu-controller-controller-Datapath"><span class="post-toc-number">4.2.6.</span> <span class="post-toc-text">ryu.controller.controller.Datapath</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ryu-controller-event-EventBase"><span class="post-toc-number">4.2.7.</span> <span class="post-toc-text">ryu.controller.event.EventBase</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ryu-controller-event-EventRequestBase"><span class="post-toc-number">4.2.8.</span> <span class="post-toc-text">ryu.controller.event.EventRequestBase</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ryu-controller-event-EventReplyBase"><span class="post-toc-number">4.2.9.</span> <span class="post-toc-text">ryu.controller.event.EventReplyBase</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ryu-controller-ofp-event-EventOFPStateChange"><span class="post-toc-number">4.2.10.</span> <span class="post-toc-text">ryu.controller.ofp_event.EventOFPStateChange</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ryu-controller-ofp-event-EventOFPPortStateChange"><span class="post-toc-number">4.2.11.</span> <span class="post-toc-text">ryu.controller.ofp_event.EventOFPPortStateChange</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ryu-controller-dpset-EventDP"><span class="post-toc-number">4.2.12.</span> <span class="post-toc-text">ryu.controller.dpset.EventDP</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ryu-controller-dpset-EventPortDelete"><span class="post-toc-number">4.2.13.</span> <span class="post-toc-text">ryu.controller.dpset.EventPortDelete</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ryu-controller-dpset-EventPortModify"><span class="post-toc-number">4.2.14.</span> <span class="post-toc-text">ryu.controller.dpset.EventPortModify</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ryu-controller-network-EventNetworkPort"><span class="post-toc-number">4.2.15.</span> <span class="post-toc-text">ryu.controller.network.EventNetworkPort</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ryu-controller-network-EventNetworkDel"><span class="post-toc-number">4.2.16.</span> <span class="post-toc-text">ryu.controller.network.EventNetworkDel</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ryu-controller-network-EventMacAddress"><span class="post-toc-number">4.2.17.</span> <span class="post-toc-text">ryu.controller.network.EventMacAddress</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ryu-controller-tunnels-EventTunnelKeyAdd"><span class="post-toc-number">4.2.18.</span> <span class="post-toc-text">ryu.controller.tunnels.EventTunnelKeyAdd</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ryu-controller-tunnels-EventTunnelKeyDel"><span class="post-toc-number">4.3.</span> <span class="post-toc-text">ryu.controller.tunnels.EventTunnelKeyDel</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ryu-controller-tunnels-EventTunnelPort"><span class="post-toc-number">4.3.1.</span> <span class="post-toc-text">ryu.controller.tunnels.EventTunnelPort</span></a></li></ol></li></ol></li></ol>
+    </ul>
+    
+
+
+
+
+<!-- Layouts -->
+
+    <!-- Post Module -->
+    <div class="material-post_container">
+
+        <div class="material-post mdl-grid">
+            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
+
+                <!-- Post Header(Thumbnail & Title) -->
+                
+    <!-- Paradox Post Header -->
+    
+        
+            <!-- Random Thumbnail -->
+            <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
+            <script type="text/ls-javascript" id="post-thumbnail-script">
+    var randomNum = Math.floor(Math.random() * 19 + 1);
+
+    $('.post_thumbnail-random').attr('data-original', '/img/random/view-' + randomNum + '.png');
+    $('.post_thumbnail-random').addClass('lazy');
+</script>
+
+        
+    
+            <p class="article-headline-p">
+                Ryu学习一
+            </p>
+        </div>
+
+
+
+
+
+                
+                    <!-- Paradox Post Info -->
+                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
+
+    <!-- Author Avatar -->
+    <div id="author-avatar">
+        <img src="/img/me.png" width="44px" height="44px" alt="Author Avatar"/>
+    </div>
+    <!-- Author Name & Date -->
+    <div>
+        <strong>Hox Zheng</strong>
+        <span>Apr 02, 2018</span>
+    </div>
+
+    <div class="section-spacer"></div>
+
+    <!-- Favorite -->
+    <!--
+        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
+            <i class="material-icons" role="presentation">favorite</i>
+            <span class="visuallyhidden">favorites</span>
+        </button>
+    -->
+
+    <!-- Qrcode -->
+    
+
+    <!-- Tags (bookmark) -->
+    
+
+    <!-- Share -->
+    
+        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
+    <i class="material-icons" role="presentation">share</i>
+    <span class="visuallyhidden">share</span>
+</button>
+<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
+    
+
+    
+
+    <!-- Share Weibo -->
+    
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Ryu学习一&url=http://yoursite.com/2018/04/02/Ryu学习一/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Weibo
+            </li>
+        </a>
+    
+
+    <!-- Share Twitter -->
+    
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Ryu学习一&url=http://yoursite.com/2018/04/02/Ryu学习一/index.html&via=Hox Zheng" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Twitter
+            </li>
+        </a>
+    
+
+    <!-- Share Facebook -->
+    
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/04/02/Ryu学习一/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Facebook
+            </li>
+        </a>
+    
+
+    <!-- Share Google+ -->
+    
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/04/02/Ryu学习一/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to Google+
+            </li>
+        </a>
+    
+
+    <!-- Share LinkedIn -->
+    
+
+    <!-- Share QQ -->
+    
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=万川秋水de世界&title=Ryu学习一&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/04/02/Ryu学习一/index.html" target="_blank">
+            <li class="mdl-menu__item">
+                Share to QQ
+            </li>
+        </a>
+    
+
+    <!-- Share Telegram -->
+    
+</ul>
+
+    
+</div>
+
+                
+
+                <!-- Post Content -->
+                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
+    
+        <h1 id="什么是Ryu"><a href="#什么是Ryu" class="headerlink" title="什么是Ryu"></a>什么是Ryu</h1><p>Ryu 是一个基于组件的SDN框架。Ryu提供了拥有很多易用API软件组件，使开发人员可以轻松创建新的网络管理和控制程序。Ryu支持各种管理网络设备的协议。如OpenFlow,Netconf， OF-config等。 关于OF，Ryu支持完全1.0，1.2，1.3，1.4，1.5和Nicira扩展。</p>
+<h1 id="开始写-Ryu应用"><a href="#开始写-Ryu应用" class="headerlink" title="开始写 Ryu应用"></a>开始写 Ryu应用</h1><blockquote>
+<p>如果想用自己的方式管理网络设备（交换机，路由器等），你需要编写自己的Ryu应用程序。你的程序告诉Ryu你想如何管理设备。然后Ryu利用OF协议等配置网络设备。</p>
+</blockquote>
+<h1 id="Ryu-的组件"><a href="#Ryu-的组件" class="headerlink" title="Ryu 的组件"></a>Ryu 的组件</h1><ul>
+<li>bin/ryu-manager  使主要的执行器</li>
+</ul>
+<ul>
+<li>ryu.base.app_manager  对Ryu 应用的管理。 加载Ryu应用，提供Ryu的内容，以及在应用之间路由消息。</li>
+<li>ryu.controller.controller  是OF主要的控制器组件。 管理交换机之间的连接。 生成和路由时间到合适的 事件， 像 Ryu 应用。</li>
+<li>ryu.controller.dpset 管理交换机， 计划被ryu/topolog取代</li>
+<li>ryu.controller.ofp_event 定义OF 事件。</li>
+<li>ryu,controller.ofp_handler 基础的OF 句柄，包括negotiation.</li>
+</ul>
+<h2 id="OpenFlow-有线的-协议-编码器和解码器"><a href="#OpenFlow-有线的-协议-编码器和解码器" class="headerlink" title="OpenFlow 有线的 协议 编码器和解码器"></a>OpenFlow 有线的 协议 编码器和解码器</h2><ul>
+<li>ryu.ofproto.ofproto_v1_x            OF1.x的定义</li>
+<li>ryu.ofproto.ofproto_v1_x_parser            OF1.x 编码器和解码器的实现</li>
+</ul>
+<h2 id="Ryu-应用"><a href="#Ryu-应用" class="headerlink" title="Ryu 应用"></a>Ryu 应用</h2><ul>
+<li>ryu.app.cbench  一个傻 的 OF1.0 的测试控制器框架。   打算了 oflops cbench 一起使用。</li>
+<li>ryu.app.simple_switch  一个学习交换机的实现。</li>
+<li>ryu.topology  交换机和连接发现模型。  打算被 ryu/controller/dpset</li>
+</ul>
+<h2 id="库"><a href="#库" class="headerlink" title="库"></a>库</h2><ul>
+<li>ryu.lib.packet    Ryu 包库。  对TCP/IP 协议的 编码解码器实现。</li>
+<li>ryu.lib.ovs        ovsdb  交互库</li>
+<li>ryu.lib.of_config   of-config 的实现</li>
+<li>ryu.lib.netconf  NETCONF 定义</li>
+<li>ryu.lib.xflow   对 netflow  和  sFlow 的实现</li>
+</ul>
+<h3 id="第三方库"><a href="#第三方库" class="headerlink" title="第三方库"></a>第三方库</h3><ul>
+<li>ryu.confrib.ovs   OVS  python 绑定</li>
+<li>ryu.contrib.oslo.config     Oslo  配置库。   被用来 Ryu 管理者 命令行选项 和 配置文件。</li>
+<li>ryu.contrib.cnnlient   NETCONF 客户端的Py库。 被ryu.lib.of_config 使用</li>
+</ul>
+<h1 id="Ryu-应用API，Ryu应用程序模型"><a href="#Ryu-应用API，Ryu应用程序模型" class="headerlink" title="Ryu 应用API，Ryu应用程序模型"></a>Ryu 应用API，Ryu应用程序模型</h1><ul>
+<li>Ryu应用发送异步的信息给彼此。  此外，Ryu也有一些内部的事件源，不是Ryu应用发起的。比如说是 OPenFlow 控制器。 一个时间可以包含任意对象。但是不建议传递复杂的对象。</li>
+<li>每一个Ryu应用有一个FIFO的队列来接收事件。每个Ryu应用有一个处理事件的线程。这个线程不断的提取事件，并调用响应的函数处理这个事件，要注意事件处理函数不要阻塞，否则后面的事件都无法处理。</li>
+<li>有一些事件是实现同步 内部应用。 这些请求和普通事件用相同的机制。 他们的回复被放在专用队列中，以避免死锁。</li>
+</ul>
+<h2 id="Contexts"><a href="#Contexts" class="headerlink" title="Contexts"></a>Contexts</h2><p>是一个普通的python对象。 被app之间共享。 新代码不建议使用上下文。</p>
+<h2 id="创建一个Ryu应用"><a href="#创建一个Ryu应用" class="headerlink" title="创建一个Ryu应用"></a>创建一个Ryu应用</h2><p>一个Ryu应用是 ryu.base.app_manager.RyuApp 的一个子类。 Ryu APP 是独生子。 一个模块只允许一个应用。</p>
+<h3 id="观察事件"><a href="#观察事件" class="headerlink" title="观察事件"></a>观察事件</h3><p>一个 Ryu 应用可以注册自己区监听特定的事件，通过使用 </p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ryu.controller.handler.set_ev_cls</span><br></pre></td></tr></table></figure>
+<p>这个装饰器。</p>
+<h3 id="生成事件"><a href="#生成事件" class="headerlink" title="生成事件"></a>生成事件</h3><p>一个Ryu APP可以通过调用合适的 ryu.base.app_managerRyuApp’s methods like send_event or send_event_to_observers.</p>
+<h3 id="Event-classes"><a href="#Event-classes" class="headerlink" title="Event classes"></a>Event classes</h3><p>一个事件类描述一个系统所生成的事件。 事件既可被Ryu 核心所发起， 也可以被APP发起。 一个APP可以注册他感兴趣的事件通过 提供一个处理方法，使用ryu.controller.handler.set_ev_cls_decorator.</p>
+<h3 id="OpenFlow-事件类"><a href="#OpenFlow-事件类" class="headerlink" title="OpenFlow 事件类"></a>OpenFlow 事件类</h3><p>ryu.controller.ofp_event模块 提供 描述 接收到的来自交换机的消息。 按照惯例。他们被命名为</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">ryu.controller.ofp_event.EventOFPxxx</span><br></pre></td></tr></table></figure>
+<p>其中xxx是OF通信的消息。例如， EventOFPPacketIn 代表packet-in 消息。Ryu的OF控制器，自动解码来自交换机的OpenFlow 消息，并且发送他们到Ryu的APP，当然这些APP通过装饰器表达了对这些信息的兴趣。OF classed 是下面这个类的子类。</p>
+<figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ryu</span>.<span class="title">controller</span>.<span class="title">ofp_event</span>.<span class="title">EventOFPMsgBase</span><span class="params">(Msg)</span></span></span><br></pre></td></tr></table></figure>
+<p>OF event class 至少有下面三个属性。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msg</td>
+<td>一个对象，描述通信中的OF消息</td>
+</tr>
+<tr>
+<td>msg.datapath</td>
+<td>一个 ryu.controller.controller.Datapath 的实例，which describes an OF switch from which we received this OF message.  （描述发送消息的交换机）</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>datapath 实例 生成这个事件的时间戳</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ryu-controller-handler-set-ev-cls-ev-cls-dispatchers-None"><a href="#ryu-controller-handler-set-ev-cls-ev-cls-dispatchers-None" class="headerlink" title="ryu.controller.handler.set_ev_cls(ev_cls,dispatchers=None)"></a>ryu.controller.handler.set_ev_cls(ev_cls,dispatchers=None)</h3><p>这是一个装饰器, 被装饰方法将成为一个事件处理器。 ev_cls 是一个事件类，而这个类的实例，将会被Ray APP所接收。 而dispatchers  参数 明确以下协商语段（或多个），表示时间处理器接收什么样的事件（对事件中的属性进行进一步的划分）。</p>
+<table>
+<thead>
+<tr>
+<th>协商</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ryu.controller.handler.HANDSHAKE_DISPATCHER</td>
+<td>发送并且等待 hello 消息</td>
+</tr>
+<tr>
+<td>ryu.controller.handler.CONFIG_DISPATCHER</td>
+<td>Version negotiated and sent features-request message</td>
+</tr>
+<tr>
+<td>ryu.controller.handler.MAIN_DISPATCHER</td>
+<td>Switch-features message received and sent set-config message</td>
+</tr>
+<tr>
+<td>ryu.controller.handler.DEAD_DISPATCHER</td>
+<td>Disconnect from the peer. Or disconnecting due to some unrecoverable errors.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ryu-controller-controller-Datapath"><a href="#ryu-controller-controller-Datapath" class="headerlink" title="ryu.controller.controller.Datapath"></a>ryu.controller.controller.Datapath</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ryu</span>.<span class="title">controller</span>.<span class="title">controller</span>.<span class="title">Datapath</span><span class="params">(socket, address)</span></span></span><br></pre></td></tr></table></figure>
+<p>用来描述 OpenFlow 交换机的类。</p>
+<p>它的实例包含下面属性。</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>64-bit OpenFlow Datapath ID. Only available for ryu.controller.handler.MAIN_DISPATCHER phase.</td>
+</tr>
+<tr>
+<td>ofproto</td>
+<td>A module which exports OpenFlow definitions, mainly constants appeared in the specification, for the negotiated OpenFlow version. For example, ryu.ofproto.ofproto_v1_0 for OpenFlow 1.0.</td>
+</tr>
+<tr>
+<td>ofproto_parser</td>
+<td>A module which exports OpenFlow wire message encoder and decoder for the negotiated OpenFlow version. For example, ryu.ofproto.ofproto_v1_0_parser for OpenFlow 1.0.</td>
+</tr>
+<tr>
+<td>ofproto_parser.OFPxxxx(datapath,…)</td>
+<td>A callable to prepare an OpenFlow message for the given switch. It can be sent with Datapath.send_msg later. xxxx is a name of the message. For example OFPFlowMod for flow-mod message. Arguemnts depend on the message.</td>
+</tr>
+<tr>
+<td>set_xid(self, msg)</td>
+<td>Generate an OpenFlow XID and put it in msg.xid.</td>
+</tr>
+<tr>
+<td>send_msg(self, msg)</td>
+<td>Queue an OpenFlow message to send to the corresponding switch. If msg.xid is None, set_xid is automatically called on the message before queueing.</td>
+</tr>
+<tr>
+<td>send_packet_out</td>
+<td>deprecated</td>
+</tr>
+<tr>
+<td>send_flow_mod</td>
+<td>deprecated</td>
+</tr>
+<tr>
+<td>send_flow_del</td>
+<td>deprecated</td>
+</tr>
+<tr>
+<td>send_delete_all_flows</td>
+<td>deprecated</td>
+</tr>
+<tr>
+<td>send_barrier</td>
+<td>Queue an OpenFlow barrier message to send to the switch.</td>
+</tr>
+<tr>
+<td>send_nxt_set_flow_format</td>
+<td>deprecated</td>
+</tr>
+<tr>
+<td>is_reserved_port</td>
+<td>deprecated</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ryu-controller-event-EventBase"><a href="#ryu-controller-event-EventBase" class="headerlink" title="ryu.controller.event.EventBase"></a>ryu.controller.event.EventBase</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ryu</span>.<span class="title">controller</span>.<span class="title">event</span>.<span class="title">EventBase</span></span></span><br></pre></td></tr></table></figure>
+<p>是所有事件类的 基类。  一个Ryu 可以通过它定义自己的事件。</p>
+<h3 id="ryu-controller-event-EventRequestBase"><a href="#ryu-controller-event-EventRequestBase" class="headerlink" title="ryu.controller.event.EventRequestBase"></a>ryu.controller.event.EventRequestBase</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ryu</span>.<span class="title">controller</span>.<span class="title">event</span>.<span class="title">EventRequestBase</span></span></span><br></pre></td></tr></table></figure>
+<p>The base class for synchronous request for RyuApp.send_request.</p>
+<h3 id="ryu-controller-event-EventReplyBase"><a href="#ryu-controller-event-EventReplyBase" class="headerlink" title="ryu.controller.event.EventReplyBase"></a>ryu.controller.event.EventReplyBase</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ryu</span>.<span class="title">controller</span>.<span class="title">event</span>.<span class="title">EventReplyBase</span><span class="params">(dst)</span></span></span><br></pre></td></tr></table></figure>
+<p>The base class for synchronous request reply for RyuApp.send_reply.</p>
+<h3 id="ryu-controller-ofp-event-EventOFPStateChange"><a href="#ryu-controller-ofp-event-EventOFPStateChange" class="headerlink" title="ryu.controller.ofp_event.EventOFPStateChange"></a>ryu.controller.ofp_event.EventOFPStateChange</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ryu</span>.<span class="title">controller</span>.<span class="title">ofp_event</span>.<span class="title">EventOFPStateChange</span><span class="params">(dp)</span></span></span><br></pre></td></tr></table></figure>
+<p>一个事件类，用于 判断条件 改变的通知。</p>
+<p>改变negotiation之后，这个事件的实例被发送给 observer ，它的实例只好包含datapath,</p>
+<h3 id="ryu-controller-ofp-event-EventOFPPortStateChange"><a href="#ryu-controller-ofp-event-EventOFPPortStateChange" class="headerlink" title="ryu.controller.ofp_event.EventOFPPortStateChange"></a>ryu.controller.ofp_event.EventOFPPortStateChange</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ryu</span>.<span class="title">controller</span>.<span class="title">ofp_event</span>.<span class="title">EventOFPPortStateChange</span><span class="params">(dp, reason, port_no)</span></span></span><br></pre></td></tr></table></figure>
+<p>一个通知交换机端口状态改变的事件类。 这个事件行为像EventOFPPortStatus。</p>
+<p>但是在更新了Datapath实例端口目录之后，Ryu将会发送这个事件， 这个使劲按的实例，至少包含下面的属性。</p>
+<p>datapath   ———  谁的端口状态改变了</p>
+<p>reason            原因 one of OFPPR_*</p>
+<p>port_no            几号端口状态改变了。</p>
+<h3 id="ryu-controller-dpset-EventDP"><a href="#ryu-controller-dpset-EventDP" class="headerlink" title="ryu.controller.dpset.EventDP"></a>ryu.controller.dpset.EventDP</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ryu</span>.<span class="title">controller</span>.<span class="title">dpset</span>.<span class="title">EventDP</span><span class="params">(dp, enter_leave)</span></span></span><br></pre></td></tr></table></figure>
+<p>通知 一个 交换机的连接与断开的事件类。</p>
+<p>当然， 可以从 上一个事件类得到同样的消息。   它至少包含下面三个属性。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dp</td>
+<td>哪个交换机</td>
+</tr>
+<tr>
+<td>enter</td>
+<td>True， 交换机连接到控制器。  False 断开连接</td>
+</tr>
+<tr>
+<td>port</td>
+<td>端口实例的列表</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ryu-controller-dpset-EventPortDelete"><a href="#ryu-controller-dpset-EventPortDelete" class="headerlink" title="ryu.controller.dpset.EventPortDelete"></a>ryu.controller.dpset.EventPortDelete</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ryu</span>.<span class="title">controller</span>.<span class="title">dpset</span>.<span class="title">EventPortDelete</span><span class="params">(dp, port)</span></span></span><br></pre></td></tr></table></figure>
+<p>事件类：  是交换机端口状态为 “DELETE”  的通知。 </p>
+<p>当一个端口从一个交换机上被移除时，会产生这个事件。  当然，可以从</p>
+<p>ryu.controller.ofp_event.EventOFPPortStatus 得到相同的通知。  它的实例至少包含下面的属性。</p>
+<table>
+<thead>
+<tr>
+<th>属性</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dp</td>
+<td>哪个交换机</td>
+</tr>
+<tr>
+<td>port</td>
+<td>哪个端口</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ryu-controller-dpset-EventPortModify"><a href="#ryu-controller-dpset-EventPortModify" class="headerlink" title="ryu.controller.dpset.EventPortModify"></a>ryu.controller.dpset.EventPortModify</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ryu</span>.<span class="title">controller</span>.<span class="title">dpset</span>.<span class="title">EventPortModify</span><span class="params">(dp, new_port)</span></span></span><br></pre></td></tr></table></figure>
+<p>一个事件类，  当端口（一些属性）状态被改变时。  当然它至少包含dp，和port两个属性。</p>
+<h3 id="ryu-controller-network-EventNetworkPort"><a href="#ryu-controller-network-EventNetworkPort" class="headerlink" title="ryu.controller.network.EventNetworkPort"></a>ryu.controller.network.EventNetworkPort</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ryu</span>.<span class="title">controller</span>.<span class="title">network</span>.<span class="title">EventNetworkPort</span><span class="params">(network_id, dpid, port_no, add_del)</span></span></span><br></pre></td></tr></table></figure>
+<p>当一个端口 被 调入， 或者被移除 从一个网络中（通过 REST API）。会发出这个事件。</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>network_id</td>
+<td>Network ID</td>
+</tr>
+<tr>
+<td>dpid</td>
+<td>OpenFlow Datapath ID of the switch to which the port belongs.</td>
+</tr>
+<tr>
+<td>port_no</td>
+<td>OpenFlow port number of the port</td>
+</tr>
+<tr>
+<td>add_del</td>
+<td>True for adding a port. False for removing a port.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ryu-controller-network-EventNetworkDel"><a href="#ryu-controller-network-EventNetworkDel" class="headerlink" title="ryu.controller.network.EventNetworkDel"></a>ryu.controller.network.EventNetworkDel</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ryu</span>.<span class="title">controller</span>.<span class="title">network</span>.<span class="title">EventNetworkDel</span><span class="params">(network_id)</span></span></span><br></pre></td></tr></table></figure>
+<p>当一个网络被删除时（通过REST API），生成这个事件。 最少包含 network_id 这个属性。</p>
+<h3 id="ryu-controller-network-EventMacAddress"><a href="#ryu-controller-network-EventMacAddress" class="headerlink" title="ryu.controller.network.EventMacAddress"></a>ryu.controller.network.EventMacAddress</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ryu</span>.<span class="title">controller</span>.<span class="title">network</span>.<span class="title">EventMacAddress</span><span class="params">(dpid, port_no, network_id, mac_address, add_del)</span></span></span><br></pre></td></tr></table></figure>
+<p>当一个中断的MAC地址被 REST API 更新时，  产生这个事件。</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>network_id</td>
+<td>Network ID</td>
+</tr>
+<tr>
+<td>dpid</td>
+<td>OpenFlow Datapath ID of the switch to which the port belongs.</td>
+</tr>
+<tr>
+<td>port_no</td>
+<td>OpenFlow port number of the port</td>
+</tr>
+<tr>
+<td>mac_address</td>
+<td>The old MAC address of the port if add_del is False. Otherwise the new MAC address.</td>
+</tr>
+<tr>
+<td>add_del</td>
+<td>False if this event is a result of a port removal. Otherwise True.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ryu-controller-tunnels-EventTunnelKeyAdd"><a href="#ryu-controller-tunnels-EventTunnelKeyAdd" class="headerlink" title="ryu.controller.tunnels.EventTunnelKeyAdd"></a>ryu.controller.tunnels.EventTunnelKeyAdd</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ryu</span>.<span class="title">controller</span>.<span class="title">tunnels</span>.<span class="title">EventTunnelKeyAdd</span><span class="params">(network_id, tunnel_key）</span></span></span><br></pre></td></tr></table></figure>
+<p>This event is generated when a tunnel key is registered or updated by the REST API. An instance has at least the following attributes.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>network_id</td>
+<td>Network ID</td>
+</tr>
+<tr>
+<td>tunnel_key</td>
+<td>Tunnel Key</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ryu-controller-tunnels-EventTunnelKeyDel"><a href="#ryu-controller-tunnels-EventTunnelKeyDel" class="headerlink" title="ryu.controller.tunnels.EventTunnelKeyDel"></a>ryu.controller.tunnels.EventTunnelKeyDel</h2><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ryu</span>.<span class="title">controller</span>.<span class="title">tunnels</span>.<span class="title">EventTunnelKeyDel</span><span class="params">(network_id, tunnel_key)</span></span></span><br></pre></td></tr></table></figure>
+<p>An event class for tunnel key registration.</p>
+<p>This event is generated when a tunnel key is removed by the REST API. An instance has at least the following attributes.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>network_id</td>
+<td>Network ID</td>
+</tr>
+<tr>
+<td>tunnel_key</td>
+<td>Tunnel Key</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ryu-controller-tunnels-EventTunnelPort"><a href="#ryu-controller-tunnels-EventTunnelPort" class="headerlink" title="ryu.controller.tunnels.EventTunnelPort"></a>ryu.controller.tunnels.EventTunnelPort</h3><figure class="highlight python"><table><tr><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ryu</span>.<span class="title">controller</span>.<span class="title">tunnels</span>.<span class="title">EventTunnelPort</span><span class="params">(dpid, port_no, remote_dpid, add_del)</span></span></span><br></pre></td></tr></table></figure>
+<p>An event class for tunnel port registration.This event is generated when a tunnel port is added or removed by the REST API. </p>
+<p>An event class for tunnel port registration.This event is generated when a tunnel port is added or removed by the REST API. </p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>dpid</td>
+<td>OpenFlow Datapath ID</td>
+</tr>
+<tr>
+<td>port_no</td>
+<td>OpenFlow port number</td>
+</tr>
+<tr>
+<td>remote_dpid</td>
+<td>OpenFlow port number of the tunnel peer</td>
+</tr>
+<tr>
+<td>add_del</td>
+<td>True for adding a tunnel. False for removal.</td>
+</tr>
+</tbody>
+</table>
+
+        
+    
+
+    
+</div>
+
+
+                
+
+                <!-- Post Comments -->
+                
+                    
+                
+            </div>
+
+            <!-- Post Prev & Next Nav -->
+            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
+    <!-- Prev Nav -->
+    
+
+    <!-- Section Spacer -->
+    <div class="section-spacer"></div>
+
+    <!-- Next Nav -->
+    
+        <a href="/2018/03/15/DPDK-API学习-逻辑核结构体与初始化函数/" id="post_nav-older" class="next-content">
+            Older
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
+                <i class="material-icons">arrow_forward</i>
+            </button>
+        </a>
+    
+</nav>
+
+        </div>
+    </div>
+
+
+
+                    
+                        <!-- Overlay For Active Sidebar -->
+<div class="sidebar-overlay"></div>
+
+<!-- Material sidebar -->
+<aside id="sidebar" class="sidebar sidebar-colored sidebar-fixed-left" role="navigation">
+    <div id="sidebar-main">
+        <!-- Sidebar Header -->
+        <div class="sidebar-header header-cover" style="background-image: url(/img/dog.png);">
+    <!-- Top bar -->
+    <div class="top-bar"></div>
+
+    <!-- Sidebar toggle button -->
+    <button type="button" class="sidebar-toggle mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" style="display: initial;" data-upgraded=",MaterialButton,MaterialRipple">
+        <i class="material-icons">clear_all</i>
+        <span class="mdl-button__ripple-container">
+            <span class="mdl-ripple">
+            </span>
+        </span>
+    </button>
+
+    <!-- Sidebar Avatar -->
+    <div class="sidebar-image">
+        <img src="/img/me.png" alt="Hox Zheng's avatar">
+    </div>
+
+    <!-- Sidebar Email -->
+    <a data-toggle="dropdown" class="sidebar-brand" href="#settings-dropdown">
+        zenhox@163.com
+        <b class="caret"></b>
+    </a>
+</div>
+
+
+        <!-- Sidebar Navigation  -->
+        <ul class="nav sidebar-nav">
+    <!-- User dropdown  -->
+    <li class="dropdown">
+        <ul id="settings-dropdown" class="dropdown-menu">
+            
+                <li>
+                    <a href="mailto:zenhox@163.com" target="_blank" title="Email Me">
+                        
+                            <i class="material-icons sidebar-material-icons sidebar-indent-left1pc-element">email</i>
+                        
+                        Email Me
+                    </a>
+                </li>
+            
+        </ul>
+    </li>
+
+    <!-- Homepage -->
+    
+        <li id="sidebar-first-li">
+            <a href="/">
+                
+                    <i class="material-icons sidebar-material-icons">home</i>
+                
+                Home
+            </a>
+        </li>
+        
+    
+
+    <!-- Archives  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">inbox</i>
+                
+                    Archives
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+            <li>
+                <a class="sidebar_archives-link" href="/archives/2018/04/">April 2018<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/03/">March 2018<span class="sidebar_archives-count">2</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/02/">February 2018<span class="sidebar_archives-count">15</span></a></li><li><a class="sidebar_archives-link" href="/archives/2018/01/">January 2018<span class="sidebar_archives-count">9</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Categories  -->
+    
+        <li class="dropdown">
+            <a href="#" class="ripple-effect dropdown-toggle" data-toggle="dropdown">
+                
+                    <i class="material-icons sidebar-material-icons">chrome_reader_mode</i>
+                
+                Categories
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                <a class="sidebar_archives-link" href="/categories/DPDK/">DPDK<span class="sidebar_archives-count">4</span></a></li><li><a class="sidebar_archives-link" href="/categories/Python/">Python<span class="sidebar_archives-count">13</span></a></li><li><a class="sidebar_archives-link" href="/categories/SDN/">SDN<span class="sidebar_archives-count">6</span></a></li><li><a class="sidebar_archives-link" href="/categories/Software-Engineering/">Software Engineering<span class="sidebar_archives-count">1</span></a></li><li><a class="sidebar_archives-link" href="/categories/Vim/">Vim<span class="sidebar_archives-count">2</span></a>
+            </ul>
+        </li>
+        
+    
+
+    <!-- Pages  -->
+    
+
+    <!-- Article Number  -->
+    
+        <li>
+            <a href="/archives">
+                Number of articles
+                <span class="sidebar-badge">27</span>
+            </a>
+        </li>
+        
+    
+</ul>
+
+
+        <!-- Sidebar Footer -->
+        <!--
+I'm glad you use this theme, the development is no so easy, I hope you can keep the copyright, I will thank you so much.
+If you still want to delete the copyrights, could you still retain the first one? Which namely "Theme Material"
+It will not impact the appearance and can give developers a lot of support :)
+
+很高兴您使用并喜欢该主题，开发不易 十分谢谢与希望您可以保留一下版权声明。
+如果您仍然想删除的话 能否只保留第一项呢？即 "Theme Material"
+它不会影响美观并可以给开发者很大的支持和动力。 :)
+-->
+
+<!-- Sidebar Divider -->
+
+
+<!-- Theme Material -->
+
+
+<!-- Help & Support -->
+<!--
+
+-->
+
+<!-- Feedback -->
+<!--
+
+-->
+
+<!-- About Theme -->
+<!--
+
+-->
+
+    </div>
+
+    <!-- Sidebar Image -->
+    
+
+</aside>
+
+                    
+
+                    
+                        <!-- Footer Top Button -->
+                        <div id="back-to-top" class="toTop-wrap">
+    <a href="#top" class="toTop">
+        <i class="material-icons footer_top-i">expand_less</i>
+    </a>
+</div>
+
+                    
+
+                    <!--Footer-->
+<footer class="mdl-mini-footer" id="bottom">
+    
+        <!-- Paradox Footer Left Section -->
+        <div class="mdl-mini-footer--left-section sns-list">
+    <!-- Twitter -->
+    
+        <a href="https://twitter.com/twitter" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-twitter">
+                <span class="visuallyhidden">Twitter</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Facebook -->
+    
+        <a href="https://www.facebook.com/facebook" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-facebook">
+                <span class="visuallyhidden">Facebook</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Google + -->
+    
+        <a href="https://www.google.com/" target="_blank">
+            <button class="mdl-mini-footer--social-btn social-btn footer-sns-gplus">
+                <span class="visuallyhidden">Google Plus</span>
+            </button><!--
+     --></a>
+    
+
+    <!-- Weibo -->
+    
+
+    <!-- Instagram -->
+    
+
+    <!-- Tumblr -->
+    
+
+    <!-- Github -->
+    
+
+    <!-- LinkedIn -->
+    
+
+    <!-- Zhihu -->
+    
+
+    <!-- Bilibili -->
+    
+
+    <!-- Telegram -->
+    
+    
+    <!-- V2EX -->
+    
+</div>
+
+
+        <!--Copyright-->
+        <div id="copyright">
+            Copyright&nbsp;©<script type="text/javascript">var fd = new Date();document.write("&nbsp;" + fd.getFullYear() + "&nbsp;");</script>万川秋水de世界
+            
+        </div>
+
+        <!-- Paradox Footer Right Section -->
+
+        <!--
+        I am glad you use this theme, the development is no so easy, I hope you can keep the copyright.
+        It will not impact the appearance and can give developers a lot of support :)
+
+        很高兴您使用该主题，开发不易，希望您可以保留一下版权声明。
+        它不会影响美观并可以给开发者很大的支持。 :)
+        -->
+
+        <div class="mdl-mini-footer--right-section">
+            <div>
+                <div class="footer-develop-div">Powered by <a href="https://hexo.io" target="_blank" class="footer-develop-a">Hexo</a></div>
+                <div class="footer-develop-div">Theme - <a href="https://github.com/viosey/hexo-theme-material" target="_blank" class="footer-develop-a">Material</a></div>
+            </div>
+        </div>
+    
+</footer>
+
+
+                    <!-- Import JS File -->
+
+    <script>lsloader.load("lazyload_js","/js/lazyload.min.js?1BcfzuNXqV+ntF6gq+5X3Q==", true)</script>
+
+
+
+    <script>lsloader.load("js_js","/js/js.min.js?V/53wGualMuiPM3xoetD5Q==", true)</script>
+
+
+
+    <script>lsloader.load("np_js","/js/nprogress.js?pl3Qhb9lvqR1FlyLUna1Yw==", true)</script>
+
+
+<script type="text/ls-javascript" id="NProgress-script">
+    NProgress.configure({
+        showSpinner: true
+    });
+    NProgress.start();
+    $('#nprogress .bar').css({
+        'background': '#29d'
+    });
+    $('#nprogress .peg').css({
+        'box-shadow': '0 0 10px #29d, 0 0 15px #29d'
+    });
+    $('#nprogress .spinner-icon').css({
+        'border-top-color': '#29d',
+        'border-left-color': '#29d'
+    });
+    setTimeout(function() {
+        NProgress.done();
+        $('.fade').removeClass('out');
+    }, 800);
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- UC Browser Compatible -->
+<script>
+	var agent = navigator.userAgent.toLowerCase();
+	if(agent.indexOf('ucbrowser')>0) {
+		document.write('<link rel="stylesheet" href="/css/uc.css">');
+	   alert('由于 UC 浏览器使用极旧的内核，而本网站使用了一些新的特性。\n为了您能更好的浏览，推荐使用 Chrome 或 Firefox 浏览器。');
+	}
+</script>
+
+<!-- Import prettify js  -->
+
+
+
+<!-- Window Load -->
+<!-- add class for prettify -->
+<script type="text/ls-javascript" id="window-load">
+    $(window).on('load', function() {
+        // Post_Toc parent position fixed
+        $('.post-toc-wrap').parent('.mdl-menu__container').css('position', 'fixed');
+    });
+
+    
+    
+</script>
+
+<!-- MathJax Load-->
+
+
+<!-- Bing Background -->
+
+
+<script type="text/ls-javascript" id="lazy-load">
+    // Offer LazyLoad
+    queue.offer(function(){
+        $('.lazy').lazyload({
+            effect : 'show'
+        });
+    });
+
+    // Start Queue
+    $(document).ready(function(){
+        setInterval(function(){
+            queue.execNext();
+        },200);
+    });
+</script>
+
+<!-- Custom Footer -->
+
+
+
+<script>
+    (function(){
+        var scriptList = document.querySelectorAll('script[type="text/ls-javascript"]')
+
+        for (var i = 0; i < scriptList.length; ++i) {
+            var item = scriptList[i];
+            lsloader.runInlineScript(item.id,item.id);
+        }
+    })()
+console.log('\n %c © Material Theme | Version: 1.5.2 | https://github.com/viosey/hexo-theme-material %c \n', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-left-radius:5px;border-bottom-left-radius:5px;', 'color:#455a64;background:#e0e0e0;padding:5px 0;border-top-right-radius:5px;border-bottom-right-radius:5px;');
+</script>
+
+                </main>
+            </div>
+        </body>
+    
+</html>
