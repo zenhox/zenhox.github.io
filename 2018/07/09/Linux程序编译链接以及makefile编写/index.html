@@ -43,7 +43,7 @@
     
     <title>
         
-            3-OpenFlow通用抽象-下 | 
+            Linux程序编译链接以及makefile编写 | 
         
         万川秋水de世界
     </title>
@@ -210,7 +210,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="万川秋水de世界">
-    <meta name="msapplication-starturl" content="http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/2018/07/09/Linux程序编译链接以及makefile编写/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="万川秋水de世界">
@@ -225,16 +225,16 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/">
+    <meta property="og:url" content="http://yoursite.com/2018/07/09/Linux程序编译链接以及makefile编写/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="3-OpenFlow通用抽象-下 | 万川秋水de世界">
+    <meta property="og:title" content="Linux程序编译链接以及makefile编写 | 万川秋水de世界">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
     
 
     
-        <meta property="article:published_time" content="Mon Feb 12 2018 10:38:18 GMT+0800">
-        <meta property="article:modified_time" content="Thu Apr 26 2018 20:30:25 GMT+0800">
+        <meta property="article:published_time" content="Mon Jul 09 2018 17:29:34 GMT+0800">
+        <meta property="article:modified_time" content="Mon Jul 09 2018 17:30:30 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -242,7 +242,7 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html" />
+        <link rel="canonical" href="http://yoursite.com/2018/07/09/Linux程序编译链接以及makefile编写/index.html" />
     
 
     <!-- Structured-data for SEO -->
@@ -254,10 +254,10 @@
 {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html",
-    "headline": "3-OpenFlow通用抽象-下",
-    "datePublished": "Mon Feb 12 2018 10:38:18 GMT+0800",
-    "dateModified": "Thu Apr 26 2018 20:30:25 GMT+0800",
+    "mainEntityOfPage": "http://yoursite.com/2018/07/09/Linux程序编译链接以及makefile编写/index.html",
+    "headline": "Linux程序编译链接以及makefile编写",
+    "datePublished": "Mon Jul 09 2018 17:29:34 GMT+0800",
+    "dateModified": "Mon Jul 09 2018 17:30:30 GMT+0800",
     "author": {
         "@type": "Person",
         "name": "Hox Zheng",
@@ -341,7 +341,7 @@
     </button>
 
     <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OpenFlow通用抽象-下"><span class="post-toc-number">1.</span> <span class="post-toc-text">OpenFlow通用抽象(下)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Instructions-流表项指令"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Instructions - 流表项指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分为两类"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">分为两类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指令和动作的区别"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">指令和动作的区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#流表项指令"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">流表项指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Aciton-动作"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">Aciton - 动作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Action-Set"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">Action Set</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Table-Miss"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">Table Miss</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#计数器"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">计数器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#失效时间-TimeOut"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">失效时间-TimeOut</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Flow-Table-详细处理流程"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Flow Table 详细处理流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#metadata"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">metadata</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Group-Table-组表"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">Group Table - 组表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#组表项类型"><span class="post-toc-number">1.4.2.1.</span> <span class="post-toc-text">组表项类型</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Meter-Table-计量表"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">Meter Table - 计量表</span></a></li></ol></li></ol></li></ol>
+        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#主程序子程序的编译和链接"><span class="post-toc-number">1.</span> <span class="post-toc-text">主程序子程序的编译和链接</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#部分编译"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">部分编译</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#调用动态函数库"><span class="post-toc-number">2.</span> <span class="post-toc-text">调用动态函数库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#静态函数库和动态函数库"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">静态函数库和动态函数库</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#静态函数库"><span class="post-toc-number">2.1.1.</span> <span class="post-toc-text">静态函数库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#动态函数库"><span class="post-toc-number">2.1.2.</span> <span class="post-toc-text">动态函数库</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#动态函数库解析"><span class="post-toc-number">2.1.3.</span> <span class="post-toc-text">动态函数库解析</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#gcc-的常用选项"><span class="post-toc-number">3.</span> <span class="post-toc-text">gcc 的常用选项</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#make的使用"><span class="post-toc-number">4.</span> <span class="post-toc-text">make的使用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#为什么使用make"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">为什么使用make</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#make的基本用法"><span class="post-toc-number">5.</span> <span class="post-toc-text">make的基本用法</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#举例说明"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">举例说明</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#makefile的优化"><span class="post-toc-number">5.2.</span> <span class="post-toc-text">makefile的优化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Tarball软件的安装"><span class="post-toc-number">5.3.</span> <span class="post-toc-text">Tarball软件的安装</span></a></li></ol></li></ol>
     </ul>
     
 
@@ -373,7 +373,7 @@
         
     
             <p class="article-headline-p">
-                3-OpenFlow通用抽象-下
+                Linux程序编译链接以及makefile编写
             </p>
         </div>
 
@@ -392,7 +392,7 @@
     <!-- Author Name & Date -->
     <div>
         <strong>Hox Zheng</strong>
-        <span>Feb 12, 2018</span>
+        <span>Jul 09, 2018</span>
     </div>
 
     <div class="section-spacer"></div>
@@ -424,7 +424,7 @@
 
     <!-- Share Weibo -->
     
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=3-OpenFlow通用抽象-下&url=http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
+        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=Linux程序编译链接以及makefile编写&url=http://yoursite.com/2018/07/09/Linux程序编译链接以及makefile编写/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
             <li class="mdl-menu__item">
                 Share to Weibo
             </li>
@@ -433,7 +433,7 @@
 
     <!-- Share Twitter -->
     
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=3-OpenFlow通用抽象-下&url=http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html&via=Hox Zheng" target="_blank">
+        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=Linux程序编译链接以及makefile编写&url=http://yoursite.com/2018/07/09/Linux程序编译链接以及makefile编写/index.html&via=Hox Zheng" target="_blank">
             <li class="mdl-menu__item">
                 Share to Twitter
             </li>
@@ -442,7 +442,7 @@
 
     <!-- Share Facebook -->
     
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html" target="_blank">
+        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/07/09/Linux程序编译链接以及makefile编写/index.html" target="_blank">
             <li class="mdl-menu__item">
                 Share to Facebook
             </li>
@@ -451,7 +451,7 @@
 
     <!-- Share Google+ -->
     
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html" target="_blank">
+        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/07/09/Linux程序编译链接以及makefile编写/index.html" target="_blank">
             <li class="mdl-menu__item">
                 Share to Google+
             </li>
@@ -463,7 +463,7 @@
 
     <!-- Share QQ -->
     
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=万川秋水de世界&title=3-OpenFlow通用抽象-下&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html" target="_blank">
+        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=万川秋水de世界&title=Linux程序编译链接以及makefile编写&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/07/09/Linux程序编译链接以及makefile编写/index.html" target="_blank">
             <li class="mdl-menu__item">
                 Share to QQ
             </li>
@@ -482,90 +482,93 @@
                 <!-- Post Content -->
                 <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
     
-        <h1 id="OpenFlow通用抽象-下"><a href="#OpenFlow通用抽象-下" class="headerlink" title="OpenFlow通用抽象(下)"></a>OpenFlow通用抽象(下)</h1><h2 id="Instructions-流表项指令"><a href="#Instructions-流表项指令" class="headerlink" title="Instructions - 流表项指令"></a>Instructions - 流表项指令</h2><h3 id="分为两类"><a href="#分为两类" class="headerlink" title="分为两类"></a>分为两类</h3><ul>
-<li>修改或操作动作集(Action Set)</li>
-<li>修改多级流表处理. (表之间的跳转)</li>
+        <h1 id="主程序子程序的编译和链接"><a href="#主程序子程序的编译和链接" class="headerlink" title="主程序子程序的编译和链接"></a>主程序子程序的编译和链接</h1><ul>
+<li>主程序 hello.c</li>
 </ul>
-<h3 id="指令和动作的区别"><a href="#指令和动作的区别" class="headerlink" title="指令和动作的区别"></a>指令和动作的区别</h3><ul>
-<li>指令(Instruction): 处理流程控制. 可以操作动作集.</li>
-<li>动作(Action):对数据包的处理.</li>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;⇠</span></span></span><br><span class="line">int main(void)⇠</span><br><span class="line">&#123;⇠</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Hello World\n"</span>);</span><br><span class="line">    thanks();⇠</span><br><span class="line">&#125;⇠</span><br></pre></td></tr></table></figure>
+<ul>
+<li>子程序 thanks.c</li>
 </ul>
-<h3 id="流表项指令"><a href="#流表项指令" class="headerlink" title="流表项指令"></a>流表项指令</h3><p><img src="/img/流表项指令.png" alt="流表项指令"></p>
-<h3 id="Aciton-动作"><a href="#Aciton-动作" class="headerlink" title="Aciton - 动作"></a>Aciton - 动作</h3><p><img src="/img/action.png" alt="action"></p>
-<h3 id="Action-Set"><a href="#Action-Set" class="headerlink" title="Action Set"></a>Action Set</h3><ul>
-<li>每个包进入pipeline端口会分配一个Action Set. 初始这个集合为空.</li>
-<li>通过匹配后, 指令会在这个集合中添加一系列动作.</li>
-<li>最后,包离开流水线的时候, 会执行这个动作集合.</li>
-<li>如果不定义Action List, 执行顺序是默认顺序, 即从上往下执行.</li>
-<li>如果定义了, Action List, 执行顺序就是按照Action List来.</li>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;stdio.h&gt;⇠</span></span></span><br><span class="line">void thanks(void)⇠</span><br><span class="line">&#123;⇠</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"Thanks\n"</span>);⇠</span><br><span class="line">&#125;⇠</span><br></pre></td></tr></table></figure>
+<ul>
+<li>编译</li>
 </ul>
-<h3 id="Table-Miss"><a href="#Table-Miss" class="headerlink" title="Table Miss"></a>Table Miss</h3><blockquote>
-<p>能匹配任意数据包, 优先级最低.</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc -c hello.c thanks.c</span><br></pre></td></tr></table></figure>
+<p>-c 是免去链接，否则主程序调用 thanks那行会报错。</p>
+<p>-c 同时会自动生成 hello.o  与 thanks.o</p>
+<ul>
+<li>链接</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc -o main hello.o thanks.o</span><br></pre></td></tr></table></figure>
+<h2 id="部分编译"><a href="#部分编译" class="headerlink" title="部分编译"></a>部分编译</h2><p>在上面的基础上，假如我们修改了 thanks.c， 我们不需要全部重新编译， 只需要生成新的thanks.o 再与其他目标文件重新链接即可。 节省时间。</p>
+<h1 id="调用动态函数库"><a href="#调用动态函数库" class="headerlink" title="调用动态函数库"></a>调用动态函数库</h1><blockquote>
+<p>记得用pthread写程序的时候，编译时总要在后面加上 -lpthread 选项，这是什么原因呢？</p>
 </blockquote>
 <ul>
-<li>所以, 在包与所有其他流表项都无法匹配时, 才会与Table Miss</li>
-<li>在Table Miss 中的指令集中可以自定义一下操作, 如把数据包交给控制器.</li>
+<li>写一个程序</li>
 </ul>
-<h2 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h2><blockquote>
-<p>Counter</p>
-</blockquote>
+<figure class="highlight c"><table><tr><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;⇠</span></span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;⇠</span><br><span class="line">    <span class="keyword">float</span> val;⇠</span><br><span class="line">    val = <span class="built_in">sin</span> (<span class="number">3.14</span>/<span class="number">2</span>);⇠</span><br><span class="line">    <span class="built_in">printf</span>(<span class="string">"%f\n"</span>,val);⇠</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>计数的, 比如该流表项匹配了多少数据包, 字节数, 等等.</li>
+<li>动态链接</li>
 </ul>
-<h2 id="失效时间-TimeOut"><a href="#失效时间-TimeOut" class="headerlink" title="失效时间-TimeOut"></a>失效时间-TimeOut</h2><ul>
-<li>在这个timeout 这个时间内没有数据包匹配到这个流表项时. 会采取一定的策略:<ul>
-<li>删除这个流表项</li>
-<li>或者降低这个流表项的优先级</li>
-<li>其他</li>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">gcc -o main lib.c -lm -L /lib -L /usr/lib</span><br></pre></td></tr></table></figure>
+<ul>
+<li>sin（） 函数在 libm.so 函数库当中，-lm的意思是 ：<ul>
+<li>l： 链接函数库 lib的意思</li>
+<li>m:  libm.so 去掉 lib 和 so后的部分。 由此可以联想到 pthread 应该在 libpthread.so 函数库当中定义。</li>
 </ul>
 </li>
-<li>因为这个流表项很可能已经多余了.</li>
+<li>-L 指定函数库的位置， 默认在/lib 和 /usr/lib 当中，所以不写也没关系。</li>
 </ul>
-<h2 id="Flow-Table-详细处理流程"><a href="#Flow-Table-详细处理流程" class="headerlink" title="Flow Table 详细处理流程"></a>Flow Table 详细处理流程</h2><blockquote>
-<p>数据包先进入流表端口0</p>
+<h2 id="静态函数库和动态函数库"><a href="#静态函数库和动态函数库" class="headerlink" title="静态函数库和动态函数库"></a>静态函数库和动态函数库</h2><h3 id="静态函数库"><a href="#静态函数库" class="headerlink" title="静态函数库"></a>静态函数库</h3><ul>
+<li>扩展名 .a ， 全名为libxxx.a</li>
+<li>这类函数库在编译的时候就会整合到执行程序当中。</li>
+<li>函数库的升级将导致所有包含它的程序的升级。</li>
+</ul>
+<h3 id="动态函数库"><a href="#动态函数库" class="headerlink" title="动态函数库"></a>动态函数库</h3><ul>
+<li>扩展名 .so， 全名为 libxxx.so</li>
+<li>这类函数在编译的时候只添加一个 函数库的指针。在执行的时候才需要加载。</li>
+<li>函数库的升级不需要修改其他程序。</li>
+</ul>
+<h3 id="动态函数库解析"><a href="#动态函数库解析" class="headerlink" title="动态函数库解析"></a>动态函数库解析</h3><p>ldd   xxx.o 可以分析程序涉及哪些动态函数库。</p>
+<h1 id="gcc-的常用选项"><a href="#gcc-的常用选项" class="headerlink" title="gcc 的常用选项"></a>gcc 的常用选项</h1><ul>
+<li>-E :  预处理， 从 main.c  到 main.i  木的是加载静态函数库</li>
+<li>-S:   编译，   从 xxx.i  到 xxx.s 得到汇编语言代码。</li>
+<li>-c:    生成机器代码 .o文件</li>
+<li>-o:    链接， 生成可执行文件</li>
+<li>-O[0:3] ： 进行不同程度的优化。</li>
+<li>-std=c99 :  支持 c99 标准</li>
+<li>-std=c++11: 支持c++11</li>
+<li>-Wall:  编译更加严格</li>
+<li>-g:  产生用于gdb调试的信息</li>
+</ul>
+<h1 id="make的使用"><a href="#make的使用" class="headerlink" title="make的使用"></a>make的使用</h1><h2 id="为什么使用make"><a href="#为什么使用make" class="headerlink" title="为什么使用make"></a>为什么使用make</h2><p>假如我们的一个项目又很多程序，这些程序相互引用，一些程序还使用到动态函数库。那么我们编译的时候将分很多步进行，特别麻烦。 当我们需要重新编译的时候，所有步骤还是得重新来一遍。能不呢省略呢？</p>
+<h1 id="make的基本用法"><a href="#make的基本用法" class="headerlink" title="make的基本用法"></a>make的基本用法</h1><figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">target:  目标文件1  目标文件2  ...</span></span><br><span class="line">&lt;tab&gt;    gcc -o  目标文件1  目标文件2</span><br></pre></td></tr></table></figure>
+<h2 id="举例说明"><a href="#举例说明" class="headerlink" title="举例说明"></a>举例说明</h2><p>还是以上面hello.c, thanks.c 为例， 忘了的朋友可以翻页上去看一下。下面是我们makefile：</p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line"><span class="section">main:  hello.o  thanks.o</span></span><br><span class="line">	gcc -o main hello.o thanks.o</span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">	rm -f hello.o  thanks.o</span><br></pre></td></tr></table></figure>
+<p>可以看到，我有两个target，这两个可以在调用make的时候进行选择:</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">make main</span><br><span class="line">make clean</span><br></pre></td></tr></table></figure>
+<p>其中：</p>
+<ul>
+<li>main : 是生成目标文件 main。</li>
+<li>clean： 是用于清理生成的多余的目标文件。</li>
+<li><strong><tab></tab></strong> 是必须的，后面加命令。</li>
+</ul>
+<h2 id="makefile的优化"><a href="#makefile的优化" class="headerlink" title="makefile的优化"></a>makefile的优化</h2><p>makefile当中也可以进行变量的定义，可以简化makefile的编写:</p>
+<figure class="highlight makefile"><table><tr><td class="code"><pre><span class="line">OBJS = main.o thanks.o</span><br><span class="line"><span class="section">main:</span></span><br><span class="line">	gcc -o <span class="variable">$@</span> $&#123;OBJS&#125;</span><br><span class="line"><span class="section">clean:</span></span><br><span class="line">	rm -f $&#123;OBJS&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>与bash类似但优点不同， 变量的定义中 ，’=’两边可以有空格。</li>
+<li>$@ 代表当前target， 在这里是 main</li>
+</ul>
+<h2 id="Tarball软件的安装"><a href="#Tarball软件的安装" class="headerlink" title="Tarball软件的安装"></a>Tarball软件的安装</h2><blockquote>
+<p>经常我们需要通过源码安装软件，那么它们安装的步骤是怎样的呢？</p>
 </blockquote>
 <ul>
-<li>数据包进入流表端口</li>
-<li>抽取包头域, 匹配查找, 搜索优先级最高的匹配表项</li>
-<li>执行相应的指令, 有很多种:<ul>
-<li>直接对包执行动作</li>
-<li>不直接执行, 而是添加Action Set</li>
-<li>流表间的跳转</li>
+<li>./configure:  用于生成 Makefile</li>
+<li>make clean 用于清除之前的 目标文件</li>
+<li>make  编译</li>
+<li>make install 将编译完成的数据安装到默认目录中。</li>
 </ul>
-</li>
-</ul>
-<h3 id="metadata"><a href="#metadata" class="headerlink" title="metadata"></a>metadata</h3><blockquote>
-<p>还有对Metadata的处理</p>
-</blockquote>
-<ul>
-<li>在流表0的Metadata 只包含一个输入端口信息</li>
-<li>metadata也可以和包头组成一个匹配域与白头进行匹配查找</li>
-<li>如果有goto table 指令, 会将对应的metadata传递给相应的表</li>
-</ul>
-<h3 id="Group-Table-组表"><a href="#Group-Table-组表" class="headerlink" title="Group Table - 组表"></a>Group Table - 组表</h3><ul>
-<li>定义一组端口去做特定操作. 比如组播,  负载均衡等等.</li>
-<li>组表项:</li>
-</ul>
-<p><img src="/img/组表项.png" alt="组表项"></p>
-<ul>
-<li>组表项ID. 32位无符号整数</li>
-<li>组表项类型: 定义了一组对端口的操作.</li>
-<li>计数器: 记录组表项处理的报文数目</li>
-<li>指令: 动作桶</li>
-</ul>
-<h4 id="组表项类型"><a href="#组表项类型" class="headerlink" title="组表项类型"></a>组表项类型</h4><p><img src="/img/组表项类型.png" alt="组表项类型"></p>
-<h3 id="Meter-Table-计量表"><a href="#Meter-Table-计量表" class="headerlink" title="Meter Table - 计量表"></a>Meter Table - 计量表</h3><ul>
-<li>计量表项:</li>
-</ul>
-<p><img src="/img/计量表项.png" alt="计量表项"></p>
-<ul>
-<li>计量带:</li>
-</ul>
-<p><img src="/img/计量带.png" alt="计量带"></p>
-<ul>
-<li>可选类型:</li>
-</ul>
-<p><img src="/img/band类型.png" alt="band类型"></p>
 
         
     
@@ -586,21 +589,13 @@
             <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
     <!-- Prev Nav -->
     
-        <a href="/2018/02/12/Urllib和URLError异常处理下/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Newer
-        </a>
-    
 
     <!-- Section Spacer -->
     <div class="section-spacer"></div>
 
     <!-- Next Nav -->
     
-        <a href="/2018/02/10/Urllib和URLError异常处理/" id="post_nav-older" class="next-content">
+        <a href="/2018/07/04/Linux守护进程Daemon及其管理/" id="post_nav-older" class="next-content">
             Older
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">

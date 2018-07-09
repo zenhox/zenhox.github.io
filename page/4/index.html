@@ -43,8 +43,6 @@
     
     <title>
         
-            3-OpenFlow通用抽象-下 | 
-        
         万川秋水de世界
     </title>
 
@@ -210,7 +208,7 @@
     <!-- WebAPP Icons -->
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="万川秋水de世界">
-    <meta name="msapplication-starturl" content="http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/">
+    <meta name="msapplication-starturl" content="http://yoursite.com/page/4/">
     <meta name="msapplication-navbutton-color" content="#0097A7">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="万川秋水de世界">
@@ -225,16 +223,13 @@
     
 
     <!-- The Open Graph protocol -->
-    <meta property="og:url" content="http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/">
+    <meta property="og:url" content="http://yoursite.com/page/4/">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="3-OpenFlow通用抽象-下 | 万川秋水de世界">
+    <meta property="og:title" content="万川秋水de世界">
     <meta property="og:image" content="/img/favicon.png">
     <meta property="og:description" content="">
     
 
-    
-        <meta property="article:published_time" content="Mon Feb 12 2018 10:38:18 GMT+0800">
-        <meta property="article:modified_time" content="Thu Apr 26 2018 20:30:25 GMT+0800">
     
 
     <!-- The Twitter Card protocol -->
@@ -242,43 +237,13 @@
 
     <!-- Add canonical link for SEO -->
     
-        <link rel="canonical" href="http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html" />
+        <link rel="canonical" href="http://yoursite.com/page/4/index.html" />
     
 
     <!-- Structured-data for SEO -->
     
         
 
-
-<script type="application/ld+json">
-{
-    "@context": "https://schema.org",
-    "@type": "BlogPosting",
-    "mainEntityOfPage": "http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html",
-    "headline": "3-OpenFlow通用抽象-下",
-    "datePublished": "Mon Feb 12 2018 10:38:18 GMT+0800",
-    "dateModified": "Thu Apr 26 2018 20:30:25 GMT+0800",
-    "author": {
-        "@type": "Person",
-        "name": "Hox Zheng",
-        "image": {
-            "@type": "ImageObject",
-            "url": "/img/me.png"
-        },
-        "description": "忧伤，一半来自远方，一半来自时光."
-    },
-    "publisher": {
-        "@type": "Organization",
-        "name": "万川秋水de世界",
-        "logo": {
-            "@type":"ImageObject",
-            "url": "/img/favicon.png"
-        }
-    },
-    "keywords": "",
-    "description": "",
-}
-</script>
 
 
     
@@ -312,307 +277,103 @@
                         </button>
                     
 
-                    <!-- Post TOC -->
-
+                    <!-- Index Module -->
+<div class="material-index mdl-grid">
     
-    <!-- Back Button -->
-    <!--
-    <div class="material-back" id="backhome-div" tabindex="0">
-        <a class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"
-           href="#" onclick="window.history.back();return false;"
-           target="_self"
-           role="button"
-           data-upgraded=",MaterialButton,MaterialRipple">
-            <i class="material-icons" role="presentation">arrow_back</i>
-            <span class="mdl-button__ripple-container">
-                <span class="mdl-ripple"></span>
-            </span>
-        </a>
-    </div>
-    -->
+    <div class="locate-thumbnail-symbol"></div>
 
-
-    <!-- Left aligned menu below button -->
-    
-    
-    <button id="post-toc-trigger-btn"
-        class="mdl-button mdl-js-button mdl-button--icon">
-        <i class="material-icons">format_list_numbered</i>
-    </button>
-
-    <ul class="post-toc-wrap mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="post-toc-trigger-btn" style="max-height:80vh; overflow-y:scroll;">
-        <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#OpenFlow通用抽象-下"><span class="post-toc-number">1.</span> <span class="post-toc-text">OpenFlow通用抽象(下)</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Instructions-流表项指令"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">Instructions - 流表项指令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分为两类"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">分为两类</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#指令和动作的区别"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">指令和动作的区别</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#流表项指令"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">流表项指令</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Aciton-动作"><span class="post-toc-number">1.1.4.</span> <span class="post-toc-text">Aciton - 动作</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Action-Set"><span class="post-toc-number">1.1.5.</span> <span class="post-toc-text">Action Set</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Table-Miss"><span class="post-toc-number">1.1.6.</span> <span class="post-toc-text">Table Miss</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#计数器"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">计数器</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#失效时间-TimeOut"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">失效时间-TimeOut</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Flow-Table-详细处理流程"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">Flow Table 详细处理流程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#metadata"><span class="post-toc-number">1.4.1.</span> <span class="post-toc-text">metadata</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Group-Table-组表"><span class="post-toc-number">1.4.2.</span> <span class="post-toc-text">Group Table - 组表</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#组表项类型"><span class="post-toc-number">1.4.2.1.</span> <span class="post-toc-text">组表项类型</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Meter-Table-计量表"><span class="post-toc-number">1.4.3.</span> <span class="post-toc-text">Meter Table - 计量表</span></a></li></ol></li></ol></li></ol>
-    </ul>
+    <!-- Pin on top -->
     
 
-
-
-
-<!-- Layouts -->
-
-    <!-- Post Module -->
-    <div class="material-post_container">
-
-        <div class="material-post mdl-grid">
-            <div class="mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col">
-
-                <!-- Post Header(Thumbnail & Title) -->
-                
-    <!-- Paradox Post Header -->
+    <!-- Normal Post -->
+    
+        
+            
+                <!-- Paradox Thumbnail -->
+                <div class="post_entry-module mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col fade out">
+    <!-- Post Thumbnail -->
     
         
             <!-- Random Thumbnail -->
             <div class="post_thumbnail-random mdl-card__media mdl-color-text--grey-50">
-            <script type="text/ls-javascript" id="post-thumbnail-script">
-    var randomNum = Math.floor(Math.random() * 19 + 1);
+        
+    
 
-    $('.post_thumbnail-random').attr('data-original', '/img/random/view-' + randomNum + '.png');
+        <!-- Post Title -->
+        <p class="article-headline-p"><a href="/2018/01/24/VimBegin/">VimBegin</a></p>
+    </div>
+
+    <!-- Post Excerpt -->
+    <div class="mdl-color-text--grey-600 mdl-card__supporting-text post_entry-content">
+        
+            
+        
+        &nbsp;&nbsp;&nbsp;
+        <span>
+            <a href="/2018/01/24/VimBegin/" target="_self">Read more</a>
+        </span>
+    </div>
+    <!-- Post_entry Info-->
+    <div id="post_entry-info">
+        <div id="post_entry-left-info" class="mdl-card__supporting-text meta mdl-color-text--grey-600 ">
+            <!-- Author Avatar -->
+            <div id="author-avatar">
+                <img src="/img/me.png" width="44px" height="44px" alt="Hox Zheng's avatar">
+            </div>
+            <div>
+                <strong>Hox Zheng</strong>
+                <span>Jan 24, 2018</span>
+            </div>
+        </div>
+        <div id="post_entry-right-info">
+          
+              <!-- Category -->
+              <span class="post_entry-category">
+                  <a class="post_category-link" href="/categories/Vim/">Vim</a>
+              </span>
+            
+
+            
+
+            
+
+            <!-- Post Views -->
+            <span class="post_entry-views">
+            </span>
+        </div>
+    </div>
+</div>
+
+            
+            
+        
+    
+
+    
+    <!-- Index nav -->
+        <nav class="material-nav mdl-cell mdl-cell--12-col">
+            <a class="extend prev" rel="prev" href="/page/3/"><button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon"><i class="material-icons" role="presentation">arrow_back</i></button></a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+        </nav>
+    
+
+    
+        <script type="text/ls-javascript" id="thumbnail-script">
+    var randomNum;
+
+    var locatePost = $('.locate-thumbnail-symbol').next();
+    for(var i = 0; i < 10; i++) {
+        randomNum = Math.floor(Math.random() * 19 + 1);
+
+        locatePost.children('.post_thumbnail-random').attr('id', 'random_thumbnail-'+randomNum);
+        locatePost.children('.post_thumbnail-random').attr('data-original', '/img/random/view-' + randomNum + '.png');
     $('.post_thumbnail-random').addClass('lazy');
+
+        locatePost = locatePost.next();
+    }
 </script>
 
-        
-    
-            <p class="article-headline-p">
-                3-OpenFlow通用抽象-下
-            </p>
-        </div>
-
-
-
-
-
-                
-                    <!-- Paradox Post Info -->
-                    <div class="mdl-color-text--grey-700 mdl-card__supporting-text meta">
-
-    <!-- Author Avatar -->
-    <div id="author-avatar">
-        <img src="/img/me.png" width="44px" height="44px" alt="Author Avatar"/>
-    </div>
-    <!-- Author Name & Date -->
-    <div>
-        <strong>Hox Zheng</strong>
-        <span>Feb 12, 2018</span>
-    </div>
-
-    <div class="section-spacer"></div>
-
-    <!-- Favorite -->
-    <!--
-        <button id="article-functions-like-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon btn-like">
-            <i class="material-icons" role="presentation">favorite</i>
-            <span class="visuallyhidden">favorites</span>
-        </button>
-    -->
-
-    <!-- Qrcode -->
-    
-
-    <!-- Tags (bookmark) -->
-    
-
-    <!-- Share -->
-    
-        <button id="article-fuctions-share-button" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon">
-    <i class="material-icons" role="presentation">share</i>
-    <span class="visuallyhidden">share</span>
-</button>
-<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="article-fuctions-share-button">
-    
-
-    
-
-    <!-- Share Weibo -->
-    
-        <a class="post_share-link" href="http://service.weibo.com/share/share.php?appkey=&title=3-OpenFlow通用抽象-下&url=http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html&pic=http://yoursite.com/img/favicon.png&searchPic=false&style=simple" target="_blank">
-            <li class="mdl-menu__item">
-                Share to Weibo
-            </li>
-        </a>
-    
-
-    <!-- Share Twitter -->
-    
-        <a class="post_share-link" href="https://twitter.com/intent/tweet?text=3-OpenFlow通用抽象-下&url=http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html&via=Hox Zheng" target="_blank">
-            <li class="mdl-menu__item">
-                Share to Twitter
-            </li>
-        </a>
-    
-
-    <!-- Share Facebook -->
-    
-        <a class="post_share-link" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                Share to Facebook
-            </li>
-        </a>
-    
-
-    <!-- Share Google+ -->
-    
-        <a class="post_share-link" href="https://plus.google.com/share?url=http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                Share to Google+
-            </li>
-        </a>
-    
-
-    <!-- Share LinkedIn -->
-    
-
-    <!-- Share QQ -->
-    
-        <a class="post_share-link" href="http://connect.qq.com/widget/shareqq/index.html?site=万川秋水de世界&title=3-OpenFlow通用抽象-下&summary=&pics=http://yoursite.com/img/favicon.png&url=http://yoursite.com/2018/02/12/3-OpenFlow通用抽象-下/index.html" target="_blank">
-            <li class="mdl-menu__item">
-                Share to QQ
-            </li>
-        </a>
-    
-
-    <!-- Share Telegram -->
-    
-</ul>
-
     
 </div>
-
-                
-
-                <!-- Post Content -->
-                <div id="post-content" class="mdl-color-text--grey-700 mdl-card__supporting-text fade out">
-    
-        <h1 id="OpenFlow通用抽象-下"><a href="#OpenFlow通用抽象-下" class="headerlink" title="OpenFlow通用抽象(下)"></a>OpenFlow通用抽象(下)</h1><h2 id="Instructions-流表项指令"><a href="#Instructions-流表项指令" class="headerlink" title="Instructions - 流表项指令"></a>Instructions - 流表项指令</h2><h3 id="分为两类"><a href="#分为两类" class="headerlink" title="分为两类"></a>分为两类</h3><ul>
-<li>修改或操作动作集(Action Set)</li>
-<li>修改多级流表处理. (表之间的跳转)</li>
-</ul>
-<h3 id="指令和动作的区别"><a href="#指令和动作的区别" class="headerlink" title="指令和动作的区别"></a>指令和动作的区别</h3><ul>
-<li>指令(Instruction): 处理流程控制. 可以操作动作集.</li>
-<li>动作(Action):对数据包的处理.</li>
-</ul>
-<h3 id="流表项指令"><a href="#流表项指令" class="headerlink" title="流表项指令"></a>流表项指令</h3><p><img src="/img/流表项指令.png" alt="流表项指令"></p>
-<h3 id="Aciton-动作"><a href="#Aciton-动作" class="headerlink" title="Aciton - 动作"></a>Aciton - 动作</h3><p><img src="/img/action.png" alt="action"></p>
-<h3 id="Action-Set"><a href="#Action-Set" class="headerlink" title="Action Set"></a>Action Set</h3><ul>
-<li>每个包进入pipeline端口会分配一个Action Set. 初始这个集合为空.</li>
-<li>通过匹配后, 指令会在这个集合中添加一系列动作.</li>
-<li>最后,包离开流水线的时候, 会执行这个动作集合.</li>
-<li>如果不定义Action List, 执行顺序是默认顺序, 即从上往下执行.</li>
-<li>如果定义了, Action List, 执行顺序就是按照Action List来.</li>
-</ul>
-<h3 id="Table-Miss"><a href="#Table-Miss" class="headerlink" title="Table Miss"></a>Table Miss</h3><blockquote>
-<p>能匹配任意数据包, 优先级最低.</p>
-</blockquote>
-<ul>
-<li>所以, 在包与所有其他流表项都无法匹配时, 才会与Table Miss</li>
-<li>在Table Miss 中的指令集中可以自定义一下操作, 如把数据包交给控制器.</li>
-</ul>
-<h2 id="计数器"><a href="#计数器" class="headerlink" title="计数器"></a>计数器</h2><blockquote>
-<p>Counter</p>
-</blockquote>
-<ul>
-<li>计数的, 比如该流表项匹配了多少数据包, 字节数, 等等.</li>
-</ul>
-<h2 id="失效时间-TimeOut"><a href="#失效时间-TimeOut" class="headerlink" title="失效时间-TimeOut"></a>失效时间-TimeOut</h2><ul>
-<li>在这个timeout 这个时间内没有数据包匹配到这个流表项时. 会采取一定的策略:<ul>
-<li>删除这个流表项</li>
-<li>或者降低这个流表项的优先级</li>
-<li>其他</li>
-</ul>
-</li>
-<li>因为这个流表项很可能已经多余了.</li>
-</ul>
-<h2 id="Flow-Table-详细处理流程"><a href="#Flow-Table-详细处理流程" class="headerlink" title="Flow Table 详细处理流程"></a>Flow Table 详细处理流程</h2><blockquote>
-<p>数据包先进入流表端口0</p>
-</blockquote>
-<ul>
-<li>数据包进入流表端口</li>
-<li>抽取包头域, 匹配查找, 搜索优先级最高的匹配表项</li>
-<li>执行相应的指令, 有很多种:<ul>
-<li>直接对包执行动作</li>
-<li>不直接执行, 而是添加Action Set</li>
-<li>流表间的跳转</li>
-</ul>
-</li>
-</ul>
-<h3 id="metadata"><a href="#metadata" class="headerlink" title="metadata"></a>metadata</h3><blockquote>
-<p>还有对Metadata的处理</p>
-</blockquote>
-<ul>
-<li>在流表0的Metadata 只包含一个输入端口信息</li>
-<li>metadata也可以和包头组成一个匹配域与白头进行匹配查找</li>
-<li>如果有goto table 指令, 会将对应的metadata传递给相应的表</li>
-</ul>
-<h3 id="Group-Table-组表"><a href="#Group-Table-组表" class="headerlink" title="Group Table - 组表"></a>Group Table - 组表</h3><ul>
-<li>定义一组端口去做特定操作. 比如组播,  负载均衡等等.</li>
-<li>组表项:</li>
-</ul>
-<p><img src="/img/组表项.png" alt="组表项"></p>
-<ul>
-<li>组表项ID. 32位无符号整数</li>
-<li>组表项类型: 定义了一组对端口的操作.</li>
-<li>计数器: 记录组表项处理的报文数目</li>
-<li>指令: 动作桶</li>
-</ul>
-<h4 id="组表项类型"><a href="#组表项类型" class="headerlink" title="组表项类型"></a>组表项类型</h4><p><img src="/img/组表项类型.png" alt="组表项类型"></p>
-<h3 id="Meter-Table-计量表"><a href="#Meter-Table-计量表" class="headerlink" title="Meter Table - 计量表"></a>Meter Table - 计量表</h3><ul>
-<li>计量表项:</li>
-</ul>
-<p><img src="/img/计量表项.png" alt="计量表项"></p>
-<ul>
-<li>计量带:</li>
-</ul>
-<p><img src="/img/计量带.png" alt="计量带"></p>
-<ul>
-<li>可选类型:</li>
-</ul>
-<p><img src="/img/band类型.png" alt="band类型"></p>
-
-        
-    
-
-    
-</div>
-
-
-                
-
-                <!-- Post Comments -->
-                
-                    
-                
-            </div>
-
-            <!-- Post Prev & Next Nav -->
-            <nav class="material-nav mdl-color-text--grey-50 mdl-cell mdl-cell--12-col">
-    <!-- Prev Nav -->
-    
-        <a href="/2018/02/12/Urllib和URLError异常处理下/" id="post_nav-newer" class="prev-content">
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_back</i>
-            </button>
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            Newer
-        </a>
-    
-
-    <!-- Section Spacer -->
-    <div class="section-spacer"></div>
-
-    <!-- Next Nav -->
-    
-        <a href="/2018/02/10/Urllib和URLError异常处理/" id="post_nav-older" class="next-content">
-            Older
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon mdl-color--white mdl-color-text--grey-900" role="presentation">
-                <i class="material-icons">arrow_forward</i>
-            </button>
-        </a>
-    
-</nav>
-
-        </div>
-    </div>
-
 
 
                     
